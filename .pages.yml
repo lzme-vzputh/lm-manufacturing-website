@@ -1,0 +1,459 @@
+# Pages CMS: edit content at https://pagescms.org
+media:
+- name: images
+  label: Media
+  input: public/uploads
+  output: /uploads
+  rename: safe
+  extensions:
+  - jpg
+  - jpeg
+  - png
+  - webp
+- name: logos
+  label: Company logos
+  input: public/uploads
+  output: /uploads
+  rename: safe
+  extensions:
+  - svg
+  - png
+  - webp
+content:
+- name: home
+  label: Home
+  type: file
+  path: src/data/home.json
+  fields:
+  - name: hero
+    type: object
+    fields:
+    - name: eyebrow
+      type: string
+    - name: headline
+      type: string
+    - name: description
+      type: text
+    - name: image
+      type: image
+      options:
+        media: images
+        path: public/uploads/home
+        rename: safe
+    - name: imageAlt
+      type: string
+    - name: primaryLabel
+      type: string
+    - name: primaryUrl
+      type: string
+    - name: secondaryLabel
+      type: string
+    - name: secondaryUrl
+      type: string
+  - name: intro
+    type: object
+    fields:
+    - name: eyebrow
+      type: string
+    - name: title
+      type: string
+    - name: text
+      type: text
+    - name: image
+      type: image
+      options:
+        media: images
+        path: public/uploads/home
+        rename: safe
+    - name: imageAlt
+      type: string
+  - name: statistics
+    type: object
+    fields:
+    - name: value
+      type: string
+    - name: label
+      type: string
+    list: true
+  - name: productsHeading
+    type: string
+  - name: productsDescription
+    type: text
+  - name: factoryHeading
+    type: string
+  - name: factoryText
+    type: text
+  - name: factoryImage
+    type: image
+    options:
+      media: images
+      path: public/uploads/factory
+      rename: safe
+  - name: factoryImageAlt
+    type: string
+  - name: benefitsHeading
+    type: string
+  - name: benefits
+    type: object
+    fields:
+    - name: title
+      type: string
+    - name: text
+      type: text
+    list: true
+  - name: newsHeading
+    type: string
+  - name: cta
+    type: object
+    fields:
+    - name: title
+      type: string
+    - name: text
+      type: text
+    - name: label
+      type: string
+    - name: url
+      type: string
+- name: about
+  label: About
+  type: file
+  path: src/data/about.json
+  fields:
+  - name: hero
+    type: object
+    fields:
+    - name: eyebrow
+      type: string
+    - name: headline
+      type: string
+    - name: description
+      type: text
+    - name: image
+      type: image
+      options:
+        media: images
+        path: public/uploads/about
+        rename: safe
+    - name: imageAlt
+      type: string
+  - name: overviewTitle
+    type: string
+  - name: overviewText
+    type: text
+  - name: storyTitle
+    type: text
+  - name: storyText
+    type: text
+  - name: image
+    type: image
+    options:
+      media: images
+      path: public/uploads/about
+      rename: safe
+  - name: imageAlt
+    type: string
+  - name: mission
+    type: text
+  - name: vision
+    type: text
+  - name: values
+    type: object
+    fields:
+    - name: title
+      type: string
+    - name: text
+      type: text
+    list: true
+  - name: milestones
+    type: object
+    fields:
+    - name: year
+      type: string
+    - name: event
+      type: string
+    list: true
+  - name: ctaTitle
+    type: string
+- name: factory
+  label: Factory
+  type: file
+  path: src/data/factory.json
+  fields:
+  - name: hero
+    type: object
+    fields:
+    - name: eyebrow
+      type: string
+    - name: headline
+      type: string
+    - name: description
+      type: text
+    - name: image
+      type: image
+      options:
+        media: images
+        path: public/uploads/factory
+        rename: safe
+    - name: imageAlt
+      type: string
+  - name: introTitle
+    type: string
+  - name: introText
+    type: text
+  - name: facilities
+    type: object
+    fields:
+    - name: title
+      type: string
+    - name: text
+      type: text
+    list: true
+  - name: capabilitiesTitle
+    type: text
+  - name: capabilitiesText
+    type: text
+  - name: qualityTitle
+    type: text
+  - name: qualityText
+    type: text
+  - name: safetyTitle
+    type: text
+  - name: safetyText
+    type: text
+  - name: gallery
+    type: object
+    fields:
+    - name: image
+      type: image
+      options:
+        media: images
+        path: public/uploads/factory
+        rename: safe
+    - name: alt
+      type: string
+    list: true
+- name: products
+  label: Products
+  type: collection
+  path: src/content/products
+  filename: '{fields.slug}.md'
+  view:
+    primary: title
+    fields:
+    - published
+  fields:
+  - name: title
+    type: string
+  - name: slug
+    type: string
+  - name: category
+    type: string
+  - name: shortDescription
+    type: text
+  - name: mainImage
+    type: image
+    options:
+      media: images
+      path: public/uploads/products
+      rename: safe
+  - name: mainImageAlt
+    type: string
+  - name: gallery
+    type: object
+    fields:
+    - name: image
+      type: image
+      options:
+        media: images
+        path: public/uploads/products
+        rename: safe
+    - name: alt
+      type: string
+    list: true
+  - name: featured
+    type: boolean
+  - name: published
+    type: boolean
+  - name: displayOrder
+    type: number
+  - name: specifications
+    type: object
+    fields:
+    - name: label
+      type: string
+    - name: value
+      type: string
+    list: true
+  - name: body
+    type: rich-text
+    options:
+      media: images
+      path: public/uploads/products
+      rename: safe
+- name: news
+  label: News
+  type: collection
+  path: src/content/news
+  filename: '{fields.slug}.md'
+  view:
+    primary: title
+    fields:
+    - published
+  fields:
+  - name: title
+    type: string
+  - name: slug
+    type: string
+  - name: summary
+    type: text
+  - name: publishDate
+    type: date
+  - name: coverImage
+    type: image
+    options:
+      media: images
+      path: public/uploads/news
+      rename: safe
+  - name: coverImageAlt
+    type: string
+  - name: published
+    type: boolean
+  - name: featured
+    type: boolean
+  - name: seoTitle
+    type: string
+  - name: seoDescription
+    type: text
+  - name: body
+    type: rich-text
+    options:
+      media: images
+      path: public/uploads/news
+      rename: safe
+- name: careers
+  label: Careers
+  type: collection
+  path: src/content/careers
+  filename: '{fields.slug}.md'
+  view:
+    primary: title
+    fields:
+    - published
+  fields:
+  - name: title
+    type: string
+  - name: slug
+    type: string
+  - name: department
+    type: string
+  - name: location
+    type: string
+  - name: employmentType
+    type: string
+  - name: summary
+    type: text
+  - name: responsibilities
+    type: string
+    list: true
+  - name: requirements
+    type: string
+    list: true
+  - name: publishDate
+    type: date
+  - name: closingDate
+    type: date
+  - name: published
+    type: boolean
+  - name: body
+    type: rich-text
+    options:
+      media: images
+      path: public/uploads/careers
+      rename: safe
+- name: contact
+  label: Contact
+  type: file
+  path: src/data/contact.json
+  fields:
+  - name: hero
+    type: object
+    fields:
+    - name: eyebrow
+      type: string
+    - name: headline
+      type: string
+    - name: description
+      type: text
+    - name: image
+      type: image
+      options:
+        media: images
+        path: public/uploads/about
+        rename: safe
+    - name: imageAlt
+      type: string
+  - name: mapEmbedUrl
+    type: string
+  - name: ctaTitle
+    type: string
+  - name: ctaText
+    type: text
+- name: settings
+  label: Company Settings
+  type: file
+  path: src/data/site.yml
+  fields:
+  - name: companyName
+    type: string
+  - name: logo
+    type: image
+    options:
+      media: logos
+      path: public/uploads
+      rename: safe
+  - name: description
+    type: text
+  - name: contact
+    type: object
+    fields:
+    - name: phone
+      type: string
+    - name: email
+      type: string
+    - name: address
+      type: text
+    - name: businessHours
+      type: string
+    - name: applicationEmail
+      type: string
+  - name: social
+    type: object
+    fields:
+    - name: facebook
+      type: string
+    - name: linkedin
+      type: string
+    - name: telegram
+      type: string
+    - name: youtube
+      type: string
+  - name: footer
+    type: object
+    fields:
+    - name: copyright
+      type: string
+  - name: seo
+    type: object
+    fields:
+    - name: defaultTitle
+      type: string
+    - name: titleTemplate
+      type: string
+    - name: defaultDescription
+      type: text
+    - name: defaultImage
+      type: image
+      options:
+        media: images
+        path: public/uploads/home
+        rename: safe
