@@ -1,0 +1,66 @@
+{
+  "hero": {
+    "eyebrow": "MANUFACTURING IN CAMBODIA",
+    "headline": "Made with care. Built for consistency.",
+    "description": "A dependable manufacturing partner focused on quality, people and long-term relationships.",
+    "image": "/uploads/image-placeholder.svg",
+    "imageAlt": "Illustration placeholder for a manufacturing facility",
+    "primaryLabel": "Explore our products",
+    "primaryUrl": "/products",
+    "secondaryLabel": "Meet our company",
+    "secondaryUrl": "/about"
+  },
+  "intro": {
+    "eyebrow": "OUR COMPANY",
+    "title": "Manufacturing shaped by purpose",
+    "text": "From our facilities in Kampong Speu, we work to deliver products that meet everyday needs with reliable standards.",
+    "image": "/uploads/image-placeholder.svg",
+    "imageAlt": "Placeholder for a company or team photograph"
+  },
+  "statistics": [
+    {
+      "value": "\u2014",
+      "label": "Years in operation"
+    },
+    {
+      "value": "\u2014",
+      "label": "Team members"
+    },
+    {
+      "value": "\u2014",
+      "label": "Production capacity"
+    },
+    {
+      "value": "\u2014",
+      "label": "Markets served"
+    }
+  ],
+  "productsHeading": "Our products",
+  "productsDescription": "Explore the products we make and the care behind every detail.",
+  "factoryHeading": "Inside our factory",
+  "factoryText": "See the spaces, systems and people that support our work.",
+  "factoryImage": "/uploads/image-placeholder.svg",
+  "factoryImageAlt": "Placeholder for a factory photograph",
+  "benefitsHeading": "What guides our work",
+  "benefits": [
+    {
+      "title": "Reliable processes",
+      "text": "Clear standards guide each stage of production."
+    },
+    {
+      "title": "People first",
+      "text": "Our teams make consistency possible every day."
+    },
+    {
+      "title": "Long-term thinking",
+      "text": "We build relationships on trust and accountability."
+    }
+  ],
+  "newsHeading": "Company updates",
+  "cta": {
+    "title": "Let\u2019s work together",
+    "text": "Questions about our company or products? We would be glad to hear from you.",
+    "label": "Contact us",
+    "url": "/contact"
+  }
+}

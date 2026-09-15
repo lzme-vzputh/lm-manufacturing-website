@@ -1,0 +1,5 @@
+---
+interface Props {items:{label:string;url?:string}[]}
+const {items}=Astro.props;
+---
+<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href="/">Home</a></li>{items.map(item=><li>{item.url?<a href={item.url}>{item.label}</a>:<span aria-current="page">{item.label}</span>}</li>)}</ol></nav>

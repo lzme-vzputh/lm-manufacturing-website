@@ -1,0 +1,6 @@
+---
+import type {CollectionEntry} from 'astro:content';
+interface Props {product:CollectionEntry<'products'>}
+const {product}=Astro.props;
+---
+<article class="card product-card"><a href={`/products/${product.data.slug}`}><img src={product.data.mainImage} alt={product.data.mainImageAlt} width="700" height="520" loading="lazy"/><div class="card-body"><span class="eyebrow">{product.data.category}</span><h3>{product.data.title}</h3><p>{product.data.shortDescription}</p><span class="text-link">View product <span aria-hidden="true">↗</span></span></div></a></article>

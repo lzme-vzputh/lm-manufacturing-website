@@ -1,0 +1,21 @@
+companyName: LM Manufacturing
+logo: /uploads/logo.svg
+description: Modern manufacturing with a commitment to consistent quality and dependable partnerships.
+contact:
+  phone: ''
+  email: ''
+  address: Kampong Speu, Cambodia
+  businessHours: Monday–Saturday, 8:00–17:00
+  applicationEmail: ''
+social:
+  facebook: ''
+  linkedin: ''
+  telegram: ''
+  youtube: ''
+footer:
+  copyright: LM Manufacturing. All rights reserved.
+seo:
+  defaultTitle: LM Manufacturing
+  titleTemplate: '%s | LM Manufacturing'
+  defaultDescription: Learn about LM Manufacturing, our products and our facilities in Kampong Speu, Cambodia.
+  defaultImage: ''

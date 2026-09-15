@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "eyebrow": "ABOUT US",
+    "headline": "A company built around care and consistency",
+    "description": "Learn about the people and principles behind our manufacturing work.",
+    "image": "/uploads/image-placeholder.svg",
+    "imageAlt": "Placeholder for company photograph"
+  },
+  "overviewTitle": "Who we are",
+  "overviewText": "LM Manufacturing is based in Kampong Speu, Cambodia. We are building dependable production practices and lasting partnerships.",
+  "storyTitle": "Our story",
+  "storyText": "Our story is still being written. This section can be updated as the company reaches new milestones.",
+  "image": "/uploads/image-placeholder.svg",
+  "imageAlt": "Placeholder for a team photograph",
+  "mission": "To make dependable products through responsible processes and dedicated people.",
+  "vision": "To become a trusted manufacturing partner in the markets we serve.",
+  "values": [
+    {
+      "title": "Quality",
+      "text": "We work with clear standards."
+    },
+    {
+      "title": "Responsibility",
+      "text": "We take ownership of our work."
+    },
+    {
+      "title": "Partnership",
+      "text": "We value lasting relationships."
+    }
+  ],
+  "milestones": [
+    {
+      "year": "Today",
+      "event": "Building the next chapter of our company."
+    }
+  ],
+  "ctaTitle": "Connect with our team"
+}

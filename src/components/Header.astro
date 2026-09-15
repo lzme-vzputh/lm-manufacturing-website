@@ -1,0 +1,10 @@
+---
+import {site} from '../lib/content';
+import Navigation from './Navigation.astro';
+---
+<header class="site-header"><div class="container header-inner"><a class="brand" href="/" aria-label={`${site.companyName} home`}><img src={site.logo} width="40" height="40" alt=""/><span>{site.companyName}</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open menu"><span></span><span></span><span></span></button><Navigation/></div></header>
+<script>
+const toggle=document.querySelector<HTMLButtonElement>('.nav-toggle');
+const nav=document.querySelector<HTMLElement>('#primary-navigation');
+if(toggle && nav){toggle.addEventListener('click',()=>{const opened=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!opened));toggle.setAttribute('aria-label',opened?'Open menu':'Close menu');nav.classList.toggle('is-open',!opened);});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open');}));}
+</script>

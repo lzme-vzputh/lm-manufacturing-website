@@ -1,0 +1,4 @@
+---
+const links=[['Home','/'],['About Us','/about'],['Products','/products'],['Factory','/factory'],['News','/news'],['Careers','/careers'],['Contact','/contact']];
+---
+<nav id="primary-navigation" class="navigation" aria-label="Primary navigation"><ul>{links.map(([label,url])=><li><a href={url} aria-current={Astro.url.pathname===url ? 'page' : undefined}>{label}</a></li>)}</ul></nav>

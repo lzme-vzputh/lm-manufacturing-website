@@ -1,0 +1,6 @@
+---
+import {imageUrl} from '../lib/content';
+interface Props {eyebrow?:string; headline:string; description?:string; image?:string; imageAlt?:string; primaryLabel?:string; primaryUrl?:string; secondaryLabel?:string; secondaryUrl?:string; home?:boolean}
+const {eyebrow,headline,description,image,imageAlt='',primaryLabel,primaryUrl,secondaryLabel,secondaryUrl,home=false}=Astro.props;
+---
+<section class:list={['hero',{'hero-home':home}]}><div class="hero-visual"><img src={imageUrl(image)} alt={imageAlt} width="1200" height="800" fetchpriority="high"/></div><div class="container hero-content">{eyebrow && <p class="eyebrow">{eyebrow}</p>}<h1>{headline}</h1>{description && <p class="hero-description">{description}</p>}<div class="hero-actions">{primaryLabel && primaryUrl && <a class="button button-primary" href={primaryUrl}>{primaryLabel}<span aria-hidden="true">↗</span></a>}{secondaryLabel && secondaryUrl && <a class="button button-light" href={secondaryUrl}>{secondaryLabel}</a>}</div></div></section>

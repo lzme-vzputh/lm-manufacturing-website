@@ -1,0 +1,37 @@
+{
+  "hero": {
+    "eyebrow": "OUR FACTORY",
+    "headline": "Where good work takes shape",
+    "description": "Explore the facilities and practices behind our products.",
+    "image": "/uploads/image-placeholder.svg",
+    "imageAlt": "Placeholder for factory exterior photograph"
+  },
+  "introTitle": "Designed for dependable production",
+  "introText": "Our facility supports consistent operations with attention to people, processes and product quality.",
+  "facilities": [
+    {
+      "title": "Production areas",
+      "text": "Purpose-built spaces for day-to-day manufacturing."
+    },
+    {
+      "title": "Storage and handling",
+      "text": "Organized movement of materials and finished goods."
+    }
+  ],
+  "capabilitiesTitle": "Our capabilities",
+  "capabilitiesText": "We continue to develop our production capabilities as the business grows.",
+  "qualityTitle": "Quality at every stage",
+  "qualityText": "Quality begins with clear procedures and continues through careful review.",
+  "safetyTitle": "A responsible workplace",
+  "safetyText": "Safe and practical ways of working support our people and operations.",
+  "gallery": [
+    {
+      "image": "/uploads/image-placeholder.svg",
+      "alt": "Placeholder for production area photograph"
+    },
+    {
+      "image": "/uploads/image-placeholder.svg",
+      "alt": "Placeholder for equipment photograph"
+    }
+  ]
+}

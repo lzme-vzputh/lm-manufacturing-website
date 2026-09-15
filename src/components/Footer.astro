@@ -1,0 +1,8 @@
+---
+import {site} from '../lib/content';
+import {getCollection} from 'astro:content';
+import {publicEntries,byOrder} from '../lib/content';
+const products=publicEntries(await getCollection('products')).sort(byOrder).slice(0,4);
+const social=Object.entries(site.social).filter(([,url])=>url);
+---
+<footer class="site-footer"><div class="container footer-grid"><div><a class="brand footer-brand" href="/"><img src={site.logo} width="40" height="40" alt=""/>{site.companyName}</a><p>{site.description}</p></div><div><h2>Explore</h2><ul><li><a href="/about">About us</a></li><li><a href="/factory">Factory</a></li><li><a href="/news">News</a></li><li><a href="/careers">Careers</a></li></ul></div><div><h2>Products</h2><ul>{products.map(item=><li><a href={`/products/${item.data.slug}`}>{item.data.title}</a></li>)}<li><a href="/products">All products</a></li></ul></div><div><h2>Contact</h2><address>{site.contact.address}</address>{site.contact.phone && <p><a href={`tel:${site.contact.phone}`}>{site.contact.phone}</a></p>}{site.contact.email && <p><a href={`mailto:${site.contact.email}`}>{site.contact.email}</a></p>}<ul class="social-links">{social.map(([label,url])=><li><a href={url} target="_blank" rel="noopener noreferrer">{label}</a></li>)}</ul></div></div><div class="container footer-bottom"><span>© {new Date().getFullYear()} {site.footer.copyright}</span><a href="/contact">Get in touch</a></div></footer>

@@ -1,0 +1,7 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Breadcrumb from '../components/Breadcrumb.astro';
+interface Props {title:string;description:string;image?:string;type?:string;published?:string;section:string;sectionUrl:string;date?:Date}
+const {title,description,image,type,published,section,sectionUrl,date}=Astro.props;
+---
+<BaseLayout {title} {description} {image} {type} {published}><Breadcrumb items={[{label:section,url:sectionUrl},{label:title}]}/><article class="container article"><header class="article-header"><p class="eyebrow">{section}</p><h1>{title}</h1><p class="lead">{description}</p>{date && <time datetime={date.toISOString()}>{date.toLocaleDateString('en-US',{day:'numeric',month:'long',year:'numeric'})}</time>}</header><slot/></article></BaseLayout>

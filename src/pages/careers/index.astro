@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';import Hero from '../../components/Hero.astro';import {getCollection} from 'astro:content';import {publicEntries,byNewest} from '../../lib/content';const jobs=publicEntries(await getCollection('careers')).sort(byNewest);
+---
+<BaseLayout title="Careers" description="Explore opportunities to join LM Manufacturing."><Hero eyebrow="CAREERS" headline="Build your future with us" description="Explore opportunities to join our team."/><section class="section"><div class="container"><h2>Open positions</h2>{jobs.length?<ul class="content-list">{jobs.map(job=><li><a href={`/careers/${job.data.slug}`}><div><h3>{job.data.title}</h3><p>{job.data.department} · {job.data.location} · {job.data.employmentType}</p></div><span aria-hidden="true">↗</span></a></li>)}</ul>:<p class="notice">There are no open positions right now. Please check back later.</p>}</div></section></BaseLayout>

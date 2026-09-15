@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';import Hero from '../../components/Hero.astro';import NewsCard from '../../components/NewsCard.astro';import {getCollection} from 'astro:content';import {publicEntries,byNewest} from '../../lib/content';const articles=publicEntries(await getCollection('news')).sort(byNewest);
+---
+<BaseLayout title="News" description="Read the latest company updates from LM Manufacturing."><Hero eyebrow="COMPANY NEWS" headline="The latest from our company" description="Updates, stories and announcements from our team."/><section class="section"><div class="container">{articles.length?<div class="grid-3">{articles.map(article=><NewsCard {article}/>)}</div>:<p>News will appear here once published.</p>}</div></section></BaseLayout>
