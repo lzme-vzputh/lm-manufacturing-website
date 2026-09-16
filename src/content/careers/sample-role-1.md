@@ -84,8 +84,3 @@ published: true
 ---
 We are looking for an experienced IT Manager to oversee and manage the company’s IT infrastructure, systems, security, and daily technical operations.
 
-The IT Manager will be responsible for network and Wi-Fi infrastructure, servers, Microsoft 365, user accounts, computers, printers, CCTV, file sharing, backup systems, cybersecurity, and other business IT systems. The role also includes troubleshooting technical issues, managing IT assets, coordinating with vendors, preparing IT documentation and reports, and recommending technology improvements to management.
-
-Candidates should have a background in Information Technology, Computer Science, or a related field, with practical experience in networking, system administration, IT security, Windows Server, Microsoft 365, VLANs, firewalls, backups, and user support. Experience with ERP systems, CCTV, vendor management, and IT project implementation is an advantage.
-
-The successful candidate should have strong problem-solving, communication, documentation, and management skills, with the ability to ensure company IT systems are secure, reliable, and effectively support business operations.
