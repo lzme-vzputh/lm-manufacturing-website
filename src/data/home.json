@@ -3,7 +3,7 @@
     "eyebrow": "MANUFACTURING IN CAMBODIA",
     "headline": "Made with care. Built for consistency.",
     "description": "A dependable manufacturing partner focused on quality, people and long-term relationships.",
-    "image": "/uploads/image-placeholder.svg",
+    "image": "/uploads/home/photo2026-08-1815-32-38.jpg",
     "imageAlt": "Illustration placeholder for a manufacturing facility",
     "primaryLabel": "Explore our products",
     "primaryUrl": "/products",
@@ -14,24 +14,24 @@
     "eyebrow": "OUR COMPANY",
     "title": "Manufacturing shaped by purpose",
     "text": "From our facilities in Kampong Speu, we work to deliver products that meet everyday needs with reliable standards.",
-    "image": "/uploads/image-placeholder.svg",
+    "image": "/uploads/home/vz-portrait.jpg",
     "imageAlt": "Placeholder for a company or team photograph"
   },
   "statistics": [
     {
-      "value": "\u2014",
+      "value": "—",
       "label": "Years in operation"
     },
     {
-      "value": "\u2014",
+      "value": "—",
       "label": "Team members"
     },
     {
-      "value": "\u2014",
+      "value": "—",
       "label": "Production capacity"
     },
     {
-      "value": "\u2014",
+      "value": "—",
       "label": "Markets served"
     }
   ],
@@ -58,7 +58,7 @@
   ],
   "newsHeading": "Company updates",
   "cta": {
-    "title": "Let\u2019s work together",
+    "title": "Let’s work together",
     "text": "Questions about our company or products? We would be glad to hear from you.",
     "label": "Contact us",
     "url": "/contact"
