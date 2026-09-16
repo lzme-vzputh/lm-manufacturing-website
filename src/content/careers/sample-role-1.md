@@ -1,6 +1,6 @@
 ---
 title: IT Manager
-slug: sample-role
+slug: it-team
 department: Information Technology
 location: Kampong Speu, Cambodia
 employmentType: Full-time
