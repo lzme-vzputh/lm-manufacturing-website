@@ -1,22 +1,22 @@
-# LM Manufacturing website
+# LM MANUFACTURING CO., LTD. website
 
 A statically generated company website with editable pages, products, news and careers. Astro builds the public pages; Pages CMS edits repository content through GitHub. There is no visitor login, server, or database.
 
-> The content and imagery in this starter are examples. Confirm the company name, approved descriptions, products, news, contact information and photographs before making the site public. Unconfirmed statistics display as an em dash. The sample career is unpublished.
+> The site now contains drafted company copy and AI-created illustrative imagery. Confirm every statement, product and news item with management before public launch. Replace the conceptual images with approved photos of the actual facility and products. Phone, email and detailed production facts remain unset; the sample career is unpublished.
 
 ## For website administrators
 
 ### First setup
 
 1. Ask a developer to publish this project to a GitHub repository and connect that repository to Cloudflare Pages.
-2. The repository administrator installs the [Pages CMS GitHub App](https://pagescms.org/docs/guides/github-app/) and grants it access to this repository. Editors need appropriate repository access.
-3. Open [Pages CMS](https://pagescms.org), sign in with GitHub, and select the repository and branch used by Cloudflare Pages.
+2. The repository administrator installs the [Pages CMS GitHub App](https://pagescms.org/docs/quick-start/) and grants it access to this repository. Editors need appropriate repository access.
+3. Open [Pages CMS](https://app.pagescms.org), sign in with GitHub, and select the repository and branch used by Cloudflare Pages.
 4. Update **Company Settings** first: name, description, logo, contact details, social links and SEO text. Then update **Home**, **About**, **Factory**, and **Contact**.
 5. Save an edit. Pages CMS commits the content to GitHub; Cloudflare Pages rebuilds the site automatically. Wait for deployment before checking the public site.
 
 ### Editing pages and images
 
-Choose a page in the CMS sidebar, edit a field, and save. Image fields let you upload JPG, JPEG, PNG or WebP images to `public/uploads/`. Replace placeholder images with approved photographs. Write alt text describing the actual image, unless the image is purely decorative. Prefer compressed WebP or JPEG photographs and avoid very large uploads. The logo allows SVG as well as raster images. Do not delete an image that still appears on a page.
+Choose a page in the CMS sidebar, edit a field, and save. Image fields let you upload JPG, JPEG, PNG or WebP images to `public/uploads/`. Replace illustrative images with approved photographs. Write alt text describing the actual image, unless the image is purely decorative. Prefer compressed WebP or JPEG photographs and avoid very large uploads. The logo allows SVG as well as raster images. Do not delete an image that still appears on a page.
 
 ### Products
 
@@ -40,7 +40,7 @@ Every saved CMS change creates a GitHub commit. The repository owner can inspect
 - `src/data/*.json` contains single-page content; `src/data/site.yml` contains shared company settings.
 - `src/content/{products,news,careers}/*.md` contains frontmatter and body text, validated by `src/content.config.ts`.
 - `.pages.yml` models the editor interface and media paths.
-- `public/uploads/` contains CMS uploaded images; the checked-in SVG is a starter placeholder.
+- `public/uploads/` contains CMS uploaded images; the generated WebP assets are illustrative; the checked-in SVG is a fallback placeholder.
 - `src/assets/css/` contains the shared design system and component styles.
 
 Run `npm install`, `npm run dev` for local development, `npm run check` for content/type validation, and `npm run build` for a production build in `dist/`. Visit the local pages, including detail URLs, on desktop and mobile. Content changes require another build. Avoid renaming a published slug without planning redirects from its previous URL.

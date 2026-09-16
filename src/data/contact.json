@@ -1,11 +1,12 @@
 {
   "hero": {
-    "eyebrow": "CONTACT",
-    "headline": "Start a conversation",
-    "description": "Reach out for product inquiries, partnerships or general questions.",
-    "image": "/uploads/about/tp-link-tl-sg108-8-3.jpg",
-    "imageAlt": "Placeholder for company location photograph"
+    "eyebrow": "CONTACT LM MANUFACTURING",
+    "headline": "Let’s get in touch",
+    "description": "Reach our team for company information, product inquiries or business conversations.",
+    "image": "/uploads/factory/production-line.webp",
+    "imageAlt": "Illustrative food manufacturing scene, not the company’s actual premises"
   },
-  "ctaTitle": "We look forward to hearing from you",
-  "ctaText": "Use the contact details on this page to reach our team."
+  "mapEmbedUrl": "",
+  "ctaTitle": "We welcome your inquiry",
+  "ctaText": "Our confirmed phone number and email address will appear here when the company approves them. For now, please use the contact method shared directly by our team."
 }
