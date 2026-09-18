@@ -1,4 +1,7 @@
 ---
 import {language,contentFor,pathFor} from '../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;const links=[['home','/'],['about','/about'],['products','/products'],['factory','/factory'],['news','/news'],['careers','/careers'],['contact','/contact']];
+const cleanPath=(path:string)=>path.replace(/\/+$/,'')||'/';
+const current=cleanPath(Astro.url.pathname);
+const currentState=(url:string)=>{const target=cleanPath(pathFor(url,lang));return current===target?'page':url!=='/'&&current.startsWith(`${target}/`)?'location':undefined};
 ---
-<nav id="primary-navigation" class="navigation" aria-label="Primary navigation"><ul>{links.map(([label,url])=><li><a href={pathFor(url,lang)} aria-current={Astro.url.pathname===pathFor(url,lang) ? 'page' : undefined}>{ui.nav[label as keyof typeof ui.nav]}</a></li>)}</ul></nav>
+<nav id="primary-navigation" class="navigation" aria-label="Primary navigation"><ul>{links.map(([label,url])=><li><a href={pathFor(url,lang)} aria-current={currentState(url)}>{ui.nav[label as keyof typeof ui.nav]}</a></li>)}</ul></nav>

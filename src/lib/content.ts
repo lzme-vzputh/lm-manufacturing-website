@@ -84,14 +84,14 @@ export async function newsFor(lang: Lang): Promise<CollectionEntry<'news'>[]> {
 export async function careersFor(lang: Lang): Promise<CollectionEntry<'careers'>[]> {
   const english = await getCollection('careers');
   if (lang === 'en') return english;
-  const bySlug = new Map(english.map(entry => [entry.data.slug, entry]));
   const khmer = await getCollection('careersKh');
-  return khmer.flatMap(entry => {
-    const base = bySlug.get(entry.data.slug);
-    if (!base) return [];
-    return [{...entry, data: {...entry.data,
+  const translations = new Map(khmer.filter(entry => entry.data.published).map(entry => [entry.data.slug, entry]));
+  return english.filter(base => base.data.published).map(base => {
+    const entry = translations.get(base.data.slug);
+    if (!entry) return base;
+    return {...entry, data: {...entry.data,
       publishDate: base.data.publishDate, closingDate: base.data.closingDate,
-      published: entry.data.published && base.data.published,
-    }} as unknown as CollectionEntry<'careers'>];
+      published: true,
+    }} as unknown as CollectionEntry<'careers'>;
   });
 }
