@@ -12,12 +12,7 @@ export const language = (url: URL): Lang => url.pathname === '/kh' || url.pathna
 export const pathFor = (path: string, lang: Lang) => /^https?:|^mailto:|^tel:|^#/.test(path) ? path : lang === 'kh' && path.startsWith('/') ? `/kh${path === '/' ? '' : path}` : path;
 export const contentFor = (lang: Lang) => ({home:lang==='kh'?homeKh:homeEn,about:lang==='kh'?aboutKh:aboutEn,factory:lang==='kh'?factoryKh:factoryEn,contact:lang==='kh'?contactKh:contactEn,ui:lang==='kh'?uiKh:uiEn});
 type Site = {companyName:string;logo:string;description:string;contact:{phone:string;email:string;address:string;businessHours:string;applicationEmail:string};social:Record<string,string>;footer:{copyright:string};seo:{defaultTitle:string;titleTemplate:string;defaultDescription:string;defaultImage:string}};
-export const siteFor = (lang: Lang):Site => {
-  const en=parse(siteEnSource), kh=parse(siteKhSource);
-  if(lang==='en') return en;
-  // Identity, links and contact endpoints are shared so editors change them only once.
-  return {...kh,logo:en.logo,contact:{...kh.contact,phone:en.contact.phone,email:en.contact.email,applicationEmail:en.contact.applicationEmail},social:en.social,seo:{...kh.seo,defaultImage:en.seo.defaultImage}};
-};
+export const siteFor = (lang: Lang):Site => parse(lang==='kh'?siteKhSource:siteEnSource) as Site;
 export const site=siteFor('en');
 export const imageUrl = (value?: string) => value || '/uploads/image-placeholder.svg';
 export const publicEntries = <T extends { data: { published: boolean } }>(entries: T[]) => entries.filter((entry) => entry.data.published);

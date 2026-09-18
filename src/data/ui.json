@@ -89,10 +89,16 @@
     "sign": "Sign in",
     "signText": "Sign in to Pages CMS with GitHub and choose the website repository.",
     "change": "Edit both languages",
-    "changeText": "Choose the English and Khmer versions of a section. Change text, images, links and publish settings, then save each version.",
+    "changeText": "Choose the English or ភាសាខ្មែរ menu. Edit text, images, products, news, jobs and settings, then save each language separately.",
     "review": "Review the public pages",
     "reviewText": "Wait for your host to finish building. Check / and /kh for the updated content.",
-    "note": "The editor requires a connected GitHub repository and Pages CMS access. This page itself is a public guide, not a login or a content editor."
+    "note": "The editor requires a connected GitHub repository and Pages CMS access. This page itself is a public guide, not a login or a content editor.",
+    "enEditor": "Edit English content",
+    "khEditor": "Edit Khmer content",
+    "enHint": "In Pages CMS, choose the English menu.",
+    "khHint": "In Pages CMS, choose the ភាសាខ្មែរ menu.",
+    "previewEn": "View English site",
+    "previewKh": "View Khmer site"
   },
   "manageSections": [
     {
