@@ -7,11 +7,13 @@ html{scroll-padding-top:5.7rem}
 body,.site-header,.navigation,.card,.stat,.management-card,.detail-list,.notice,.filters button,.language-switch,.theme-toggle{transition:background-color var(--motion-normal) ease,color var(--motion-normal) ease,border-color var(--motion-normal) ease,box-shadow var(--motion-normal) ease}
 a,button{ -webkit-tap-highlight-color:transparent }
 
-/* Keep the current page visibly selected, with a moving underline on hover. */
-.navigation a{position:relative;display:inline-flex;align-items:center;border-bottom:0!important;transition:color var(--motion-fast) ease}
-.navigation a::after{content:"";position:absolute;bottom:.2rem;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform var(--motion-normal) var(--ease-out)}
-.navigation a[aria-current="page"]::after{transform:scaleX(1)}
-.navigation a[aria-current="page"]{font-weight:750}
+/* Page links use a soft pill for hover and a filled pill for the current page. */
+.navigation ul{gap:.2rem}
+.navigation a{display:inline-flex;align-items:center;padding:.52rem .72rem;border:0!important;border-radius:999px;line-height:1.3;text-decoration:none!important;transition:background-color var(--motion-fast) ease,color var(--motion-fast) ease,box-shadow var(--motion-fast) ease}
+.navigation a::after{content:none}
+.navigation a[aria-current="page"]{font-weight:750;background:var(--accent);color:var(--dark);box-shadow:inset 0 0 0 1px rgba(16,38,48,.12)}
+.navigation a:active{background:var(--accent);color:var(--dark);box-shadow:inset 0 2px 7px rgba(16,38,48,.18)}
+.site-footer a:hover,.language-switch:hover,.content-list a:hover,.management-links a:hover,.text-link:hover{text-decoration:none}
 
 /* Buttons and controls give immediate pressed feedback. */
 .button,.filters button,.language-switch,.theme-toggle,.nav-toggle,.social-links a{transition:transform var(--motion-fast) var(--ease-out),background-color var(--motion-fast) ease,color var(--motion-fast) ease,border-color var(--motion-fast) ease,box-shadow var(--motion-fast) ease}
@@ -40,8 +42,8 @@ a,button{ -webkit-tap-highlight-color:transparent }
 .gallery img{transition:transform var(--motion-normal) var(--ease-out),box-shadow var(--motion-normal) ease}
 
 @media (hover:hover) and (pointer:fine){
-  .navigation a:hover::after{transform:scaleX(1)}
-  .navigation a:hover,.language-switch:hover,.theme-toggle:hover{color:var(--link)}
+  .navigation a:hover:not([aria-current="page"]),.navigation a:focus-visible:not([aria-current="page"]){background:var(--mist);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+  .language-switch:hover,.theme-toggle:hover{color:var(--link)}
   .brand:hover img{transform:rotate(-5deg) scale(1.04)}
   .brand img{transition:transform var(--motion-normal) var(--ease-out)}
   .button:hover{transform:translateY(-3px);text-decoration:none}
@@ -56,12 +58,12 @@ a,button{ -webkit-tap-highlight-color:transparent }
 
 @media (max-width:1050px){
   .navigation.is-open{animation:menu-open var(--motion-normal) var(--ease-out) both}
-  .navigation a{display:block}
-  .navigation a::after{bottom:.45rem;right:auto;width:2rem}
+  .navigation ul{gap:.3rem}
+  .navigation a{display:block;width:100%;padding:.8rem 1rem;border-radius:.65rem}
 }
 @keyframes menu-open{from{opacity:0;transform:translateY(-9px)}to{opacity:1;transform:translateY(0)}}
 
 @media (prefers-reduced-motion:reduce){
-  body,.site-header,.navigation,.card,.card img,.stat,.management-card,.detail-list,.notice,.filters button,.language-switch,.theme-toggle,.button,.nav-toggle,.nav-toggle span,.social-links a,.gallery img,.content-list li,.navigation a,.navigation a::after{transition:none!important;animation:none!important}
+  body,.site-header,.navigation,.card,.card img,.stat,.management-card,.detail-list,.notice,.filters button,.language-switch,.theme-toggle,.button,.nav-toggle,.nav-toggle span,.social-links a,.gallery img,.content-list li,.navigation a{transition:none!important;animation:none!important}
   .card:hover,.card:focus-within,.card:hover img,.card:focus-within img,.button:hover,.gallery img:hover,.brand:hover img{transform:none!important}
 }

@@ -18,13 +18,13 @@ A statically generated bilingual company website with editable pages, products, 
 
 The English site is at `/`; Khmer pages are at `/kh`. Visitors can switch languages in the header, and the corresponding page is kept when both versions exist. A dark mode control is also in the header. It remembers each visitor's choice in their browser and follows their device preference until they choose a mode.
 
-The header stays visible while scrolling. Navigation, buttons, product filters and cards provide hover and pressed feedback; people who request reduced motion see the same content without animation.
+The header stays visible while scrolling. Navigation uses a soft highlighted pill on hover and a gold pill for the current page, without a link underline. Buttons, product filters and cards provide hover and pressed feedback; people who request reduced motion see the same content without animation.
 
 Pages CMS has separate **English + shared images and links** and **ភាសាខ្មែរ · អត្ថបទ** menus. Each contains Home, About, Factory, Products, News, Careers, Contact, Company Settings and Interface text. Edit common images, destinations, dates and company contact details once under English; edit Khmer wording under Khmer. Each language has its own image descriptions and publication switch. When adding a product, news story or vacancy, create an English entry first, then a Khmer entry with the **same slug**. A missing or unpublished translation is omitted from Khmer listings. An unpublished English entry stays hidden in both languages.
 
 English Company Settings owns the logo, phone, email, application email, social links and default SEO image for both languages. English and Khmer each own their company name, description, address, hours, footer and SEO wording. The English Contact page owns the Google Maps embed URL for both languages.
 
-To change the site font, open **English + shared images and links → Company Settings**. Upload a `.ttf` file to **English font (.ttf)** and optionally another to **Khmer font (.ttf)**, then save. Fonts are stored in `public/uploads/fonts/` automatically. Leave a field blank to use the built-in font. Choose a font that contains the characters needed by that language; the browser uses fallback fonts for missing characters.
+The Khmer site uses the bundled **Noto Sans Khmer** variable font by default; the English site keeps its current font. To change either font later, open **English + shared images and links → Company Settings**. Upload a `.ttf` file to **English font (.ttf)** or **Khmer font (.ttf)** and save. Fonts are stored in `public/uploads/fonts/` automatically. Leave the Khmer field blank to use Noto Sans Khmer. Choose a font that contains the characters needed by that language; the browser uses fallback fonts for missing characters.
 
 The Contact page displays LinkedIn, Telegram and YouTube icons even while their URLs are empty. Enter verified company URLs once in **English + shared images and links → Company Settings → Social** to make the icons clickable in both languages. Facebook appears after its URL is entered. External URLs must use HTTPS and match the named service.
 
