@@ -2,20 +2,20 @@ companyName: LM MANUFACTURING CO., LTD.
 logo: /uploads/logo.svg
 description: An instant noodle manufacturing company in Kampong Speu, Cambodia.
 contact:
-  phone: ''
-  email: ''
+  phone: "010332004"
+  email: vzputh@gmail.com
   address: Kampong Speu, Cambodia
   businessHours: Monday–Saturday, 8:00–17:00
-  applicationEmail: ''
+  applicationEmail: vzputh@gmail.com
 social:
-  facebook: ''
-  linkedin: ''
-  telegram: ''
-  youtube: ''
+  linkedin: https://education.github.com/learner/learn
+  telegram: https://education.github.com/learner/learn
+  youtube: https://www.youtube.com/watch?v=sVFjNrI0of0&list=RDsVFjNrI0of0&start_radio=1
 footer:
   copyright: LM MANUFACTURING CO., LTD. All rights reserved.
 seo:
   defaultTitle: LM MANUFACTURING CO., LTD.
-  titleTemplate: '%s | LM MANUFACTURING CO., LTD.'
-  defaultDescription: Explore LM MANUFACTURING CO., LTD., an instant noodle manufacturing company in Kampong Speu, Cambodia.
+  titleTemplate: "%s | LM MANUFACTURING CO., LTD."
+  defaultDescription: Explore LM MANUFACTURING CO., LTD., an instant noodle
+    manufacturing company in Kampong Speu, Cambodia.
   defaultImage: /uploads/home/production-hero.webp
