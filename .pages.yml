@@ -20,113 +20,133 @@ media:
   - png
   - webp
 content:
-- name: home
-  label: Home
-  type: file
-  path: src/data/home.json
-  fields:
-  - name: hero
-    type: object
+- name: english
+  label: English
+  type: group
+  items:
+  - name: home
+    label: English · Home
+    type: file
+    path: src/data/home.json
     fields:
-    - name: eyebrow
+    - name: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/home
+          rename: safe
+      - name: imageAlt
+        type: string
+      - name: primaryLabel
+        type: string
+      - name: primaryUrl
+        type: string
+      - name: secondaryLabel
+        type: string
+      - name: secondaryUrl
+        type: string
+    - name: intro
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: title
+        type: string
+      - name: text
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/home
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: statistics
+      type: object
+      fields:
+      - name: value
+        type: string
+      - name: label
+        type: string
+      list: true
+    - name: productsHeading
       type: string
-    - name: headline
-      type: string
-    - name: description
+    - name: productsDescription
       type: text
-    - name: image
+    - name: factoryHeading
+      type: string
+    - name: factoryText
+      type: text
+    - name: factoryImage
       type: image
       options:
         media: images
-        path: public/uploads/home
+        path: public/uploads/factory
         rename: safe
-    - name: imageAlt
+    - name: factoryImageAlt
       type: string
-    - name: primaryLabel
+    - name: benefitsHeading
       type: string
-    - name: primaryUrl
+    - name: benefits
+      type: object
+      fields:
+      - name: title
+        type: string
+      - name: text
+        type: text
+      list: true
+    - name: newsHeading
       type: string
-    - name: secondaryLabel
-      type: string
-    - name: secondaryUrl
-      type: string
-  - name: intro
-    type: object
+    - name: cta
+      type: object
+      fields:
+      - name: title
+        type: string
+      - name: text
+        type: text
+      - name: label
+        type: string
+      - name: url
+        type: string
+  - name: about
+    label: English · About
+    type: file
+    path: src/data/about.json
     fields:
-    - name: eyebrow
+    - name: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/about
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: overviewTitle
       type: string
-    - name: title
-      type: string
-    - name: text
+    - name: overviewText
       type: text
-    - name: image
-      type: image
-      options:
-        media: images
-        path: public/uploads/home
-        rename: safe
-    - name: imageAlt
-      type: string
-  - name: statistics
-    type: object
-    fields:
-    - name: value
-      type: string
-    - name: label
-      type: string
-    list: true
-  - name: productsHeading
-    type: string
-  - name: productsDescription
-    type: text
-  - name: factoryHeading
-    type: string
-  - name: factoryText
-    type: text
-  - name: factoryImage
-    type: image
-    options:
-      media: images
-      path: public/uploads/factory
-      rename: safe
-  - name: factoryImageAlt
-    type: string
-  - name: benefitsHeading
-    type: string
-  - name: benefits
-    type: object
-    fields:
-    - name: title
-      type: string
-    - name: text
+    - name: storyTitle
       type: text
-    list: true
-  - name: newsHeading
-    type: string
-  - name: cta
-    type: object
-    fields:
-    - name: title
-      type: string
-    - name: text
-      type: text
-    - name: label
-      type: string
-    - name: url
-      type: string
-- name: about
-  label: About
-  type: file
-  path: src/data/about.json
-  fields:
-  - name: hero
-    type: object
-    fields:
-    - name: eyebrow
-      type: string
-    - name: headline
-      type: string
-    - name: description
+    - name: storyText
       type: text
     - name: image
       type: image
@@ -136,253 +156,644 @@ content:
         rename: safe
     - name: imageAlt
       type: string
-  - name: overviewTitle
-    type: string
-  - name: overviewText
-    type: text
-  - name: storyTitle
-    type: text
-  - name: storyText
-    type: text
-  - name: image
-    type: image
-    options:
-      media: images
-      path: public/uploads/about
-      rename: safe
-  - name: imageAlt
-    type: string
-  - name: mission
-    type: text
-  - name: vision
-    type: text
-  - name: values
-    type: object
+    - name: mission
+      type: text
+    - name: vision
+      type: text
+    - name: values
+      type: object
+      fields:
+      - name: title
+        type: string
+      - name: text
+        type: text
+      list: true
+    - name: milestones
+      type: object
+      fields:
+      - name: year
+        type: string
+      - name: event
+        type: string
+      list: true
+    - name: ctaTitle
+      type: string
+  - name: factory
+    label: English · Factory
+    type: file
+    path: src/data/factory.json
+    fields:
+    - name: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/factory
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: introTitle
+      type: string
+    - name: introText
+      type: text
+    - name: facilities
+      type: object
+      fields:
+      - name: title
+        type: string
+      - name: text
+        type: text
+      list: true
+    - name: capabilitiesTitle
+      type: text
+    - name: capabilitiesText
+      type: text
+    - name: qualityTitle
+      type: text
+    - name: qualityText
+      type: text
+    - name: safetyTitle
+      type: text
+    - name: safetyText
+      type: text
+    - name: gallery
+      type: object
+      fields:
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/factory
+          rename: safe
+      - name: alt
+        type: string
+      list: true
+  - name: products
+    label: English · Products
+    type: collection
+    path: src/content/products
+    filename: '{fields.slug}.md'
+    view:
+      primary: title
+      fields:
+      - published
     fields:
     - name: title
       type: string
-    - name: text
+    - name: slug
+      type: string
+    - name: category
+      type: string
+    - name: shortDescription
       type: text
-    list: true
-  - name: milestones
-    type: object
-    fields:
-    - name: year
-      type: string
-    - name: event
-      type: string
-    list: true
-  - name: ctaTitle
-    type: string
-- name: factory
-  label: Factory
-  type: file
-  path: src/data/factory.json
-  fields:
-  - name: hero
-    type: object
-    fields:
-    - name: eyebrow
-      type: string
-    - name: headline
-      type: string
-    - name: description
-      type: text
-    - name: image
-      type: image
-      options:
-        media: images
-        path: public/uploads/factory
-        rename: safe
-    - name: imageAlt
-      type: string
-  - name: introTitle
-    type: string
-  - name: introText
-    type: text
-  - name: facilities
-    type: object
-    fields:
-    - name: title
-      type: string
-    - name: text
-      type: text
-    list: true
-  - name: capabilitiesTitle
-    type: text
-  - name: capabilitiesText
-    type: text
-  - name: qualityTitle
-    type: text
-  - name: qualityText
-    type: text
-  - name: safetyTitle
-    type: text
-  - name: safetyText
-    type: text
-  - name: gallery
-    type: object
-    fields:
-    - name: image
-      type: image
-      options:
-        media: images
-        path: public/uploads/factory
-        rename: safe
-    - name: alt
-      type: string
-    list: true
-- name: products
-  label: Products
-  type: collection
-  path: src/content/products
-  filename: '{fields.slug}.md'
-  view:
-    primary: title
-    fields:
-    - published
-  fields:
-  - name: title
-    type: string
-  - name: slug
-    type: string
-  - name: category
-    type: string
-  - name: shortDescription
-    type: text
-  - name: mainImage
-    type: image
-    options:
-      media: images
-      path: public/uploads/products
-      rename: safe
-  - name: mainImageAlt
-    type: string
-  - name: gallery
-    type: object
-    fields:
-    - name: image
+    - name: mainImage
       type: image
       options:
         media: images
         path: public/uploads/products
         rename: safe
-    - name: alt
+    - name: mainImageAlt
       type: string
-    list: true
-  - name: featured
-    type: boolean
-  - name: published
-    type: boolean
-  - name: displayOrder
-    type: number
-  - name: specifications
-    type: object
+    - name: gallery
+      type: object
+      fields:
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/products
+          rename: safe
+      - name: alt
+        type: string
+      list: true
+    - name: featured
+      type: boolean
+    - name: published
+      type: boolean
+    - name: displayOrder
+      type: number
+    - name: specifications
+      type: object
+      fields:
+      - name: label
+        type: string
+      - name: value
+        type: string
+      list: true
+    - name: body
+      type: rich-text
+      options:
+        media: images
+        path: public/uploads/products
+        rename: safe
+  - name: news
+    label: English · News
+    type: collection
+    path: src/content/news
+    filename: '{fields.slug}.md'
+    view:
+      primary: title
+      fields:
+      - published
     fields:
-    - name: label
+    - name: title
       type: string
-    - name: value
+    - name: slug
       type: string
-    list: true
-  - name: body
-    type: rich-text
-    options:
-      media: images
-      path: public/uploads/products
-      rename: safe
-- name: news
-  label: News
-  type: collection
-  path: src/content/news
-  filename: '{fields.slug}.md'
-  view:
-    primary: title
+    - name: summary
+      type: text
+    - name: publishDate
+      type: date
+    - name: coverImage
+      type: image
+      options:
+        media: images
+        path: public/uploads/news
+        rename: safe
+    - name: coverImageAlt
+      type: string
+    - name: published
+      type: boolean
+    - name: featured
+      type: boolean
+    - name: seoTitle
+      type: string
+    - name: seoDescription
+      type: text
+    - name: body
+      type: rich-text
+      options:
+        media: images
+        path: public/uploads/news
+        rename: safe
+  - name: careers
+    label: English · Careers
+    type: collection
+    path: src/content/careers
+    filename: '{fields.slug}.md'
+    view:
+      primary: title
+      fields:
+      - published
     fields:
-    - published
-  fields:
-  - name: title
-    type: string
-  - name: slug
-    type: string
-  - name: summary
-    type: text
-  - name: publishDate
-    type: date
-  - name: coverImage
-    type: image
-    options:
-      media: images
-      path: public/uploads/news
-      rename: safe
-  - name: coverImageAlt
-    type: string
-  - name: published
-    type: boolean
-  - name: featured
-    type: boolean
-  - name: seoTitle
-    type: string
-  - name: seoDescription
-    type: text
-  - name: body
-    type: rich-text
-    options:
-      media: images
-      path: public/uploads/news
-      rename: safe
-- name: careers
-  label: Careers
-  type: collection
-  path: src/content/careers
-  filename: '{fields.slug}.md'
-  view:
-    primary: title
-    fields:
-    - published
-  fields:
-  - name: title
-    type: string
-  - name: slug
-    type: string
-  - name: department
-    type: string
-  - name: location
-    type: string
-  - name: employmentType
-    type: string
-  - name: summary
-    type: text
-  - name: responsibilities
-    type: string
-    list: true
-  - name: requirements
-    type: string
-    list: true
-  - name: publishDate
-    type: date
-  - name: closingDate
-    type: date
-  - name: published
-    type: boolean
-  - name: body
-    type: rich-text
-    options:
-      media: images
-      path: public/uploads/careers
-      rename: safe
-- name: contact
-  label: Contact
-  type: file
-  path: src/data/contact.json
-  fields:
-  - name: hero
-    type: object
-    fields:
-    - name: eyebrow
+    - name: title
       type: string
-    - name: headline
+    - name: slug
       type: string
+    - name: department
+      type: string
+    - name: location
+      type: string
+    - name: employmentType
+      type: string
+    - name: summary
+      type: text
+    - name: responsibilities
+      type: string
+      list: true
+    - name: requirements
+      type: string
+      list: true
+    - name: publishDate
+      type: date
+    - name: closingDate
+      type: date
+    - name: published
+      type: boolean
+    - name: body
+      type: rich-text
+      options:
+        media: images
+        path: public/uploads/careers
+        rename: safe
+  - name: contact
+    label: English · Contact
+    type: file
+    path: src/data/contact.json
+    fields:
+    - name: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/about
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: mapEmbedUrl
+      type: string
+    - name: ctaTitle
+      type: string
+    - name: ctaText
+      type: text
+  - name: settings
+    label: English · Company Settings
+    type: file
+    path: src/data/site.yml
+    fields:
+    - name: companyName
+      type: string
+    - name: logo
+      type: image
+      options:
+        media: logos
+        path: public/uploads
+        rename: safe
     - name: description
+      type: text
+    - name: contact
+      type: object
+      fields:
+      - name: phone
+        type: string
+      - name: email
+        type: string
+      - name: address
+        type: text
+      - name: businessHours
+        type: string
+      - name: applicationEmail
+        type: string
+    - name: social
+      type: object
+      fields:
+      - name: facebook
+        type: string
+      - name: linkedin
+        type: string
+      - name: telegram
+        type: string
+      - name: youtube
+        type: string
+    - name: footer
+      type: object
+      fields:
+      - name: copyright
+        type: string
+    - name: seo
+      type: object
+      fields:
+      - name: defaultTitle
+        type: string
+      - name: titleTemplate
+        type: string
+      - name: defaultDescription
+        type: text
+      - name: defaultImage
+        type: image
+        options:
+          media: images
+          path: public/uploads/home
+          rename: safe
+  - name: uiEn
+    label: English · Interface text
+    type: file
+    path: src/data/ui.json
+    fields:
+    - name: nav
+      type: object
+      fields:
+      - name: home
+        type: string
+      - name: about
+        type: string
+      - name: products
+        type: string
+      - name: factory
+        type: string
+      - name: news
+        type: string
+      - name: careers
+        type: string
+      - name: contact
+        type: string
+    - name: actions
+      type: object
+      fields:
+      - name: about
+        type: string
+      - name: factory
+        type: string
+      - name: allProducts
+        type: string
+      - name: allNews
+        type: string
+      - name: viewProduct
+        type: string
+      - name: readStory
+        type: string
+      - name: contact
+        type: string
+      - name: getInTouch
+        type: string
+      - name: backHome
+        type: string
+    - name: empty
+      type: object
+      fields:
+      - name: products
+        type: string
+      - name: featuredProducts
+        type: string
+      - name: news
+        type: string
+      - name: homeNews
+        type: string
+      - name: jobs
+        type: string
+    - name: headings
+      type: object
+      fields:
+      - name: mission
+        type: string
+      - name: vision
+        type: string
+      - name: values
+        type: string
+      - name: journey
+        type: string
+      - name: openPositions
+        type: string
+      - name: responsibilities
+        type: string
+      - name: requirements
+        type: string
+      - name: apply
+        type: string
+      - name: closingDate
+        type: string
+      - name: address
+        type: string
+      - name: phone
+        type: string
+      - name: email
+        type: string
+      - name: businessHours
+        type: string
+      - name: explore
+        type: string
+      - name: skip
+        type: string
+      - name: all
+        type: string
+    - name: listings
+      type: object
+      fields:
+      - name: products
+        type: object
+        fields:
+        - name: eyebrow
+          type: string
+        - name: headline
+          type: string
+        - name: description
+          type: text
+        - name: seoDescription
+          type: string
+      - name: news
+        type: object
+        fields:
+        - name: eyebrow
+          type: string
+        - name: headline
+          type: string
+        - name: description
+          type: string
+        - name: seoDescription
+          type: string
+      - name: careers
+        type: object
+        fields:
+        - name: eyebrow
+          type: string
+        - name: headline
+          type: string
+        - name: description
+          type: string
+        - name: seoDescription
+          type: string
+    - name: application
+      type: object
+      fields:
+      - name: emailPrefix
+        type: string
+      - name: emailSuffix
+        type: string
+      - name: fallbackPrefix
+        type: string
+      - name: fallbackLink
+        type: string
+      - name: fallbackSuffix
+        type: string
+      - name: subject
+        type: string
+    - name: notFound
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: string
+    - name: manage
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: title
+        type: string
+      - name: intro
+        type: text
+      - name: open
+        type: string
+      - name: areas
+        type: string
+      - name: edit
+        type: string
+      - name: view
+        type: string
+      - name: steps
+        type: string
+      - name: sign
+        type: string
+      - name: signText
+        type: string
+      - name: change
+        type: string
+      - name: changeText
+        type: text
+      - name: review
+        type: string
+      - name: reviewText
+        type: string
+      - name: note
+        type: text
+      - name: enEditor
+        type: string
+      - name: khEditor
+        type: string
+      - name: enHint
+        type: string
+      - name: khHint
+        type: string
+      - name: previewEn
+        type: string
+      - name: previewKh
+        type: string
+    - name: manageSections
+      type: object
+      list: true
+      fields:
+      - name: name
+        type: string
+      - name: path
+        type: string
+      - name: description
+        type: text
+- name: khmer
+  label: ភាសាខ្មែរ
+  type: group
+  items:
+  - name: homeKh
+    label: ភាសាខ្មែរ · ទំព័រដើម
+    type: file
+    path: src/data/kh/home.json
+    fields:
+    - name: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/home
+          rename: safe
+      - name: imageAlt
+        type: string
+      - name: primaryLabel
+        type: string
+      - name: primaryUrl
+        type: string
+      - name: secondaryLabel
+        type: string
+      - name: secondaryUrl
+        type: string
+    - name: intro
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: title
+        type: string
+      - name: text
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/home
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: statistics
+      type: object
+      fields:
+      - name: value
+        type: string
+      - name: label
+        type: string
+      list: true
+    - name: productsHeading
+      type: string
+    - name: productsDescription
+      type: text
+    - name: factoryHeading
+      type: string
+    - name: factoryText
+      type: text
+    - name: factoryImage
+      type: image
+      options:
+        media: images
+        path: public/uploads/factory
+        rename: safe
+    - name: factoryImageAlt
+      type: string
+    - name: benefitsHeading
+      type: string
+    - name: benefits
+      type: object
+      fields:
+      - name: title
+        type: string
+      - name: text
+        type: text
+      list: true
+    - name: newsHeading
+      type: string
+    - name: cta
+      type: object
+      fields:
+      - name: title
+        type: string
+      - name: text
+        type: text
+      - name: label
+        type: string
+      - name: url
+        type: string
+  - name: aboutKh
+    label: ភាសាខ្មែរ · អំពីយើង
+    type: file
+    path: src/data/kh/about.json
+    fields:
+    - name: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/about
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: overviewTitle
+      type: string
+    - name: overviewText
+      type: text
+    - name: storyTitle
+      type: text
+    - name: storyText
       type: text
     - name: image
       type: image
@@ -392,68 +803,514 @@ content:
         rename: safe
     - name: imageAlt
       type: string
-  - name: mapEmbedUrl
-    type: string
-  - name: ctaTitle
-    type: string
-  - name: ctaText
-    type: text
-- name: settings
-  label: Company Settings
-  type: file
-  path: src/data/site.yml
-  fields:
-  - name: companyName
-    type: string
-  - name: logo
-    type: image
-    options:
-      media: logos
-      path: public/uploads
-      rename: safe
-  - name: description
-    type: text
-  - name: contact
-    type: object
-    fields:
-    - name: phone
-      type: string
-    - name: email
-      type: string
-    - name: address
+    - name: mission
       type: text
-    - name: businessHours
-      type: string
-    - name: applicationEmail
-      type: string
-  - name: social
-    type: object
-    fields:
-    - name: facebook
-      type: string
-    - name: linkedin
-      type: string
-    - name: telegram
-      type: string
-    - name: youtube
-      type: string
-  - name: footer
-    type: object
-    fields:
-    - name: copyright
-      type: string
-  - name: seo
-    type: object
-    fields:
-    - name: defaultTitle
-      type: string
-    - name: titleTemplate
-      type: string
-    - name: defaultDescription
+    - name: vision
       type: text
-    - name: defaultImage
+    - name: values
+      type: object
+      fields:
+      - name: title
+        type: string
+      - name: text
+        type: text
+      list: true
+    - name: milestones
+      type: object
+      fields:
+      - name: year
+        type: string
+      - name: event
+        type: string
+      list: true
+    - name: ctaTitle
+      type: string
+  - name: factoryKh
+    label: ភាសាខ្មែរ · រោងចក្រ
+    type: file
+    path: src/data/kh/factory.json
+    fields:
+    - name: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/factory
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: introTitle
+      type: string
+    - name: introText
+      type: text
+    - name: facilities
+      type: object
+      fields:
+      - name: title
+        type: string
+      - name: text
+        type: text
+      list: true
+    - name: capabilitiesTitle
+      type: text
+    - name: capabilitiesText
+      type: text
+    - name: qualityTitle
+      type: text
+    - name: qualityText
+      type: text
+    - name: safetyTitle
+      type: text
+    - name: safetyText
+      type: text
+    - name: gallery
+      type: object
+      fields:
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/factory
+          rename: safe
+      - name: alt
+        type: string
+      list: true
+  - name: productsKh
+    label: ភាសាខ្មែរ · ផលិតផល
+    type: collection
+    path: src/content/kh/products
+    filename: '{fields.slug}.md'
+    view:
+      primary: title
+      fields:
+      - published
+    fields:
+    - name: title
+      type: string
+    - name: slug
+      type: string
+    - name: category
+      type: string
+    - name: shortDescription
+      type: text
+    - name: mainImage
       type: image
       options:
         media: images
-        path: public/uploads/home
+        path: public/uploads/products
         rename: safe
+    - name: mainImageAlt
+      type: string
+    - name: gallery
+      type: object
+      fields:
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/products
+          rename: safe
+      - name: alt
+        type: string
+      list: true
+    - name: featured
+      type: boolean
+    - name: published
+      type: boolean
+    - name: displayOrder
+      type: number
+    - name: specifications
+      type: object
+      fields:
+      - name: label
+        type: string
+      - name: value
+        type: string
+      list: true
+    - name: body
+      type: rich-text
+      options:
+        media: images
+        path: public/uploads/products
+        rename: safe
+  - name: newsKh
+    label: ភាសាខ្មែរ · ព័ត៌មាន
+    type: collection
+    path: src/content/kh/news
+    filename: '{fields.slug}.md'
+    view:
+      primary: title
+      fields:
+      - published
+    fields:
+    - name: title
+      type: string
+    - name: slug
+      type: string
+    - name: summary
+      type: text
+    - name: publishDate
+      type: date
+    - name: coverImage
+      type: image
+      options:
+        media: images
+        path: public/uploads/news
+        rename: safe
+    - name: coverImageAlt
+      type: string
+    - name: published
+      type: boolean
+    - name: featured
+      type: boolean
+    - name: seoTitle
+      type: string
+    - name: seoDescription
+      type: text
+    - name: body
+      type: rich-text
+      options:
+        media: images
+        path: public/uploads/news
+        rename: safe
+  - name: careersKh
+    label: ភាសាខ្មែរ · ឱកាសការងារ
+    type: collection
+    path: src/content/kh/careers
+    filename: '{fields.slug}.md'
+    view:
+      primary: title
+      fields:
+      - published
+    fields:
+    - name: title
+      type: string
+    - name: slug
+      type: string
+    - name: department
+      type: string
+    - name: location
+      type: string
+    - name: employmentType
+      type: string
+    - name: summary
+      type: text
+    - name: responsibilities
+      type: string
+      list: true
+    - name: requirements
+      type: string
+      list: true
+    - name: publishDate
+      type: date
+    - name: closingDate
+      type: date
+    - name: published
+      type: boolean
+    - name: body
+      type: rich-text
+      options:
+        media: images
+        path: public/uploads/careers
+        rename: safe
+  - name: contactKh
+    label: ភាសាខ្មែរ · ទំនាក់ទំនង
+    type: file
+    path: src/data/kh/contact.json
+    fields:
+    - name: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/about
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: mapEmbedUrl
+      type: string
+    - name: ctaTitle
+      type: string
+    - name: ctaText
+      type: text
+  - name: settingsKh
+    label: ភាសាខ្មែរ · ការកំណត់ក្រុមហ៊ុន
+    type: file
+    path: src/data/kh/site.yml
+    fields:
+    - name: companyName
+      type: string
+    - name: logo
+      type: image
+      options:
+        media: logos
+        path: public/uploads
+        rename: safe
+    - name: description
+      type: text
+    - name: contact
+      type: object
+      fields:
+      - name: phone
+        type: string
+      - name: email
+        type: string
+      - name: address
+        type: text
+      - name: businessHours
+        type: string
+      - name: applicationEmail
+        type: string
+    - name: social
+      type: object
+      fields:
+      - name: facebook
+        type: string
+      - name: linkedin
+        type: string
+      - name: telegram
+        type: string
+      - name: youtube
+        type: string
+    - name: footer
+      type: object
+      fields:
+      - name: copyright
+        type: string
+    - name: seo
+      type: object
+      fields:
+      - name: defaultTitle
+        type: string
+      - name: titleTemplate
+        type: string
+      - name: defaultDescription
+        type: text
+      - name: defaultImage
+        type: image
+        options:
+          media: images
+          path: public/uploads/home
+          rename: safe
+  - name: uiKh
+    label: ភាសាខ្មែរ · អត្ថបទលើគេហទំព័រ
+    type: file
+    path: src/data/kh/ui.json
+    fields:
+    - name: nav
+      type: object
+      fields:
+      - name: home
+        type: string
+      - name: about
+        type: string
+      - name: products
+        type: string
+      - name: factory
+        type: string
+      - name: news
+        type: string
+      - name: careers
+        type: string
+      - name: contact
+        type: string
+    - name: actions
+      type: object
+      fields:
+      - name: about
+        type: string
+      - name: factory
+        type: string
+      - name: allProducts
+        type: string
+      - name: allNews
+        type: string
+      - name: viewProduct
+        type: string
+      - name: readStory
+        type: string
+      - name: contact
+        type: string
+      - name: getInTouch
+        type: string
+      - name: backHome
+        type: string
+    - name: empty
+      type: object
+      fields:
+      - name: products
+        type: string
+      - name: featuredProducts
+        type: string
+      - name: news
+        type: string
+      - name: homeNews
+        type: string
+      - name: jobs
+        type: string
+    - name: headings
+      type: object
+      fields:
+      - name: mission
+        type: string
+      - name: vision
+        type: string
+      - name: values
+        type: string
+      - name: journey
+        type: string
+      - name: openPositions
+        type: string
+      - name: responsibilities
+        type: string
+      - name: requirements
+        type: string
+      - name: apply
+        type: string
+      - name: closingDate
+        type: string
+      - name: address
+        type: string
+      - name: phone
+        type: string
+      - name: email
+        type: string
+      - name: businessHours
+        type: string
+      - name: explore
+        type: string
+      - name: skip
+        type: string
+      - name: all
+        type: string
+    - name: listings
+      type: object
+      fields:
+      - name: products
+        type: object
+        fields:
+        - name: eyebrow
+          type: string
+        - name: headline
+          type: string
+        - name: description
+          type: text
+        - name: seoDescription
+          type: string
+      - name: news
+        type: object
+        fields:
+        - name: eyebrow
+          type: string
+        - name: headline
+          type: string
+        - name: description
+          type: string
+        - name: seoDescription
+          type: string
+      - name: careers
+        type: object
+        fields:
+        - name: eyebrow
+          type: string
+        - name: headline
+          type: string
+        - name: description
+          type: string
+        - name: seoDescription
+          type: string
+    - name: application
+      type: object
+      fields:
+      - name: emailPrefix
+        type: string
+      - name: emailSuffix
+        type: string
+      - name: fallbackPrefix
+        type: string
+      - name: fallbackLink
+        type: string
+      - name: fallbackSuffix
+        type: string
+      - name: subject
+        type: string
+    - name: notFound
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: string
+    - name: manage
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: title
+        type: string
+      - name: intro
+        type: text
+      - name: open
+        type: string
+      - name: areas
+        type: string
+      - name: edit
+        type: string
+      - name: view
+        type: string
+      - name: steps
+        type: string
+      - name: sign
+        type: string
+      - name: signText
+        type: string
+      - name: change
+        type: string
+      - name: changeText
+        type: text
+      - name: review
+        type: string
+      - name: reviewText
+        type: string
+      - name: note
+        type: text
+      - name: enEditor
+        type: string
+      - name: khEditor
+        type: string
+      - name: enHint
+        type: string
+      - name: khHint
+        type: string
+      - name: previewEn
+        type: string
+      - name: previewKh
+        type: string
+    - name: manageSections
+      type: object
+      list: true
+      fields:
+      - name: name
+        type: string
+      - name: path
+        type: string
+      - name: description
+        type: text
