@@ -1,4 +1,0 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';import Hero from '../../components/Hero.astro';import NewsCard from '../../components/NewsCard.astro';import {getCollection} from 'astro:content';import {publicEntries,byNewest,language,contentFor,pathFor} from '../../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;const articles=publicEntries(await getCollection(lang==='kh'?'newsKh':'news')).sort(byNewest);
----
-<BaseLayout title={ui.nav.news} description={ui.listings.news.seoDescription}><Hero {...ui.listings.news}/><section class="section"><div class="container">{articles.length?<div class="grid-3">{articles.map(article=><NewsCard {article}/>)}</div>:<p>{ui.empty.news}</p>}</div></section></BaseLayout>

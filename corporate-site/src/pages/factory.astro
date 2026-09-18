@@ -1,5 +1,0 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';import Hero from '../components/Hero.astro';import SectionHeader from '../components/SectionHeader.astro';import {contentFor,language,pathFor} from '../lib/content';
-const lang=language(Astro.url),{factory,ui}=contentFor(lang);
----
-<BaseLayout title={ui.nav.factory} description={factory.hero.description}><Hero {...factory.hero}/><section class="section"><div class="container"><SectionHeader title={factory.introTitle} text={factory.introText}/><div class="feature-list">{factory.facilities.map(f=><article><h3>{f.title}</h3><p>{f.text}</p></article>)}</div></div></section><section class="section section-muted"><div class="container split"><div><SectionHeader title={factory.capabilitiesTitle} text={factory.capabilitiesText}/><h3>{factory.qualityTitle}</h3><p>{factory.qualityText}</p><h3 class="subheading">{factory.safetyTitle}</h3><p>{factory.safetyText}</p></div><div class="gallery">{factory.gallery.map(item=><img src={item.image} alt={item.alt} width="600" height="450" loading="lazy"/>)}</div></div></section></BaseLayout>

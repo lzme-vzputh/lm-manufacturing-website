@@ -1,4 +1,0 @@
----
-import ArticleLayout from '../../layouts/ArticleLayout.astro';import {getCollection,render} from 'astro:content';import {publicEntries,language,contentFor,pathFor} from '../../lib/content';export async function getStaticPaths(){return publicEntries(await getCollection('news')).map(article=>({params:{slug:article.data.slug},props:{article}}));}const lang=language(Astro.url),ui=contentFor(lang).ui;const {article}=Astro.props;const {Content}=await render(article);
----
-<ArticleLayout title={article.data.seoTitle||article.data.title} description={article.data.seoDescription||article.data.summary} image={article.data.coverImage} type="article" published={article.data.publishDate.toISOString()} date={article.data.publishDate} section={ui.nav.news} sectionUrl="/news"><img class="article-cover" src={article.data.coverImage} alt={article.data.coverImageAlt} width="1000" height="650"/><div class="prose"><Content/></div></ArticleLayout>
