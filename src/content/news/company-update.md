@@ -1,9 +1,9 @@
 ---
 title: A new chapter for our company
 slug: company-update
-publishDate: 2026-09-15
 summary: An introduction to the direction and ambitions of our manufacturing company.
-coverImage: /uploads/image-placeholder.svg
+publishDate: 2026-09-15
+coverImage: /uploads/news/photo2026-09-1810-23-39.jpg
 coverImageAlt: Placeholder for a company news photograph
 published: true
 featured: true
