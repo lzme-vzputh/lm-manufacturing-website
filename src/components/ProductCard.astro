@@ -1,6 +1,6 @@
 ---
-import type {CollectionEntry} from 'astro:content';
-interface Props {product:CollectionEntry<'products'>}
+import type {CollectionEntry} from 'astro:content';import {language,pathFor,contentFor} from '../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;
+interface Props {product:CollectionEntry<'products'|'productsKh'>}
 const {product}=Astro.props;
 ---
-<article class="card product-card"><a href={`/products/${product.data.slug}`}><img src={product.data.mainImage} alt={product.data.mainImageAlt} width="700" height="520" loading="lazy"/><div class="card-body"><span class="eyebrow">{product.data.category}</span><h3>{product.data.title}</h3><p>{product.data.shortDescription}</p><span class="text-link">View product <span aria-hidden="true">↗</span></span></div></a></article>
+<article class="card product-card"><a href={pathFor(`/products/${product.data.slug}`,lang)}><img src={product.data.mainImage} alt={product.data.mainImageAlt} width="700" height="520" loading="lazy"/><div class="card-body"><span class="eyebrow">{product.data.category}</span><h3>{product.data.title}</h3><p>{product.data.shortDescription}</p><span class="text-link">{ui.actions.viewProduct} <span aria-hidden="true">↗</span></span></div></a></article>

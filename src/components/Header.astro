@@ -1,9 +1,11 @@
 ---
-import {site} from '../lib/content';
+import {siteFor,language,pathFor} from '../lib/content';
+const lang=language(Astro.url),site=siteFor(lang);const other=lang==='kh'?'en':'kh';const original=Astro.url.pathname.replace(/^\/kh(?=\/|$)/,'')||'/';const switchTo=pathFor(original.startsWith('/404')?'/':original,other);
 import Navigation from './Navigation.astro';
 ---
-<header class="site-header"><div class="container header-inner"><a class="brand" href="/" aria-label={`${site.companyName} home`}><img src={site.logo} width="40" height="40" alt=""/><span>{site.companyName}</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open menu"><span></span><span></span><span></span></button><Navigation/></div></header>
+<header class="site-header"><div class="container header-inner"><a class="brand" href={pathFor('/',lang)} aria-label={`${site.companyName} home`}><img src={site.logo} width="40" height="40" alt=""/><span>{site.companyName}</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open menu"><span></span><span></span><span></span></button><Navigation/><div class="header-actions"><a class="language-switch" href={switchTo} hreflang={other} aria-label={lang==='kh'?'Switch to English':'ប្ដូរទៅភាសាខ្មែរ'}>{lang==='kh'?'EN':'ខ្មែរ'}</a><button class="theme-toggle" type="button" aria-label={lang==='kh'?'ប្ដូររូបរាងពន្លឺ ឬងងឹត':'Toggle dark mode'} title={lang==='kh'?'ប្ដូររូបរាង':'Toggle dark mode'} aria-pressed="false"><span aria-hidden="true">◐</span></button></div></div></header>
 <script>
+const themeButton=document.querySelector<HTMLButtonElement>('.theme-toggle');const syncTheme=()=>themeButton?.setAttribute('aria-pressed',String(document.documentElement.dataset.theme==='dark'));syncTheme();themeButton?.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('lm-theme',next)}catch(e){}syncTheme()});
 const toggle=document.querySelector<HTMLButtonElement>('.nav-toggle');
 const nav=document.querySelector<HTMLElement>('#primary-navigation');
 if(toggle && nav){toggle.addEventListener('click',()=>{const opened=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!opened));toggle.setAttribute('aria-label',opened?'Open menu':'Close menu');nav.classList.toggle('is-open',!opened);});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open');}));}

@@ -1,5 +1,6 @@
 ---
-import {site} from '../lib/content';
+import {siteFor,language} from '../lib/content';
+const lang=language(Astro.url);const site=siteFor(lang);
 interface Props {title?:string; description?:string; image?:string; type?:string; published?:string}
 const {title,description=site.seo.defaultDescription,image=site.seo.defaultImage,type='website',published}=Astro.props;
 const pageTitle=title ? site.seo.titleTemplate.replace('%s',title) : site.seo.defaultTitle;
@@ -8,7 +9,7 @@ const socialImage=image ? new URL(image,Astro.site ?? 'https://example.com').hre
 ---
 <title>{pageTitle}</title>
 <meta name="description" content={description}/>
-<link rel="canonical" href={canonical}/>
+<link rel="canonical" href={canonical}/><link rel="alternate" hreflang="en" href={new URL(Astro.url.pathname.replace(/^\/kh(?=\/|$)/, '') || '/', Astro.site ?? 'https://example.com').href}/><link rel="alternate" hreflang="km" href={new URL(`/kh${Astro.url.pathname.replace(/^\/kh(?=\/|$)/, '') === '/' ? '' : Astro.url.pathname.replace(/^\/kh(?=\/|$)/, '')}`, Astro.site ?? 'https://example.com').href}/>
 <meta property="og:type" content={type}/><meta property="og:title" content={pageTitle}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/>
 {socialImage && <meta property="og:image" content={socialImage}/>}
 {published && <meta property="article:published_time" content={published}/>}

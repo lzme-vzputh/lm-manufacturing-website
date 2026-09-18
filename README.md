@@ -1,6 +1,6 @@
 # LM MANUFACTURING CO., LTD. website
 
-A statically generated company website with editable pages, products, news and careers. Astro builds the public pages; Pages CMS edits repository content through GitHub. There is no visitor login, server, or database.
+A statically generated bilingual company website with editable pages, products, news and careers. Astro builds the public pages; Pages CMS edits repository content through GitHub. There is no visitor login, server, or database.
 
 > The site now contains drafted company copy and AI-created illustrative imagery. Confirm every statement, product and news item with management before public launch. Replace the conceptual images with approved photos of the actual facility and products. Phone, email and detailed production facts remain unset; the sample career is unpublished.
 
@@ -13,6 +13,16 @@ A statically generated company website with editable pages, products, news and c
 3. Open [Pages CMS](https://app.pagescms.org), sign in with GitHub, and select the repository and branch used by Cloudflare Pages.
 4. Update **Company Settings** first: name, description, logo, contact details, social links and SEO text. Then update **Home**, **About**, **Factory**, and **Contact**.
 5. Save an edit. Pages CMS commits the content to GitHub; Cloudflare Pages rebuilds the site automatically. Wait for deployment before checking the public site.
+
+### Language and theme
+
+The English site is at `/`; Khmer pages are at `/kh`. Visitors can switch languages in the header, and the corresponding page is kept when both versions exist. A dark mode control is also in the header. It remembers each visitor's choice in their browser and follows their device preference until they choose a mode.
+
+Pages CMS shows separate **English · ...** and **ភាសាខ្មែរ · ...** entries for each page and collection. Change and save each language separately. **English · Interface text** and **ភាសាខ្មែរ · Interface text** control navigation, buttons, list-page headlines, empty states and the management guide. When adding a product, news story or vacancy, create an entry with the **same slug** in both language collections; fill out and publish each version after review. A missing or unpublished translation is not linked from its language listing, so review the language switch for that item before publishing it in either language.
+
+**English · Company Settings** owns the logo, phone, email, application email, social URLs and social preview image shared by both languages. Each language has its own company display name, description, address, hours, footer text and SEO text. Khmer company settings intentionally inherit the shared endpoints from English.
+
+The `/manage` page is a public editing guide. Actual editing requires access to the connected GitHub repository through Pages CMS. A local ZIP alone does not provide a working admin login or live content updates.
 
 ### Editing pages and images
 
@@ -37,9 +47,9 @@ Every saved CMS change creates a GitHub commit. The repository owner can inspect
 - Node.js 20.3 or later; Node 22 LTS is recommended for Cloudflare Pages.
 - `src/pages/` contains routes and detail page generators.
 - `src/components/` contains shared markup; `src/layouts/` contains page layouts.
-- `src/data/*.json` contains single-page content; `src/data/site.yml` contains shared company settings.
-- `src/content/{products,news,careers}/*.md` contains frontmatter and body text, validated by `src/content.config.ts`.
-- `.pages.yml` models the editor interface and media paths.
+- `src/data/*.json` and `src/data/kh/*.json` contain English and Khmer page content; their `site.yml` files contain language-specific settings.
+- `src/content/{products,news,careers}/*.md` and `src/content/kh/{products,news,careers}/*.md` contain language-specific entries, validated by `src/content.config.ts`.
+- `.pages.yml` models both language versions, interface text and media paths. Keep the two language schemas aligned.
 - `public/uploads/` contains CMS uploaded images; the generated WebP assets are illustrative; the checked-in SVG is a fallback placeholder.
 - `src/assets/css/` contains the shared design system and component styles.
 

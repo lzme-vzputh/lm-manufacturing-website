@@ -1,4 +1,4 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';import {contentFor,language,pathFor} from '../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;
 ---
-<BaseLayout title="Page not found" description="This page could not be found."><section class="section"><div class="container"><p class="eyebrow">404 · PAGE NOT FOUND</p><h1>That page isn’t here.</h1><p class="lead">The address may have changed. Find what you need from our homepage.</p><a class="button button-primary" href="/">Back to home</a></div></section></BaseLayout>
+<BaseLayout title={ui.notFound.headline} description={ui.notFound.description}><section class="section"><div class="container"><p class="eyebrow">{ui.notFound.eyebrow}</p><h1>{ui.notFound.headline}</h1><p class="lead">{ui.notFound.description}</p><a class="button button-primary" href={pathFor('/',lang)}>{ui.actions.backHome}</a></div></section></BaseLayout>

@@ -1,6 +1,6 @@
 ---
-import type {CollectionEntry} from 'astro:content';
-interface Props {article:CollectionEntry<'news'>}
+import type {CollectionEntry} from 'astro:content';import {language,pathFor,contentFor} from '../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;
+interface Props {article:CollectionEntry<'news'|'newsKh'>}
 const {article}=Astro.props;
 ---
-<article class="card news-card"><a href={`/news/${article.data.slug}`}><img src={article.data.coverImage} alt={article.data.coverImageAlt} width="700" height="520" loading="lazy"/><div class="card-body"><time datetime={article.data.publishDate.toISOString()}>{article.data.publishDate.toLocaleDateString('en-US',{day:'numeric',month:'long',year:'numeric'})}</time><h3>{article.data.title}</h3><p>{article.data.summary}</p><span class="text-link">Read story <span aria-hidden="true">↗</span></span></div></a></article>
+<article class="card news-card"><a href={pathFor(`/news/${article.data.slug}`,lang)}><img src={article.data.coverImage} alt={article.data.coverImageAlt} width="700" height="520" loading="lazy"/><div class="card-body"><time datetime={article.data.publishDate.toISOString()}>{article.data.publishDate.toLocaleDateString(lang==='kh'?'km-KH':'en-US',{day:'numeric',month:'long',year:'numeric'})}</time><h3>{article.data.title}</h3><p>{article.data.summary}</p><span class="text-link">{ui.actions.readStory} <span aria-hidden="true">↗</span></span></div></a></article>
