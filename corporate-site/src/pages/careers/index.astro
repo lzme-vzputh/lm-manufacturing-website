@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';import Hero from '../../components/Hero.astro';import {getCollection} from 'astro:content';import {publicEntries,byNewest,language,contentFor,pathFor} from '../../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;const jobs=publicEntries(await getCollection(lang==='kh'?'careersKh':'careers')).sort(byNewest);
+---
+<BaseLayout title={ui.nav.careers} description={ui.listings.careers.seoDescription}><Hero {...ui.listings.careers}/><section class="section"><div class="container"><h2>{ui.headings.openPositions}</h2>{jobs.length?<ul class="content-list">{jobs.map(job=><li><a href={pathFor(`/careers/${job.data.slug}`,lang)}><div><h3>{job.data.title}</h3><p>{job.data.department} · {job.data.location} · {job.data.employmentType}</p></div><span aria-hidden="true">↗</span></a></li>)}</ul>:<p class="notice">{ui.empty.jobs}</p>}</div></section></BaseLayout>

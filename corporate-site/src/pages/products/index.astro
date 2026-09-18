@@ -1,0 +1,8 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';import Hero from '../../components/Hero.astro';import ProductCard from '../../components/ProductCard.astro';import {getCollection} from 'astro:content';import {publicEntries,language,contentFor,pathFor} from '../../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;
+const products=publicEntries(await getCollection(lang==='kh'?'productsKh':'products')).sort((a,b)=>a.data.displayOrder-b.data.displayOrder);const categories=[...new Set(products.map(p=>p.data.category))];
+---
+<BaseLayout title={ui.nav.products} description={ui.listings.products.seoDescription}><Hero {...ui.listings.products}/><section class="section"><div class="container">{categories.length>1 && <div class="filters" role="group" aria-label="Filter products by category"><button type="button" data-category="all" aria-pressed="true">{ui.actions.allProducts}</button>{categories.map(category=><button type="button" data-category={category} aria-pressed="false">{category}</button>)}</div>}{products.length?<div class="grid-3 product-grid">{products.map(product=><div data-product-category={product.data.category}><ProductCard {product}/></div>)}</div>:<p>{ui.empty.products}</p>}</div></section></BaseLayout>
+<script>
+const buttons=document.querySelectorAll<HTMLButtonElement>('[data-category]');const cards=document.querySelectorAll<HTMLElement>('[data-product-category]');buttons.forEach(button=>button.addEventListener('click',()=>{const selected=button.dataset.category;buttons.forEach(b=>b.setAttribute('aria-pressed',String(b===button)));cards.forEach(card=>{card.hidden=selected!=='all'&&card.dataset.productCategory!==selected;});}));
+</script>

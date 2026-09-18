@@ -1,0 +1,6 @@
+---
+import {language,contentFor,pathFor} from '../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;
+interface Props {items:{label:string;url?:string}[]}
+const {items}=Astro.props;
+---
+<nav class="breadcrumb container" aria-label="Breadcrumb"><ol><li><a href={pathFor('/',lang)}>{ui.nav.home}</a></li>{items.map(item=><li>{item.url?<a href={pathFor(item.url,lang)}>{item.label}</a>:<span aria-current="page">{item.label}</span>}</li>)}</ol></nav>

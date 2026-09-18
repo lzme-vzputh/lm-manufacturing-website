@@ -1,0 +1,6 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';import {getCollection,render} from 'astro:content';import {publicEntries,language,contentFor,pathFor} from '../../lib/content';
+export async function getStaticPaths(){return publicEntries(await getCollection('products')).map(product=>({params:{slug:product.data.slug},props:{product}}));}
+const lang=language(Astro.url),ui=contentFor(lang).ui;const {product}=Astro.props;const {Content}=await render(product);
+---
+<ArticleLayout title={product.data.title} description={product.data.shortDescription} image={product.data.mainImage} section={ui.nav.products} sectionUrl="/products"><img class="article-cover" src={product.data.mainImage} alt={product.data.mainImageAlt} width="1000" height="650"/><div class="prose"><Content/></div>{product.data.specifications.length>0 && <dl class="detail-list">{product.data.specifications.map(spec=><><dt>{spec.label}</dt><dd>{spec.value}</dd></>)}</dl>}{product.data.gallery.length>0 && <div class="gallery detail-gallery">{product.data.gallery.map(item=><img src={item.image} alt={item.alt} width="600" height="450" loading="lazy"/>)}</div>}</ArticleLayout>

@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "eyebrow": "CONTACT LM MANUFACTURING",
+    "headline": "Let’s get in touch",
+    "description": "Reach our team for company information, product inquiries or business conversations.",
+    "image": "/uploads/factory/production-line.webp",
+    "imageAlt": "Illustrative food manufacturing scene, not the company’s actual premises"
+  },
+  "mapEmbedUrl": "",
+  "ctaTitle": "We welcome your inquiry",
+  "ctaText": "Our confirmed phone number and email address will appear here when the company approves them. For now, please use the contact method shared directly by our team."
+}

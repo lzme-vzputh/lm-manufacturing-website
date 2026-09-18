@@ -1,0 +1,41 @@
+{
+  "hero": {
+    "eyebrow": "OUR FACTORY",
+    "headline": "The work behind the product",
+    "description": "An introduction to the spaces and practices that support instant noodle manufacturing.",
+    "image": "/uploads/home/production-hero.webp",
+    "imageAlt": "Illustrative image of noodle production; not the LM Manufacturing factory"
+  },
+  "introTitle": "Production starts with preparation",
+  "introText": "Our Kampong Speu site includes office, factory, warehouse and accommodation areas. This page introduces their roles at a high level. The images are AI-created illustrations of noodle manufacturing, not photographs or evidence of equipment installed at our site.",
+  "facilities": [
+    {
+      "title": "Factory",
+      "text": "The main space for manufacturing operations and day-to-day production work."
+    },
+    {
+      "title": "Warehouse",
+      "text": "A dedicated area for organizing materials and finished products."
+    },
+    {
+      "title": "Office and support areas",
+      "text": "Spaces where teams coordinate the work that keeps operations moving."
+    }
+  ],
+  "capabilitiesTitle": "Our capabilities",
+  "capabilitiesText": "We are developing instant noodle manufacturing operations. Verified production capacity, equipment lists and product specifications will be published after company review.",
+  "qualityTitle": "Attention to product quality",
+  "qualityText": "Clear procedures and careful daily work are part of our approach. Any formal quality standards or certifications will be listed here only after they are confirmed.",
+  "safetyTitle": "People and workplace",
+  "safetyText": "We want practical, responsible work practices that support the teams operating and maintaining the site.",
+  "gallery": [
+    {
+      "image": "/uploads/factory/production-line.webp",
+      "alt": "Illustrative image of an instant noodle production line, not the company’s actual equipment"
+    },
+    {
+      "image": "/uploads/home/production-hero.webp",
+      "alt": "Illustrative image of noodles on a factory line, not the company’s actual facility"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "hero": {
+    "eyebrow": "ABOUT LM MANUFACTURING",
+    "headline": "A new manufacturing company with a clear direction",
+    "description": "Get to know the company behind our instant noodle manufacturing work in Kampong Speu.",
+    "image": "/uploads/factory/production-line.webp",
+    "imageAlt": "Illustrative noodle production facility image; not the company’s actual factory"
+  },
+  "overviewTitle": "Who we are",
+  "overviewText": "LM MANUFACTURING CO., LTD. is an instant noodle manufacturing company based in Kampong Speu, Cambodia. Our company is developing its operations and building the systems, team and relationships that support long-term work.",
+  "storyTitle": "Our story",
+  "storyText": "We are at an early stage. Rather than claim a long history, we want this space to reflect our progress as it happens. We will add dated milestones, actual factory photographs and product information when the company has confirmed them.",
+  "image": "/uploads/home/production-hero.webp",
+  "imageAlt": "Illustrative instant noodle production line; actual company photographs pending",
+  "mission": "To make convenient food products through coordinated work, responsible decision-making and attention to consistent production.",
+  "vision": "To grow into a dependable manufacturing partner for the people and businesses we serve.",
+  "values": [
+    {
+      "title": "Responsibility",
+      "text": "We take ownership of our work and communicate clearly."
+    },
+    {
+      "title": "Care",
+      "text": "We pay attention to people, products and the details that matter."
+    },
+    {
+      "title": "Progress",
+      "text": "We learn from daily work and improve our processes over time."
+    }
+  ],
+  "milestones": [
+    {
+      "year": "2026",
+      "event": "LM MANUFACTURING CO., LTD. begins developing its manufacturing operations in Kampong Speu."
+    }
+  ],
+  "ctaTitle": "Interested in working with us?"
+}
