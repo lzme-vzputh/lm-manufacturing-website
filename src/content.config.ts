@@ -8,7 +8,8 @@ const newsSchema = z.object({title:z.string().min(1),slug:z.string().regex(/^[a-
 const news = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/news'}),schema:newsSchema});
 const careersSchema = z.object({title:z.string().min(1),slug:z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),department:z.string().min(1),location:z.string().min(1),employmentType:z.string().min(1),summary:z.string().min(1),responsibilities:z.array(z.string()).min(1),requirements:z.array(z.string()).min(1),publishDate:z.coerce.date(),closingDate:z.coerce.date().optional(),published:z.boolean()});
 const careers = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/careers'}),schema:careersSchema});
-const productKh = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/kh/products'}),schema:productSchema});
-const newsKh = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/kh/news'}),schema:newsSchema});
-const careersKh = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/kh/careers'}),schema:careersSchema});
+// Shared media, ordering and dates are read from the English entry with the same slug.
+const productKh = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/kh/products'}),schema:productSchema.extend({mainImage:media.optional(),gallery:z.array(z.object({image:media.optional(),alt:z.string().min(1)})).default([]),featured:z.boolean().optional(),displayOrder:z.number().int().nonnegative().optional()})});
+const newsKh = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/kh/news'}),schema:newsSchema.extend({publishDate:z.coerce.date().optional(),coverImage:media.optional(),featured:z.boolean().optional()})});
+const careersKh = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/kh/careers'}),schema:careersSchema.extend({publishDate:z.coerce.date().optional(),closingDate:z.coerce.date().optional()})});
 export const collections = {products:product,news,careers,productsKh:productKh,newsKh,careersKh};

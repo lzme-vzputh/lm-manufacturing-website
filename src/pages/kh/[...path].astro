@@ -1,11 +1,11 @@
 ---
 import Home from '../index.astro';import About from '../about.astro';import Factory from '../factory.astro';import Contact from '../contact.astro';import Manage from '../manage.astro';import Products from '../products/index.astro';import News from '../news/index.astro';import Careers from '../careers/index.astro';
 import Product from '../products/[slug].astro';import Story from '../news/[slug].astro';import Career from '../careers/[slug].astro';
-import {getCollection} from 'astro:content';import {publicEntries} from '../../lib/content';
+import {productsFor,newsFor,careersFor} from '../../lib/content';
 export async function getStaticPaths(){
  const routes=['','about','factory','contact','manage','products','news','careers'].map(path=>({params:{path:path||undefined}}));
- for(const [segment,collection] of [['products','productsKh'],['news','newsKh'],['careers','careersKh']] as const){
-  for(const entry of publicEntries(await getCollection(collection))) routes.push({params:{path:`${segment}/${entry.data.slug}`},props:{entry}} as any);
+ for(const [segment,entries] of [['products',await productsFor('kh')],['news',await newsFor('kh')],['careers',await careersFor('kh')] ] as const){
+  for(const entry of entries) if(entry.data.published) routes.push({params:{path:`${segment}/${entry.data.slug}`},props:{entry}} as any);
  }
  return routes;
 }

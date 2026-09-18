@@ -2,7 +2,7 @@
 
 A statically generated bilingual company website with editable pages, products, news and careers. Astro builds the public pages; Pages CMS edits repository content through GitHub. There is no visitor login, server, or database.
 
-> The site now contains drafted company copy and AI-created illustrative imagery. Confirm every statement, product and news item with management before public launch. Replace the conceptual images with approved photos of the actual facility and products. Phone, email and detailed production facts remain unset; the sample career is unpublished.
+> The site contains drafted company copy and illustrative imagery. Confirm every statement, product and news item with management before public launch. Replace conceptual images with approved photos of the actual facility and products.
 
 ## For website administrators
 
@@ -18,15 +18,19 @@ A statically generated bilingual company website with editable pages, products, 
 
 The English site is at `/`; Khmer pages are at `/kh`. Visitors can switch languages in the header, and the corresponding page is kept when both versions exist. A dark mode control is also in the header. It remembers each visitor's choice in their browser and follows their device preference until they choose a mode.
 
-Pages CMS has separate **English** and **ភាសាខ្មែរ** menus. Each contains Home, About, Factory, Products, News, Careers, Contact, Company Settings and Interface text. Change and save each language separately. **English · Interface text** and **ភាសាខ្មែរ · Interface text** control navigation, buttons, list-page headlines, empty states and the management guide. When adding a product, news story or vacancy, create an entry with the **same slug** in both language collections; fill out and publish each version after review. A missing or unpublished translation is not linked from its language listing, so review the language switch for that item before publishing it in either language.
+Pages CMS has separate **English + shared images and links** and **ភាសាខ្មែរ · អត្ថបទ** menus. Each contains Home, About, Factory, Products, News, Careers, Contact, Company Settings and Interface text. Edit common images, destinations, dates and company contact details once under English; edit Khmer wording under Khmer. Each language has its own image descriptions and publication switch. When adding a product, news story or vacancy, create an English entry first, then a Khmer entry with the **same slug**. A missing or unpublished translation is omitted from Khmer listings. An unpublished English entry stays hidden in both languages.
 
-Each language has its own editable Company Settings, including logo, phone, email, application email, social links, company description, address, hours, footer and SEO. For common factual details such as phone and address, update both versions to keep them accurate. The two languages can use different images and links if desired.
+English Company Settings owns the logo, phone, email, application email, social links and default SEO image for both languages. English and Khmer each own their company name, description, address, hours, footer and SEO wording. The English Contact page owns the Google Maps embed URL for both languages.
+
+The Contact page displays LinkedIn, Telegram and YouTube icons even while their URLs are empty. Enter verified company URLs once in **English + shared images and links → Company Settings → Social** to make the icons clickable in both languages. Facebook appears after its URL is entered. External URLs must use HTTPS and match the named service.
 
 The `/manage` page is a public editing guide. Actual editing requires access to the connected GitHub repository through Pages CMS. A local ZIP alone does not provide a working admin login or live content updates.
 
 ### Editing pages and images
 
-Choose a page in the CMS sidebar, edit a field, and save. Image fields let you upload JPG, JPEG, PNG or WebP images to `public/uploads/`. Replace illustrative images with approved photographs. Write alt text describing the actual image, unless the image is purely decorative. Prefer compressed WebP or JPEG photographs and avoid very large uploads. The logo allows SVG as well as raster images. Do not delete an image that still appears on a page.
+Choose a page in the CMS sidebar, edit a field, and save. Image fields accept JPG, JPEG, PNG, WebP and AVIF in `public/uploads/`; logos also accept SVG. You do not need to rename a file before upload: Pages CMS safely adjusts its filename. After saving, a GitHub workflow converts JPG, JPEG, PNG and AVIF files to WebP and updates their paths in page content. Already uploaded WebP and SVG files stay in their format. Give the workflow time to finish before checking the final image URL. Replace illustrative images with approved photographs. Write alt text describing the actual image, unless the image is purely decorative. Do not delete an image that still appears on a page.
+
+Upload each shared image through its **English** page or collection entry. The Khmer page uses that image automatically and has its own editable image description. For galleries, Khmer image descriptions follow the same order as the English gallery; add or reorder images in English first, then review Khmer descriptions.
 
 ### Products
 
@@ -49,9 +53,10 @@ Every saved CMS change creates a GitHub commit. The repository owner can inspect
 - `src/components/` contains shared markup; `src/layouts/` contains page layouts.
 - `src/data/*.json` and `src/data/kh/*.json` contain English and Khmer page content; their `site.yml` files contain language-specific settings.
 - `src/content/{products,news,careers}/*.md` and `src/content/kh/{products,news,careers}/*.md` contain language-specific entries, validated by `src/content.config.ts`.
-- `.pages.yml` models both language versions, interface text and media paths. Keep the two language schemas aligned.
+- `.pages.yml` models English shared values and separate Khmer text. `src/lib/content.ts` combines them for the Khmer site by page and by collection slug.
 - `public/uploads/` contains CMS uploaded images; the generated WebP assets are illustrative; the checked-in SVG is a fallback placeholder.
 - `src/assets/css/` contains the shared design system and component styles.
+- `.github/workflows/normalize-images.yml` runs after image uploads, and `scripts/normalize-images.mjs` converts images and updates references. The workflow requires GitHub Actions enabled and `contents: write` permission on the repository.
 
 Run `npm install`, `npm run dev` for local development, `npm run check` for content/type validation, and `npm run build` for a production build in `dist/`. Visit the local pages, including detail URLs, on desktop and mobile. Content changes require another build. Avoid renaming a published slug without planning redirects from its previous URL.
 

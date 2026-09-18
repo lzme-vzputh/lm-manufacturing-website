@@ -3,12 +3,9 @@ title: មីកញ្ចប់
 slug: instant-noodles
 category: មីកញ្ចប់
 shortDescription: ផលិតផលមីកញ្ចប់សម្រាប់អាហារងាយស្រួលប្រចាំថ្ងៃ។ ព័ត៌មានប្រភេទ និងលក្ខណៈបច្ចេកទេសនឹងបន្ថែមនៅពេលបញ្ជាក់។
-mainImage: /uploads/products/instant-noodles.webp
 mainImageAlt: រូបភាពគំនូរបង្ហាញមី និងកញ្ចប់គ្មានម៉ាក មិនមែនជារូបថតផលិតផលពិតរបស់ក្រុមហ៊ុនទេ
 gallery: []
-featured: true
 published: true
-displayOrder: 1
 specifications: []
 ---
 ## អំពីផលិតផល

@@ -1,12 +1,9 @@
 ---
 title: ណែនាំក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង
 slug: introducing-lm-manufacturing
-publishDate: 2026-09-15
 summary: ស្វែងយល់ពីក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ។
-coverImage: /uploads/factory/production-line.webp
 coverImageAlt: រូបភាពគំនូរបង្ហាញការផលិតមី មិនមែនជារោងចក្រពិតរបស់ក្រុមហ៊ុនទេ
 published: true
-featured: true
 seoTitle: ណែនាំក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង
 seoDescription: ស្វែងយល់អំពីក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា។
 ---

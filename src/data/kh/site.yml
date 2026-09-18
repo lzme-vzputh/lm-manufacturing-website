@@ -1,5 +1,4 @@
 companyName: ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង
-logo: /uploads/lmlogo3d.png
 description: ក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា។
 contact:
   address: ខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា
@@ -8,6 +7,5 @@ footer:
   copyright: ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង រក្សាសិទ្ធិគ្រប់យ៉ាង។
 seo:
   defaultTitle: ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង
-  titleTemplate: "%s | ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង"
+  titleTemplate: '%s | ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង'
   defaultDescription: ស្វែងយល់អំពីក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា។
-  defaultImage: /uploads/home/production-hero.webp
