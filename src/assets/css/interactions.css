@@ -1,0 +1,67 @@
+/* Lightweight interaction feedback shared by English and Khmer pages. */
+:root{--motion-fast:160ms;--motion-normal:240ms;--ease-out:cubic-bezier(.22,1,.36,1)}
+html{scroll-padding-top:5.7rem}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.site-header{position:sticky;top:0;z-index:50;box-shadow:0 1px 0 var(--line)}
+.site-header.is-scrolled{box-shadow:0 10px 26px rgba(9,24,31,.14)}
+body,.site-header,.navigation,.card,.stat,.management-card,.detail-list,.notice,.filters button,.language-switch,.theme-toggle{transition:background-color var(--motion-normal) ease,color var(--motion-normal) ease,border-color var(--motion-normal) ease,box-shadow var(--motion-normal) ease}
+a,button{ -webkit-tap-highlight-color:transparent }
+
+/* Keep the current page visibly selected, with a moving underline on hover. */
+.navigation a{position:relative;display:inline-flex;align-items:center;border-bottom:0!important;transition:color var(--motion-fast) ease}
+.navigation a::after{content:"";position:absolute;bottom:.2rem;left:0;right:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:left;transition:transform var(--motion-normal) var(--ease-out)}
+.navigation a[aria-current="page"]::after{transform:scaleX(1)}
+.navigation a[aria-current="page"]{font-weight:750}
+
+/* Buttons and controls give immediate pressed feedback. */
+.button,.filters button,.language-switch,.theme-toggle,.nav-toggle,.social-links a{transition:transform var(--motion-fast) var(--ease-out),background-color var(--motion-fast) ease,color var(--motion-fast) ease,border-color var(--motion-fast) ease,box-shadow var(--motion-fast) ease}
+.button:active,.filters button:active,.language-switch:active,.theme-toggle:active,.nav-toggle:active,.social-links a:active{transform:scale(.96)}
+.button-primary:hover,.button-primary:focus-visible{box-shadow:0 10px 24px rgba(245,179,74,.25)}
+.button-outline:hover,.button-outline:focus-visible{background:var(--ink);color:var(--paper)}
+.button-light:hover,.button-light:focus-visible{background:rgba(255,255,255,.16);border-color:white}
+.filters button{font-weight:650;border-radius:999px}
+.filters button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink);box-shadow:0 4px 12px rgba(0,0,0,.12)}
+.theme-toggle[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--dark)}
+.theme-toggle span{display:inline-block;transition:transform var(--motion-normal) var(--ease-out)}
+.theme-toggle[aria-pressed="true"] span{transform:rotate(180deg)}
+.nav-toggle span{transition:transform var(--motion-normal) var(--ease-out),opacity var(--motion-fast) ease,background-color var(--motion-fast) ease}
+.nav-toggle[aria-expanded="true"] span:first-child{transform:translateY(7px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:last-child{transform:translateY(-7px) rotate(-45deg)}
+
+/* Cards respond to both pointer hover and keyboard focus. */
+.card{overflow:hidden;transition:transform var(--motion-normal) var(--ease-out),box-shadow var(--motion-normal) ease,border-color var(--motion-normal) ease,background-color var(--motion-normal) ease}
+.card img{transition:transform 460ms var(--ease-out)}
+.card a:active{background:var(--mist)}
+.card .text-link span{display:inline-block;transition:transform var(--motion-normal) var(--ease-out)}
+.content-list li{transition:background-color var(--motion-fast) ease,padding-inline var(--motion-normal) var(--ease-out)}
+.social-links a{box-shadow:0 0 0 0 rgba(245,179,74,0)}
+.social-links a:active{box-shadow:0 0 0 4px rgba(245,179,74,.25)}
+.gallery img{transition:transform var(--motion-normal) var(--ease-out),box-shadow var(--motion-normal) ease}
+
+@media (hover:hover) and (pointer:fine){
+  .navigation a:hover::after{transform:scaleX(1)}
+  .navigation a:hover,.language-switch:hover,.theme-toggle:hover{color:var(--link)}
+  .brand:hover img{transform:rotate(-5deg) scale(1.04)}
+  .brand img{transition:transform var(--motion-normal) var(--ease-out)}
+  .button:hover{transform:translateY(-3px);text-decoration:none}
+  .button:active{transform:translateY(0) scale(.97)}
+  .filters button:not([aria-pressed="true"]):hover,.language-switch:hover,.theme-toggle:hover{border-color:var(--accent);background:var(--mist)}
+  .card:hover,.card:focus-within{transform:translateY(-5px);box-shadow:0 20px 38px rgba(16,38,48,.16);border-color:var(--accent)}
+  .card:hover img,.card:focus-within img{transform:scale(1.035)}
+  .card:hover .text-link span,.card:focus-within .text-link span{transform:translate(3px,-3px)}
+  .content-list li:hover,.content-list li:focus-within{background:var(--mist);padding-inline:.6rem}
+  .gallery img:hover{transform:scale(1.015);box-shadow:var(--shadow)}
+}
+
+@media (max-width:1050px){
+  .navigation.is-open{animation:menu-open var(--motion-normal) var(--ease-out) both}
+  .navigation a{display:block}
+  .navigation a::after{bottom:.45rem;right:auto;width:2rem}
+}
+@keyframes menu-open{from{opacity:0;transform:translateY(-9px)}to{opacity:1;transform:translateY(0)}}
+
+@media (prefers-reduced-motion:reduce){
+  body,.site-header,.navigation,.card,.card img,.stat,.management-card,.detail-list,.notice,.filters button,.language-switch,.theme-toggle,.button,.nav-toggle,.nav-toggle span,.social-links a,.gallery img,.content-list li,.navigation a,.navigation a::after{transition:none!important;animation:none!important}
+  .card:hover,.card:focus-within,.card:hover img,.card:focus-within img,.button:hover,.gallery img:hover,.brand:hover img{transform:none!important}
+}

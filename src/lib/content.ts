@@ -28,7 +28,7 @@ const factoryShared = {
 const contactShared = {...contactKh, hero: {...contactKh.hero, image: contactEn.hero.image}, mapEmbedUrl: contactEn.mapEmbedUrl};
 const uiShared = {...uiKh, manageSections: uiKh.manageSections.map((section, index) => ({...section, path: uiEn.manageSections[index]?.path || '/'}))};
 export const contentFor = (lang: Lang) => ({home:lang==='kh'?homeShared:homeEn,about:lang==='kh'?aboutShared:aboutEn,factory:lang==='kh'?factoryShared:factoryEn,contact:lang==='kh'?contactShared:contactEn,ui:lang==='kh'?uiShared:uiEn});
-type Site = {companyName:string;logo:string;description:string;contact:{phone:string;email:string;address:string;businessHours:string;applicationEmail:string};social:Record<string,string>;footer:{copyright:string};seo:{defaultTitle:string;titleTemplate:string;defaultDescription:string;defaultImage:string}};
+type Site = {companyName:string;logo:string;fontUrl?:string;fontKhUrl?:string;description:string;contact:{phone:string;email:string;address:string;businessHours:string;applicationEmail:string};social:Record<string,string>;footer:{copyright:string};seo:{defaultTitle:string;titleTemplate:string;defaultDescription:string;defaultImage:string}};
 export const siteFor = (lang: Lang):Site => {
   const en = parse(siteEnSource) as Site;
   if (lang === 'en') return en;

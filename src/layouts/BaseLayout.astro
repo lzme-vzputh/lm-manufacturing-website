@@ -1,10 +1,15 @@
 ---
-import {language, contentFor} from '../lib/content';
+import {language, contentFor, siteFor} from '../lib/content';
 import SeoHead from '../components/SeoHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import '../assets/css/reset.css';import '../assets/css/variables.css';import '../assets/css/global.css';import '../assets/css/typography.css';import '../assets/css/layout.css';import '../assets/css/components.css';
+import '../assets/css/reset.css';import '../assets/css/variables.css';import '../assets/css/global.css';import '../assets/css/typography.css';import '../assets/css/layout.css';import '../assets/css/components.css';import '../assets/css/interactions.css';
 interface Props {title?:string;description?:string;image?:string;type?:string;published?:string}
 const props=Astro.props;const lang=language(Astro.url);const ui=contentFor(lang).ui;
+const settings=siteFor('en');
+const uploadedFont=lang==='kh'?settings.fontKhUrl:settings.fontUrl;
+// CMS filenames are normalized; only local .ttf files can enter CSS.
+const fontPath=uploadedFont && /^\/uploads\/fonts\/[A-Za-z0-9_./%-]+\.ttf$/i.test(uploadedFont) && !uploadedFont.includes('..') ? uploadedFont : undefined;
+const customFontCss=fontPath?`@font-face{font-family:"LM Uploaded Font";src:url("${fontPath}") format("truetype");font-display:swap}html[data-custom-font][lang="en"]{--font:"LM Uploaded Font",Inter,ui-sans-serif,system-ui,sans-serif}html[data-custom-font][lang="kh"]{--font:"LM Uploaded Font","Noto Sans Khmer","Khmer OS",system-ui,sans-serif}`:'';
 ---
-<!doctype html><html lang={lang}><head><script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem("lm-theme")|| (matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#162d39"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><SeoHead {...props}/></head><body><a class="skip-link" href="#main">{ui.headings.skip}</a><Header/><main id="main"><slot/></main><Footer/></body></html>
+<!doctype html><html lang={lang} data-custom-font={fontPath?'true':undefined}><head><script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem("lm-theme")|| (matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content="#162d39"/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/>{fontPath && <style is:inline set:html={customFontCss} />}<SeoHead {...props}/></head><body><a class="skip-link" href="#main">{ui.headings.skip}</a><Header/><main id="main"><slot/></main><Footer/></body></html>

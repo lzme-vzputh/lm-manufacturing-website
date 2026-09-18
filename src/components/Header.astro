@@ -9,4 +9,8 @@ const themeButton=document.querySelector<HTMLButtonElement>('.theme-toggle');con
 const toggle=document.querySelector<HTMLButtonElement>('.nav-toggle');
 const nav=document.querySelector<HTMLElement>('#primary-navigation');
 if(toggle && nav){toggle.addEventListener('click',()=>{const opened=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!opened));toggle.setAttribute('aria-label',opened?'Open menu':'Close menu');nav.classList.toggle('is-open',!opened);});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open');}));}
+const header=document.querySelector<HTMLElement>('.site-header');
+const syncHeader=()=>header?.classList.toggle('is-scrolled',window.scrollY>8);
+syncHeader();window.addEventListener('scroll',syncHeader,{passive:true});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&toggle?.getAttribute('aria-expanded')==='true'){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open menu');nav?.classList.remove('is-open');toggle.focus();}});
 </script>
