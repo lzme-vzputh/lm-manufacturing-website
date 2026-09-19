@@ -11,10 +11,10 @@
     let currentY = targetY;
     let frame = 0;
     const paint = () => {
-      currentX += (targetX - currentX) * .16;
-      currentY += (targetY - currentY) * .16;
-      aura.style.transform = `translate3d(${currentX}px,${currentY}px,0)`;
-      if (Math.abs(targetX - currentX) > .15 || Math.abs(targetY - currentY) > .15) {
+      currentX += (targetX - currentX) * .12;
+      currentY += (targetY - currentY) * .12;
+      aura.style.transform = `translate3d(${currentX}px,${currentY}px,0) rotate(-7deg)`;
+      if (Math.abs(targetX - currentX) > .1 || Math.abs(targetY - currentY) > .1) {
         frame = requestAnimationFrame(paint);
       } else {
         currentX = targetX;
@@ -34,7 +34,14 @@
       const target = event.target;
       aura.classList.toggle('is-active', target instanceof Element && Boolean(target.closest('a,button,.card')));
     });
-    document.documentElement.addEventListener('mouseleave', () => aura.classList.remove('is-visible'));
+    const hideAura = () => {
+      aura.classList.remove('is-visible', 'is-active');
+    };
+    document.documentElement.addEventListener('mouseleave', hideAura);
+    window.addEventListener('blur', hideAura);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) hideAura();
+    });
 
     if (depthCard) {
       depthCard.addEventListener('pointermove', event => {

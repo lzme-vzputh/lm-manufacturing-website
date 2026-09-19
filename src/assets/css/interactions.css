@@ -1,9 +1,9 @@
 /* Lightweight interaction feedback shared by English and Khmer pages. */
 :root{--motion-fast:160ms;--motion-normal:240ms;--ease-out:cubic-bezier(.22,1,.36,1)}
 html{scroll-padding-top:5.7rem}
-.pointer-aura{position:fixed;top:0;left:0;z-index:12;pointer-events:none;width:24rem;height:24rem;margin:-12rem 0 0 -12rem;border-radius:50%;opacity:0;will-change:transform;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 34%,transparent) 0%,color-mix(in srgb,var(--accent) 19%,transparent) 27%,color-mix(in srgb,var(--accent) 7%,transparent) 52%,transparent 73%);filter:blur(8px) saturate(1.18);transform:translate3d(-400px,-400px,0);transition:opacity 260ms ease,filter 260ms ease}
-.pointer-aura.is-visible{opacity:.82}.pointer-aura.is-active{opacity:1;filter:blur(5px) saturate(1.3)}
-:root:not([data-theme="dark"]) .pointer-aura{mix-blend-mode:multiply}:root[data-theme="dark"] .pointer-aura{mix-blend-mode:screen}
+.pointer-aura{position:fixed;top:0;left:0;z-index:12;pointer-events:none;width:38rem;height:31rem;margin:-15.5rem 0 0 -19rem;border-radius:48% 52% 55% 45%;opacity:0;visibility:hidden;will-change:transform,opacity;background:radial-gradient(ellipse at 43% 46%,color-mix(in srgb,var(--accent) 23%,transparent) 0%,color-mix(in srgb,var(--accent) 13%,transparent) 28%,color-mix(in srgb,var(--link) 5%,transparent) 50%,transparent 74%);filter:blur(28px) saturate(1.06);transform:translate3d(-700px,-700px,0) rotate(-7deg);transition:opacity 360ms ease,visibility 0s linear 360ms,filter 280ms ease}
+.pointer-aura.is-visible{opacity:.46;visibility:visible;transition-delay:0s}.pointer-aura.is-active{opacity:.56;filter:blur(25px) saturate(1.1)}
+:root:not([data-theme="dark"]) .pointer-aura{mix-blend-mode:multiply}:root[data-theme="dark"] .pointer-aura{opacity:0;mix-blend-mode:screen}:root[data-theme="dark"] .pointer-aura.is-visible{opacity:.54}:root[data-theme="dark"] .pointer-aura.is-active{opacity:.64}
 .hero-visual{transition:transform 380ms var(--ease-out),box-shadow var(--motion-normal) ease}
 .reveal-item{opacity:0;transform:translateY(22px);transition:opacity 680ms var(--ease-out) var(--reveal-delay,0ms),transform 680ms var(--ease-out) var(--reveal-delay,0ms)}
 .reveal-item.is-revealed{opacity:1;transform:translateY(0)}
@@ -77,5 +77,6 @@ a,button{ -webkit-tap-highlight-color:transparent }
   body,.site-header,.navigation,.card,.card img,.stat,.management-card,.detail-list,.notice,.filters button,.language-switch,.theme-toggle,.button,.nav-toggle,.nav-toggle span,.social-links a,.gallery img,.content-list li,.navigation a{transition:none!important;animation:none!important}
   .card:hover,.card:focus-within,.card:hover img,.card:focus-within img,.button:hover,.gallery img:hover,.brand:hover img{transform:none!important}
   .hero-content>*,.hero-visual,.reveal-item{transition:none!important;animation:none!important}.reveal-item{opacity:1!important;transform:none!important}
+  .pointer-aura{display:none!important}
 }
 @media (hover:none),(pointer:coarse){.pointer-aura{display:none}}
