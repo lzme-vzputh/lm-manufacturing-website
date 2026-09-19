@@ -10,6 +10,7 @@ media:
   - jpeg
   - png
   - webp
+  - avif
 - name: logos
   label: Company logos
   input: public/uploads
@@ -19,9 +20,16 @@ media:
   - svg
   - png
   - webp
+- name: fonts
+  label: Fonts (.ttf)
+  input: public/uploads/fonts
+  output: /uploads/fonts
+  rename: safe
+  extensions:
+  - ttf
 content:
 - name: english
-  label: English
+  label: English + Shared Settings
   type: group
   items:
   - name: home
@@ -403,34 +411,74 @@ content:
     - name: ctaText
       type: text
   - name: settings
-    label: English · Company Settings
+    label: Company Settings · English + Khmer + Shared
     type: file
     path: src/data/site.yml
     fields:
-    - name: companyName
+    - name: companyNameEn
+      label: Company name — English
+      type: string
+    - name: companyNameKh
+      label: Company name — Khmer
       type: string
     - name: logo
+      label: Company logo — shared
       type: image
       options:
         media: logos
         path: public/uploads
         rename: safe
-    - name: description
+    - name: fontUrl
+      label: English font (.ttf) — optional
+      type: file
+      options:
+        media: fonts
+        path: public/uploads/fonts
+        extensions:
+        - ttf
+        rename: safe
+    - name: fontKhUrl
+      label: Khmer font (.ttf) — optional
+      type: file
+      options:
+        media: fonts
+        path: public/uploads/fonts
+        extensions:
+        - ttf
+        rename: safe
+    - name: descriptionEn
+      label: Company description — English
+      type: text
+    - name: descriptionKh
+      label: Company description — Khmer
       type: text
     - name: contact
+      label: Contact details — shared and bilingual
       type: object
       fields:
       - name: phone
+        label: Phone — shared
         type: string
       - name: email
+        label: General email — shared
         type: string
-      - name: address
+      - name: addressEn
+        label: Address — English
         type: text
-      - name: businessHours
+      - name: addressKh
+        label: Address — Khmer
+        type: text
+      - name: businessHoursEn
+        label: Business hours — English
+        type: string
+      - name: businessHoursKh
+        label: Business hours — Khmer
         type: string
       - name: applicationEmail
+        label: Job application email — shared
         type: string
     - name: social
+      label: Social links — shared
       type: object
       fields:
       - name: facebook
@@ -442,25 +490,75 @@ content:
       - name: youtube
         type: string
     - name: footer
+      label: Footer text — bilingual
       type: object
       fields:
-      - name: copyright
+      - name: copyrightEn
+        label: Copyright — English
+        type: string
+      - name: copyrightKh
+        label: Copyright — Khmer
         type: string
     - name: seo
+      label: Search and sharing — bilingual
       type: object
       fields:
-      - name: defaultTitle
+      - name: defaultTitleEn
+        label: Default page title — English
         type: string
-      - name: titleTemplate
+      - name: defaultTitleKh
+        label: Default page title — Khmer
         type: string
-      - name: defaultDescription
+      - name: titleTemplateEn
+        label: Page title format — English (keep %s)
+        type: string
+      - name: titleTemplateKh
+        label: Page title format — Khmer (keep %s)
+        type: string
+      - name: defaultDescriptionEn
+        label: Search description — English
+        type: text
+      - name: defaultDescriptionKh
+        label: Search description — Khmer
         type: text
       - name: defaultImage
+        label: Default sharing image — shared
         type: image
         options:
           media: images
           path: public/uploads/home
           rename: safe
+    - name: appearance
+      label: Website colors — shared
+      type: object
+      fields:
+      - name: accentColor
+        label: Accent color (hex, for example #f5b34a)
+        type: string
+      - name: lightBackground
+        label: Light mode page background
+        type: string
+      - name: lightSurface
+        label: Light mode cards and header
+        type: string
+      - name: lightMuted
+        label: Light mode secondary sections
+        type: string
+      - name: lightText
+        label: Light mode main text
+        type: string
+      - name: darkBackground
+        label: Dark mode page background
+        type: string
+      - name: darkSurface
+        label: Dark mode cards and header
+        type: string
+      - name: darkMuted
+        label: Dark mode secondary sections
+        type: string
+      - name: darkText
+        label: Dark mode main text
+        type: string
   - name: uiEn
     label: English · Interface text
     type: file
@@ -551,6 +649,35 @@ content:
       - name: skip
         type: string
       - name: all
+        type: string
+    - name: accessibility
+      label: System and accessibility labels
+      type: object
+      fields:
+      - name: primaryNavigation
+        type: string
+      - name: openMenu
+        type: string
+      - name: closeMenu
+        type: string
+      - name: switchToEnglish
+        type: string
+      - name: switchToKhmer
+        type: string
+      - name: toggleTheme
+        type: string
+      - name: mapTitle
+        type: string
+      - name: statistics
+        type: string
+      - name: filterProducts
+        type: string
+      - name: filterStatus
+        label: Filter result message (keep {count})
+        type: string
+      - name: socialMedia
+        type: string
+      - name: unavailableSocial
         type: string
     - name: listings
       type: object
@@ -668,7 +795,7 @@ content:
       - name: description
         type: text
 - name: khmer
-  label: ភាសាខ្មែរ
+  label: ភាសាខ្មែរ · Khmer Text Only
   type: group
   items:
   - name: homeKh
@@ -685,21 +812,11 @@ content:
         type: string
       - name: description
         type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/home
-          rename: safe
       - name: imageAlt
         type: string
       - name: primaryLabel
         type: string
-      - name: primaryUrl
-        type: string
       - name: secondaryLabel
-        type: string
-      - name: secondaryUrl
         type: string
     - name: intro
       type: object
@@ -710,12 +827,6 @@ content:
         type: string
       - name: text
         type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/home
-          rename: safe
       - name: imageAlt
         type: string
     - name: statistics
@@ -734,12 +845,6 @@ content:
       type: string
     - name: factoryText
       type: text
-    - name: factoryImage
-      type: image
-      options:
-        media: images
-        path: public/uploads/factory
-        rename: safe
     - name: factoryImageAlt
       type: string
     - name: benefitsHeading
@@ -763,8 +868,6 @@ content:
         type: text
       - name: label
         type: string
-      - name: url
-        type: string
   - name: aboutKh
     label: ភាសាខ្មែរ · អំពីយើង
     type: file
@@ -779,12 +882,6 @@ content:
         type: string
       - name: description
         type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/about
-          rename: safe
       - name: imageAlt
         type: string
     - name: overviewTitle
@@ -795,12 +892,6 @@ content:
       type: text
     - name: storyText
       type: text
-    - name: image
-      type: image
-      options:
-        media: images
-        path: public/uploads/about
-        rename: safe
     - name: imageAlt
       type: string
     - name: mission
@@ -839,12 +930,6 @@ content:
         type: string
       - name: description
         type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/factory
-          rename: safe
       - name: imageAlt
         type: string
     - name: introTitle
@@ -874,12 +959,6 @@ content:
     - name: gallery
       type: object
       fields:
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/factory
-          rename: safe
       - name: alt
         type: string
       list: true
@@ -891,7 +970,7 @@ content:
     view:
       primary: title
       fields:
-      - published
+      - slug
     fields:
     - name: title
       type: string
@@ -901,32 +980,14 @@ content:
       type: string
     - name: shortDescription
       type: text
-    - name: mainImage
-      type: image
-      options:
-        media: images
-        path: public/uploads/products
-        rename: safe
     - name: mainImageAlt
       type: string
     - name: gallery
       type: object
       fields:
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/products
-          rename: safe
       - name: alt
         type: string
       list: true
-    - name: featured
-      type: boolean
-    - name: published
-      type: boolean
-    - name: displayOrder
-      type: number
     - name: specifications
       type: object
       fields:
@@ -949,7 +1010,7 @@ content:
     view:
       primary: title
       fields:
-      - published
+      - slug
     fields:
     - name: title
       type: string
@@ -957,20 +1018,8 @@ content:
       type: string
     - name: summary
       type: text
-    - name: publishDate
-      type: date
-    - name: coverImage
-      type: image
-      options:
-        media: images
-        path: public/uploads/news
-        rename: safe
     - name: coverImageAlt
       type: string
-    - name: published
-      type: boolean
-    - name: featured
-      type: boolean
     - name: seoTitle
       type: string
     - name: seoDescription
@@ -989,7 +1038,7 @@ content:
     view:
       primary: title
       fields:
-      - published
+      - slug
     fields:
     - name: title
       type: string
@@ -1009,12 +1058,6 @@ content:
     - name: requirements
       type: string
       list: true
-    - name: publishDate
-      type: date
-    - name: closingDate
-      type: date
-    - name: published
-      type: boolean
     - name: body
       type: rich-text
       options:
@@ -1035,79 +1078,12 @@ content:
         type: string
       - name: description
         type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/about
-          rename: safe
       - name: imageAlt
         type: string
-    - name: mapEmbedUrl
-      type: string
     - name: ctaTitle
       type: string
     - name: ctaText
       type: text
-  - name: settingsKh
-    label: ភាសាខ្មែរ · ការកំណត់ក្រុមហ៊ុន
-    type: file
-    path: src/data/kh/site.yml
-    fields:
-    - name: companyName
-      type: string
-    - name: logo
-      type: image
-      options:
-        media: logos
-        path: public/uploads
-        rename: safe
-    - name: description
-      type: text
-    - name: contact
-      type: object
-      fields:
-      - name: phone
-        type: string
-      - name: email
-        type: string
-      - name: address
-        type: text
-      - name: businessHours
-        type: string
-      - name: applicationEmail
-        type: string
-    - name: social
-      type: object
-      fields:
-      - name: facebook
-        type: string
-      - name: linkedin
-        type: string
-      - name: telegram
-        type: string
-      - name: youtube
-        type: string
-    - name: footer
-      type: object
-      fields:
-      - name: copyright
-        type: string
-    - name: seo
-      type: object
-      fields:
-      - name: defaultTitle
-        type: string
-      - name: titleTemplate
-        type: string
-      - name: defaultDescription
-        type: text
-      - name: defaultImage
-        type: image
-        options:
-          media: images
-          path: public/uploads/home
-          rename: safe
   - name: uiKh
     label: ភាសាខ្មែរ · អត្ថបទលើគេហទំព័រ
     type: file
@@ -1198,6 +1174,35 @@ content:
       - name: skip
         type: string
       - name: all
+        type: string
+    - name: accessibility
+      label: System and accessibility labels
+      type: object
+      fields:
+      - name: primaryNavigation
+        type: string
+      - name: openMenu
+        type: string
+      - name: closeMenu
+        type: string
+      - name: switchToEnglish
+        type: string
+      - name: switchToKhmer
+        type: string
+      - name: toggleTheme
+        type: string
+      - name: mapTitle
+        type: string
+      - name: statistics
+        type: string
+      - name: filterProducts
+        type: string
+      - name: filterStatus
+        label: Filter result message (keep {count})
+        type: string
+      - name: socialMedia
+        type: string
+      - name: unavailableSocial
         type: string
     - name: listings
       type: object
