@@ -16,26 +16,4 @@ const validColor=(value?:string)=>value && /^#[0-9a-f]{6}$/i.test(value)?value:u
 const colors=settings.appearance||{};
 const themeCss=`:root{${validColor(colors.accentColor)?`--accent:${colors.accentColor};`:''}${validColor(colors.lightBackground)?`--paper:${colors.lightBackground};`:''}${validColor(colors.lightSurface)?`--surface:${colors.lightSurface};`:''}${validColor(colors.lightMuted)?`--mist:${colors.lightMuted};`:''}${validColor(colors.lightText)?`--ink:${colors.lightText};`:''}}:root[data-theme="dark"]{${validColor(colors.accentColor)?`--accent:${colors.accentColor};`:''}${validColor(colors.darkBackground)?`--paper:${colors.darkBackground};`:''}${validColor(colors.darkSurface)?`--surface:${colors.darkSurface};`:''}${validColor(colors.darkMuted)?`--mist:${colors.darkMuted};`:''}${validColor(colors.darkText)?`--ink:${colors.darkText};`:''}}`;
 ---
-<!doctype html><html lang={lang} data-custom-font={fontPath?'true':undefined}><head><script is:inline>try{document.documentElement.dataset.theme=localStorage.getItem("lm-theme")|| (matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){}</script><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content={validColor(colors.lightText)||'#162d39'}/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><style is:inline set:html={themeCss} />{fontPath && <style is:inline set:html={customFontCss} />}<SeoHead {...props}/></head><body><a class="skip-link" href="#main">{ui.headings.skip}</a><div class="pointer-aura" aria-hidden="true"></div><div class="pointer-dot" aria-hidden="true"></div><Header/><main id="main"><slot/></main><Footer/><script>
-const finePointer=window.matchMedia('(hover: hover) and (pointer: fine)');
-const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
-const aura=document.querySelector<HTMLElement>('.pointer-aura');
-const dot=document.querySelector<HTMLElement>('.pointer-dot');
-const depthCard=document.querySelector<HTMLElement>('[data-depth-card]');
-if(finePointer.matches&&!reducedMotion.matches&&aura&&dot){
-  let x=window.innerWidth/2,y=window.innerHeight/2,frame=0;
-  const paint=()=>{aura.style.transform=`translate3d(${x}px,${y}px,0)`;dot.style.transform=`translate3d(${x}px,${y}px,0)`;frame=0};
-  window.addEventListener('pointermove',event=>{x=event.clientX;y=event.clientY;document.body.style.setProperty('--pointer-x',`${x}px`);document.body.style.setProperty('--pointer-y',`${y}px`);aura.classList.add('is-visible');dot.classList.add('is-visible');if(!frame)frame=requestAnimationFrame(paint);},{passive:true});
-  document.addEventListener('pointerover',event=>{const target=event.target as Element;aura.classList.toggle('is-active',Boolean(target.closest('a,button,.card')))});
-  document.documentElement.addEventListener('mouseleave',()=>{aura.classList.remove('is-visible');dot.classList.remove('is-visible')});
-  if(depthCard){
-    depthCard.addEventListener('pointermove',event=>{const rect=depthCard.getBoundingClientRect();const rx=((event.clientY-rect.top)/rect.height-.5)*-3;const ry=((event.clientX-rect.left)/rect.width-.5)*4;depthCard.style.setProperty('--depth-rx',`${rx}deg`);depthCard.style.setProperty('--depth-ry',`${ry}deg`)});
-    depthCard.addEventListener('pointerleave',()=>{depthCard.style.setProperty('--depth-rx','0deg');depthCard.style.setProperty('--depth-ry','0deg')});
-  }
-}
-if(!reducedMotion.matches&&'IntersectionObserver' in window){
-  const items=document.querySelectorAll<HTMLElement>('main .section .container, main .card, main .stat, main .feature-list article, main .content-list li');
-  const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('is-revealed');observer.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -36px'});
-  items.forEach((item,index)=>{item.classList.add('reveal-item');item.style.setProperty('--reveal-delay',`${Math.min(index%4,3)*55}ms`);observer.observe(item)});
-}
-</script></body></html>
+<!doctype html><html lang={lang} data-custom-font={fontPath?'true':undefined}><head><script is:inline src="/scripts/theme-init.js"></script><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content={validColor(colors.lightText)||'#162d39'}/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><style is:inline set:html={themeCss} />{fontPath && <style is:inline set:html={customFontCss} />}<SeoHead {...props}/></head><body><a class="skip-link" href="#main">{ui.headings.skip}</a><div class="pointer-aura" aria-hidden="true"></div><Header/><main id="main"><slot/></main><Footer/><script is:inline src="/scripts/interactions.js"></script></body></html>
