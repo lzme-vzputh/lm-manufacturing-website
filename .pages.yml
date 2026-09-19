@@ -244,8 +244,34 @@ content:
       - name: alt
         type: string
       list: true
+  - name: productsPage
+    label: Products page · HERO CONTROL
+    type: file
+    path: src/data/products-page.json
+    fields:
+    - name: hero
+      label: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/products
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: seoDescription
+      label: SEO description
+      type: text
   - name: products
-    label: Products · MAIN CONTROL + English
+    label: Products items · MAIN CONTROL + English
     type: collection
     path: src/content/products
     filename: '{fields.slug}.md'
@@ -313,8 +339,34 @@ content:
         media: images
         path: public/uploads/products
         rename: safe
+  - name: newsPage
+    label: News page · HERO CONTROL
+    type: file
+    path: src/data/news-page.json
+    fields:
+    - name: hero
+      label: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/news
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: seoDescription
+      label: SEO description
+      type: text
   - name: news
-    label: News · MAIN CONTROL + English
+    label: News items · MAIN CONTROL + English
     type: collection
     path: src/content/news
     filename: '{fields.slug}.md'
@@ -362,8 +414,34 @@ content:
         media: images
         path: public/uploads/news
         rename: safe
+  - name: careersPage
+    label: Careers page · HERO CONTROL
+    type: file
+    path: src/data/careers-page.json
+    fields:
+    - name: hero
+      label: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: image
+        type: image
+        options:
+          media: images
+          path: public/uploads/careers
+          rename: safe
+      - name: imageAlt
+        type: string
+    - name: seoDescription
+      label: SEO description
+      type: text
   - name: careers
-    label: Careers · MAIN CONTROL + English
+    label: Careers items · MAIN CONTROL + English
     type: collection
     path: src/content/careers
     filename: '{fields.slug}.md'
@@ -706,42 +784,6 @@ content:
         type: string
       - name: unavailableSocial
         type: string
-    - name: listings
-      type: object
-      fields:
-      - name: products
-        type: object
-        fields:
-        - name: eyebrow
-          type: string
-        - name: headline
-          type: string
-        - name: description
-          type: text
-        - name: seoDescription
-          type: string
-      - name: news
-        type: object
-        fields:
-        - name: eyebrow
-          type: string
-        - name: headline
-          type: string
-        - name: description
-          type: string
-        - name: seoDescription
-          type: string
-      - name: careers
-        type: object
-        fields:
-        - name: eyebrow
-          type: string
-        - name: headline
-          type: string
-        - name: description
-          type: string
-        - name: seoDescription
-          type: string
     - name: application
       type: object
       fields:
@@ -989,6 +1031,26 @@ content:
       - name: alt
         type: string
       list: true
+  - name: productsPageKh
+    label: ទំព័រផលិតផល · HERO CONTROL
+    type: file
+    path: src/data/kh/products-page.json
+    fields:
+    - name: hero
+      label: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: imageAlt
+        label: ការពិពណ៌នារូបភាពជាភាសាខ្មែរ
+        type: string
+    - name: seoDescription
+      type: text
   - name: productsKh
     label: ផលិតផល · Khmer translation only
     type: collection
@@ -1029,6 +1091,26 @@ content:
         media: images
         path: public/uploads/products
         rename: safe
+  - name: newsPageKh
+    label: ទំព័រព័ត៌មាន · HERO CONTROL
+    type: file
+    path: src/data/kh/news-page.json
+    fields:
+    - name: hero
+      label: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: imageAlt
+        label: ការពិពណ៌នារូបភាពជាភាសាខ្មែរ
+        type: string
+    - name: seoDescription
+      type: text
   - name: newsKh
     label: ព័ត៌មាន · Khmer translation only
     type: collection
@@ -1057,6 +1139,26 @@ content:
         media: images
         path: public/uploads/news
         rename: safe
+  - name: careersPageKh
+    label: ទំព័រឱកាសការងារ · HERO CONTROL
+    type: file
+    path: src/data/kh/careers-page.json
+    fields:
+    - name: hero
+      label: hero
+      type: object
+      fields:
+      - name: eyebrow
+        type: string
+      - name: headline
+        type: string
+      - name: description
+        type: text
+      - name: imageAlt
+        label: ការពិពណ៌នារូបភាពជាភាសាខ្មែរ
+        type: string
+    - name: seoDescription
+      type: text
   - name: careersKh
     label: ឱកាសការងារ · Khmer translation only
     type: collection
@@ -1231,42 +1333,6 @@ content:
         type: string
       - name: unavailableSocial
         type: string
-    - name: listings
-      type: object
-      fields:
-      - name: products
-        type: object
-        fields:
-        - name: eyebrow
-          type: string
-        - name: headline
-          type: string
-        - name: description
-          type: text
-        - name: seoDescription
-          type: string
-      - name: news
-        type: object
-        fields:
-        - name: eyebrow
-          type: string
-        - name: headline
-          type: string
-        - name: description
-          type: string
-        - name: seoDescription
-          type: string
-      - name: careers
-        type: object
-        fields:
-        - name: eyebrow
-          type: string
-        - name: headline
-          type: string
-        - name: description
-          type: string
-        - name: seoDescription
-          type: string
     - name: application
       type: object
       fields:
