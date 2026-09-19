@@ -245,14 +245,14 @@ content:
         type: string
       list: true
   - name: products
-    label: English · Products
+    label: Products · MAIN CONTROL + English
     type: collection
     path: src/content/products
     filename: '{fields.slug}.md'
     view:
       primary: title
       fields:
-      - published
+      - slug
     fields:
     - name: title
       type: string
@@ -262,32 +262,43 @@ content:
       type: string
     - name: shortDescription
       type: text
-    - name: mainImage
-      type: image
-      options:
-        media: images
-        path: public/uploads/products
-        rename: safe
     - name: mainImageAlt
+      label: Main image description — English
       type: string
-    - name: gallery
+    - name: mainControl
+      label: MAIN CONTROL — Shared for English and Khmer
       type: object
       fields:
-      - name: image
+      - name: published
+        label: Show this product on both websites
+        type: boolean
+      - name: featured
+        label: Show on both homepages
+        type: boolean
+      - name: displayOrder
+        label: Display order
+        type: number
+      - name: mainImage
+        label: Main image — shared
         type: image
         options:
           media: images
           path: public/uploads/products
           rename: safe
-      - name: alt
-        type: string
-      list: true
-    - name: featured
-      type: boolean
-    - name: published
-      type: boolean
-    - name: displayOrder
-      type: number
+      - name: gallery
+        label: Gallery images — shared
+        type: object
+        fields:
+        - name: image
+          type: image
+          options:
+            media: images
+            path: public/uploads/products
+            rename: safe
+        - name: alt
+          label: Fallback image description — English
+          type: string
+        list: true
     - name: specifications
       type: object
       fields:
@@ -303,14 +314,14 @@ content:
         path: public/uploads/products
         rename: safe
   - name: news
-    label: English · News
+    label: News · MAIN CONTROL + English
     type: collection
     path: src/content/news
     filename: '{fields.slug}.md'
     view:
       primary: title
       fields:
-      - published
+      - slug
     fields:
     - name: title
       type: string
@@ -318,20 +329,29 @@ content:
       type: string
     - name: summary
       type: text
-    - name: publishDate
-      type: date
-    - name: coverImage
-      type: image
-      options:
-        media: images
-        path: public/uploads/news
-        rename: safe
     - name: coverImageAlt
+      label: Cover image description — English
       type: string
-    - name: published
-      type: boolean
-    - name: featured
-      type: boolean
+    - name: mainControl
+      label: MAIN CONTROL — Shared for English and Khmer
+      type: object
+      fields:
+      - name: published
+        label: Publish on both websites
+        type: boolean
+      - name: featured
+        label: Feature on both homepages
+        type: boolean
+      - name: publishDate
+        label: Publish date — shared
+        type: date
+      - name: coverImage
+        label: Cover image — shared
+        type: image
+        options:
+          media: images
+          path: public/uploads/news
+          rename: safe
     - name: seoTitle
       type: string
     - name: seoDescription
@@ -343,14 +363,14 @@ content:
         path: public/uploads/news
         rename: safe
   - name: careers
-    label: English · Careers
+    label: Careers · MAIN CONTROL + English
     type: collection
     path: src/content/careers
     filename: '{fields.slug}.md'
     view:
       primary: title
       fields:
-      - published
+      - slug
     fields:
     - name: title
       type: string
@@ -370,12 +390,19 @@ content:
     - name: requirements
       type: string
       list: true
-    - name: publishDate
-      type: date
-    - name: closingDate
-      type: date
-    - name: published
-      type: boolean
+    - name: mainControl
+      label: MAIN CONTROL — Shared for English and Khmer
+      type: object
+      fields:
+      - name: published
+        label: Publish this job on both websites
+        type: boolean
+      - name: publishDate
+        label: Publish date — shared
+        type: date
+      - name: closingDate
+        label: Closing date — shared (optional)
+        type: date
     - name: body
       type: rich-text
       options:
@@ -963,7 +990,7 @@ content:
         type: string
       list: true
   - name: productsKh
-    label: ភាសាខ្មែរ · ផលិតផល
+    label: ផលិតផល · Khmer translation only
     type: collection
     path: src/content/kh/products
     filename: '{fields.slug}.md'
@@ -1003,7 +1030,7 @@ content:
         path: public/uploads/products
         rename: safe
   - name: newsKh
-    label: ភាសាខ្មែរ · ព័ត៌មាន
+    label: ព័ត៌មាន · Khmer translation only
     type: collection
     path: src/content/kh/news
     filename: '{fields.slug}.md'
@@ -1031,7 +1058,7 @@ content:
         path: public/uploads/news
         rename: safe
   - name: careersKh
-    label: ភាសាខ្មែរ · ឱកាសការងារ
+    label: ឱកាសការងារ · Khmer translation only
     type: collection
     path: src/content/kh/careers
     filename: '{fields.slug}.md'
