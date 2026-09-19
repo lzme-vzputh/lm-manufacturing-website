@@ -58,26 +58,6 @@
     "socialMedia": "Social media",
     "unavailableSocial": "Link not available yet"
   },
-  "listings": {
-    "products": {
-      "eyebrow": "OUR PRODUCTS",
-      "headline": "Instant noodles for everyday meals",
-      "description": "Discover our product family. Approved variants and packaging details will be added as they become available.",
-      "seoDescription": "Explore our manufactured products and their details."
-    },
-    "news": {
-      "eyebrow": "COMPANY NEWS",
-      "headline": "Stories from our company",
-      "description": "Updates, stories and announcements from our team.",
-      "seoDescription": "Read the latest company updates from LM MANUFACTURING CO., LTD."
-    },
-    "careers": {
-      "eyebrow": "CAREERS",
-      "headline": "Build your future with us",
-      "description": "Explore opportunities to join our team.",
-      "seoDescription": "Explore opportunities to join LM MANUFACTURING CO., LTD."
-    }
-  },
   "application": {
     "emailPrefix": "Email your CV to",
     "emailSuffix": "and include the job title in the subject.",

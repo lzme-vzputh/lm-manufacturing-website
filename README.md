@@ -24,6 +24,8 @@ Pages CMS has two clear menus: **English + Shared Settings** and **Khmer Text On
 
 Each English Product, News and Career entry contains a clearly labelled **MAIN CONTROL — Shared for English and Khmer** block. Use it to publish or hide the entry on both websites. Product Main Control also owns the shared main image, gallery, homepage feature switch and display order. News Main Control owns the shared date, cover image and homepage feature switch. Career Main Control owns the shared publish date and optional closing date. Do not look for these controls in the Khmer translation entries.
 
+The Products, News and Careers listing pages also have separate **HERO CONTROL** forms, matching the Home, About and Factory page editor. Each Hero Control edits the eyebrow, headline, description, image, image description and SEO description. Upload the shared hero image once in the English Hero Control; the Khmer Hero Control edits Khmer text and its Khmer image description.
+
 One **Company Settings · English + Khmer + Shared** form owns both company names and descriptions, both addresses and business hours, both footer and SEO texts, plus one shared logo, phone, email, application email, social links, fonts, default image and color palette. The English Contact page owns the Google Maps embed URL for both languages.
 
 The Khmer site uses the bundled **Noto Sans Khmer** variable font by default; the English site keeps its current font. To change either font later, open **English + Shared Settings → Company Settings · English + Khmer + Shared**. Upload a `.ttf` file to the English or Khmer font field and save. Fonts are stored in `public/uploads/fonts/` automatically. Leave the Khmer field blank to use Noto Sans Khmer.

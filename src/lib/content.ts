@@ -5,6 +5,9 @@ import aboutEn from '../data/about.json'; import aboutKh from '../data/kh/about.
 import factoryEn from '../data/factory.json'; import factoryKh from '../data/kh/factory.json';
 import contactEn from '../data/contact.json'; import contactKh from '../data/kh/contact.json';
 import uiEn from '../data/ui.json'; import uiKh from '../data/kh/ui.json';
+import productsPageEn from '../data/products-page.json'; import productsPageKh from '../data/kh/products-page.json';
+import newsPageEn from '../data/news-page.json'; import newsPageKh from '../data/kh/news-page.json';
+import careersPageEn from '../data/careers-page.json'; import careersPageKh from '../data/kh/careers-page.json';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 export type Lang = 'en' | 'kh';
@@ -26,7 +29,10 @@ const factoryShared = {
 };
 const contactShared = {...contactKh, hero: {...contactKh.hero, image: contactEn.hero.image}, mapEmbedUrl: contactEn.mapEmbedUrl};
 const uiShared = {...uiKh, manageSections: uiKh.manageSections.map((section, index) => ({...section, path: uiEn.manageSections[index]?.path || '/'}))};
-export const contentFor = (lang: Lang) => ({home:lang==='kh'?homeShared:homeEn,about:lang==='kh'?aboutShared:aboutEn,factory:lang==='kh'?factoryShared:factoryEn,contact:lang==='kh'?contactShared:contactEn,ui:lang==='kh'?uiShared:uiEn});
+const productsPageShared={...productsPageKh,hero:{...productsPageKh.hero,image:productsPageEn.hero.image}};
+const newsPageShared={...newsPageKh,hero:{...newsPageKh.hero,image:newsPageEn.hero.image}};
+const careersPageShared={...careersPageKh,hero:{...careersPageKh.hero,image:careersPageEn.hero.image}};
+export const contentFor = (lang: Lang) => ({home:lang==='kh'?homeShared:homeEn,about:lang==='kh'?aboutShared:aboutEn,factory:lang==='kh'?factoryShared:factoryEn,contact:lang==='kh'?contactShared:contactEn,productsPage:lang==='kh'?productsPageShared:productsPageEn,newsPage:lang==='kh'?newsPageShared:newsPageEn,careersPage:lang==='kh'?careersPageShared:careersPageEn,ui:lang==='kh'?uiShared:uiEn});
 type Site = {companyName:string;logo:string;fontUrl?:string;fontKhUrl?:string;description:string;contact:{phone:string;email:string;address:string;businessHours:string;applicationEmail:string};social:Record<string,string>;footer:{copyright:string};seo:{defaultTitle:string;titleTemplate:string;defaultDescription:string;defaultImage:string};appearance?:Record<string,string>};
 type SiteSource = {
   companyNameEn:string; companyNameKh:string; logo:string; fontUrl?:string; fontKhUrl?:string;
