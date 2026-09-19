@@ -5,18 +5,28 @@
   const depthCard = document.querySelector('[data-depth-card]');
 
   if (finePointer.matches && !reducedMotion.matches && aura) {
-    let x = window.innerWidth / 2;
-    let y = window.innerHeight / 2;
+    let targetX = window.innerWidth / 2;
+    let targetY = window.innerHeight / 2;
+    let currentX = targetX;
+    let currentY = targetY;
     let frame = 0;
     const paint = () => {
-      aura.style.transform = `translate3d(${x}px,${y}px,0)`;
-      frame = 0;
+      currentX += (targetX - currentX) * .16;
+      currentY += (targetY - currentY) * .16;
+      aura.style.transform = `translate3d(${currentX}px,${currentY}px,0)`;
+      if (Math.abs(targetX - currentX) > .15 || Math.abs(targetY - currentY) > .15) {
+        frame = requestAnimationFrame(paint);
+      } else {
+        currentX = targetX;
+        currentY = targetY;
+        frame = 0;
+      }
     };
     window.addEventListener('pointermove', event => {
-      x = event.clientX;
-      y = event.clientY;
-      document.body.style.setProperty('--pointer-x', `${x}px`);
-      document.body.style.setProperty('--pointer-y', `${y}px`);
+      targetX = event.clientX;
+      targetY = event.clientY;
+      document.body.style.setProperty('--pointer-x', `${targetX}px`);
+      document.body.style.setProperty('--pointer-y', `${targetY}px`);
       aura.classList.add('is-visible');
       if (!frame) frame = requestAnimationFrame(paint);
     }, { passive: true });

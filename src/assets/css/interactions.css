@@ -1,9 +1,9 @@
 /* Lightweight interaction feedback shared by English and Khmer pages. */
 :root{--motion-fast:160ms;--motion-normal:240ms;--ease-out:cubic-bezier(.22,1,.36,1)}
 html{scroll-padding-top:5.7rem}
-.pointer-aura{position:fixed;top:0;left:0;z-index:10;pointer-events:none;width:18rem;height:18rem;margin:-9rem 0 0 -9rem;border-radius:50%;opacity:0;will-change:transform;background:radial-gradient(circle,rgba(242,173,63,.16) 0%,rgba(242,173,63,.07) 38%,transparent 72%);filter:blur(14px);transform:translate3d(-300px,-300px,0);transition:opacity 300ms ease,filter 300ms ease}
-.pointer-aura.is-visible{opacity:1}.pointer-aura.is-active{filter:blur(10px)}
-.pointer-dot{display:none}
+.pointer-aura{position:fixed;top:0;left:0;z-index:12;pointer-events:none;width:24rem;height:24rem;margin:-12rem 0 0 -12rem;border-radius:50%;opacity:0;will-change:transform;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 34%,transparent) 0%,color-mix(in srgb,var(--accent) 19%,transparent) 27%,color-mix(in srgb,var(--accent) 7%,transparent) 52%,transparent 73%);filter:blur(8px) saturate(1.18);transform:translate3d(-400px,-400px,0);transition:opacity 260ms ease,filter 260ms ease}
+.pointer-aura.is-visible{opacity:.82}.pointer-aura.is-active{opacity:1;filter:blur(5px) saturate(1.3)}
+:root:not([data-theme="dark"]) .pointer-aura{mix-blend-mode:multiply}:root[data-theme="dark"] .pointer-aura{mix-blend-mode:screen}
 .hero-visual{transition:transform 380ms var(--ease-out),box-shadow var(--motion-normal) ease}
 .reveal-item{opacity:0;transform:translateY(22px);transition:opacity 680ms var(--ease-out) var(--reveal-delay,0ms),transform 680ms var(--ease-out) var(--reveal-delay,0ms)}
 .reveal-item.is-revealed{opacity:1;transform:translateY(0)}
@@ -78,4 +78,4 @@ a,button{ -webkit-tap-highlight-color:transparent }
   .card:hover,.card:focus-within,.card:hover img,.card:focus-within img,.button:hover,.gallery img:hover,.brand:hover img{transform:none!important}
   .hero-content>*,.hero-visual,.reveal-item{transition:none!important;animation:none!important}.reveal-item{opacity:1!important;transform:none!important}
 }
-@media (hover:none),(pointer:coarse){.pointer-aura,.pointer-dot{display:none}}
+@media (hover:none),(pointer:coarse){.pointer-aura{display:none}}
