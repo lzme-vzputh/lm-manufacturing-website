@@ -66,9 +66,9 @@ export const siteFor = (lang: Lang):Site => {
 };
 export const site=siteFor('en');
 export const imageUrl = (value?: string) => value || '/uploads/image-placeholder.svg';
-export const publicEntries = <T extends { data: { published: boolean } }>(entries: T[]) => entries.filter((entry) => entry.data.published);
-export const byOrder = (a: CollectionEntry<'products'>, b: CollectionEntry<'products'>) => a.data.displayOrder - b.data.displayOrder || a.data.title.localeCompare(b.data.title);
-export const byNewest = <T extends {data: {publishDate: Date}}>(a: T, b: T) => b.data.publishDate.getTime() - a.data.publishDate.getTime();
+export const publicEntries = <T extends { data: { mainControl: {published: boolean} } }>(entries: T[]) => entries.filter((entry) => entry.data.mainControl.published);
+export const byOrder = (a: CollectionEntry<'products'>, b: CollectionEntry<'products'>) => a.data.mainControl.displayOrder - b.data.mainControl.displayOrder || a.data.title.localeCompare(b.data.title);
+export const byNewest = <T extends {data: {mainControl:{publishDate: Date}}}>(a: T, b: T) => b.data.mainControl.publishDate.getTime() - a.data.mainControl.publishDate.getTime();
 
 export async function productsFor(lang: Lang): Promise<CollectionEntry<'products'>[]> {
   const english = await getCollection('products');
@@ -80,11 +80,9 @@ export async function productsFor(lang: Lang): Promise<CollectionEntry<'products
     if (!base) return [];
     return [{...entry, data: {
       ...entry.data,
-      mainImage: base.data.mainImage,
-      gallery: base.data.gallery.map((photo, index) => ({...photo, alt: entry.data.gallery[index]?.alt || photo.alt})),
-      featured: base.data.featured,
-      displayOrder: base.data.displayOrder,
-      published: base.data.published,
+      mainControl: {...base.data.mainControl,
+        gallery: base.data.mainControl.gallery.map((photo, index) => ({...photo, alt: entry.data.gallery[index]?.alt || photo.alt})),
+      },
     }} as unknown as CollectionEntry<'products'>];
   });
 }
@@ -98,8 +96,7 @@ export async function newsFor(lang: Lang): Promise<CollectionEntry<'news'>[]> {
     const base = bySlug.get(entry.data.slug);
     if (!base) return [];
     return [{...entry, data: {...entry.data,
-      coverImage: base.data.coverImage, publishDate: base.data.publishDate,
-      featured: base.data.featured, published: base.data.published,
+      mainControl: base.data.mainControl,
     }} as unknown as CollectionEntry<'news'>];
   });
 }
@@ -109,12 +106,11 @@ export async function careersFor(lang: Lang): Promise<CollectionEntry<'careers'>
   if (lang === 'en') return english;
   const khmer = await getCollection('careersKh');
   const translations = new Map(khmer.map(entry => [entry.data.slug, entry]));
-  return english.filter(base => base.data.published).map(base => {
+  return english.filter(base => base.data.mainControl.published).map(base => {
     const entry = translations.get(base.data.slug);
     if (!entry) return base;
     return {...entry, data: {...entry.data,
-      publishDate: base.data.publishDate, closingDate: base.data.closingDate,
-      published: true,
+      mainControl: base.data.mainControl,
     }} as unknown as CollectionEntry<'careers'>;
   });
 }

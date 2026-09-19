@@ -1,12 +1,13 @@
 ---
 title: A new chapter for our company
 slug: company-update
-publishDate: 2026-09-15
 summary: An introduction to the direction and ambitions of our manufacturing company.
-coverImage: /uploads/image-placeholder.svg
 coverImageAlt: Placeholder for a company news photograph
-published: true
-featured: true
+mainControl:
+  publishDate: 2026-09-15
+  coverImage: /uploads/image-placeholder.svg
+  published: true
+  featured: true
 seoTitle: Company update
 seoDescription: Read the latest update from LM Manufacturing.
 ---

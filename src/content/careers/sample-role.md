@@ -10,7 +10,8 @@ responsibilities:
   - Follow workplace procedures.
 requirements:
   - Willingness to learn and work with a team.
-publishDate: 2026-09-15
-published: false
+mainControl:
+  publishDate: 2026-09-15
+  published: false
 ---
 This position is an unpublished example. Replace it with a real vacancy when one becomes available.

@@ -78,9 +78,9 @@ requirements:
   - Ability to support ERP and other business systems is an advantage.
   - Certifications such as CCNA, Microsoft, Fortinet, MikroTik, or CompTIA are
     an advantage.
-publishDate: 2026-09-14
-closingDate: 2026-11-30
-published: true
+mainControl:
+  publishDate: 2026-09-14
+  closingDate: 2026-11-30
+  published: true
 ---
 We are looking for an experienced IT Manager to oversee and manage the company’s IT infrastructure, systems, security, and daily technical operations.
-

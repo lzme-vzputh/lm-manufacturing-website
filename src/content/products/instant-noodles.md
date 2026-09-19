@@ -3,12 +3,13 @@ title: Instant Noodles
 slug: instant-noodles
 category: Instant Noodles
 shortDescription: Our instant noodle product family for convenient everyday meals. Confirmed variants and specifications will be added as available.
-mainImage: /uploads/products/instant-noodles.webp
 mainImageAlt: Illustrative prepared noodle image with unbranded packaging; not a photographed LM Manufacturing product
-gallery: []
-featured: true
-published: true
-displayOrder: 1
+mainControl:
+  mainImage: /uploads/products/instant-noodles.webp
+  gallery: []
+  featured: true
+  published: true
+  displayOrder: 1
 specifications: []
 ---
 ## Product overview

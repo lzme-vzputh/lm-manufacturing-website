@@ -1,6 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';import Hero from '../../components/Hero.astro';import ProductCard from '../../components/ProductCard.astro';import {publicEntries,language,contentFor,productsFor} from '../../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;
-const products=publicEntries(await productsFor(lang)).sort((a,b)=>a.data.displayOrder-b.data.displayOrder);const categories=[...new Set(products.map(p=>p.data.category))];
+const products=publicEntries(await productsFor(lang)).sort((a,b)=>a.data.mainControl.displayOrder-b.data.mainControl.displayOrder);const categories=[...new Set(products.map(p=>p.data.category))];
 ---
 <BaseLayout title={ui.nav.products} description={ui.listings.products.seoDescription}><Hero {...ui.listings.products}/><section class="section"><div class="container">{categories.length>1 && <><div class="filters" role="group" aria-label={ui.accessibility.filterProducts}><button type="button" data-category="all" aria-pressed="true">{ui.actions.allProducts}</button>{categories.map(category=><button type="button" data-category={category} aria-pressed="false">{category}</button>)}</div><p class="sr-only" role="status" data-filter-status data-template={ui.accessibility.filterStatus}></p></>}{products.length?<div class="grid-3 product-grid">{products.map(product=><div data-product-category={product.data.category}><ProductCard {product}/></div>)}</div>:<p>{ui.empty.products}</p>}</div></section></BaseLayout>
 <script>

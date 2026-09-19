@@ -1,12 +1,13 @@
 ---
 title: Introducing LM MANUFACTURING CO., LTD.
 slug: introducing-lm-manufacturing
-publishDate: 2026-09-15
 summary: Get to know our instant noodle manufacturing company in Kampong Speu, Cambodia.
-coverImage: /uploads/factory/production-line.webp
 coverImageAlt: Illustrative noodle manufacturing image; not the LM Manufacturing facility
-published: true
-featured: true
+mainControl:
+  publishDate: 2026-09-15
+  coverImage: /uploads/factory/production-line.webp
+  published: true
+  featured: true
 seoTitle: Introducing LM MANUFACTURING CO., LTD.
 seoDescription: Learn about LM MANUFACTURING CO., LTD. and its instant noodle manufacturing focus in Kampong Speu, Cambodia.
 ---
