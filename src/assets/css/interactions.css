@@ -1,10 +1,9 @@
 /* Lightweight interaction feedback shared by English and Khmer pages. */
 :root{--motion-fast:160ms;--motion-normal:240ms;--ease-out:cubic-bezier(.22,1,.36,1)}
 html{scroll-padding-top:5.7rem}
-.pointer-aura,.pointer-dot{position:fixed;top:0;left:0;z-index:80;pointer-events:none;opacity:0;will-change:transform;transform:translate3d(-100px,-100px,0)}
-.pointer-aura{width:2.7rem;height:2.7rem;margin:-1.35rem 0 0 -1.35rem;border:1px solid color-mix(in srgb,var(--accent) 72%,transparent);border-radius:50%;background:color-mix(in srgb,var(--accent) 7%,transparent);transition:width var(--motion-fast) ease,height var(--motion-fast) ease,margin var(--motion-fast) ease,opacity var(--motion-fast) ease,background-color var(--motion-fast) ease}
-.pointer-dot{width:.35rem;height:.35rem;margin:-.175rem 0 0 -.175rem;border-radius:50%;background:var(--accent);box-shadow:0 0 16px rgba(242,173,63,.65);transition:opacity var(--motion-fast) ease}
-.pointer-aura.is-visible,.pointer-dot.is-visible{opacity:1}.pointer-aura.is-active{width:4.1rem;height:4.1rem;margin:-2.05rem 0 0 -2.05rem;background:color-mix(in srgb,var(--accent) 13%,transparent)}
+.pointer-aura{position:fixed;top:0;left:0;z-index:10;pointer-events:none;width:18rem;height:18rem;margin:-9rem 0 0 -9rem;border-radius:50%;opacity:0;will-change:transform;background:radial-gradient(circle,rgba(242,173,63,.16) 0%,rgba(242,173,63,.07) 38%,transparent 72%);filter:blur(14px);transform:translate3d(-300px,-300px,0);transition:opacity 300ms ease,filter 300ms ease}
+.pointer-aura.is-visible{opacity:1}.pointer-aura.is-active{filter:blur(10px)}
+.pointer-dot{display:none}
 .hero-visual{transition:transform 380ms var(--ease-out),box-shadow var(--motion-normal) ease}
 .reveal-item{opacity:0;transform:translateY(22px);transition:opacity 680ms var(--ease-out) var(--reveal-delay,0ms),transform 680ms var(--ease-out) var(--reveal-delay,0ms)}
 .reveal-item.is-revealed{opacity:1;transform:translateY(0)}
