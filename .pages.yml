@@ -1,1414 +1,1442 @@
-# Pages CMS: edit content at https://pagescms.org
+# Pages CMS: page-by-page editor for LM Manufacturing
 media:
-- name: images
-  label: Media
-  input: public/uploads
-  output: /uploads
-  rename: safe
-  extensions:
-  - jpg
-  - jpeg
-  - png
-  - webp
-  - avif
-- name: logos
-  label: Company logos
-  input: public/uploads
-  output: /uploads
-  rename: safe
-  extensions:
-  - svg
-  - png
-  - webp
-- name: fonts
-  label: Fonts (.ttf)
-  input: public/uploads/fonts
-  output: /uploads/fonts
-  rename: safe
-  extensions:
-  - ttf
+  - name: images
+    label: Media
+    input: public/uploads
+    output: /uploads
+    rename: safe
+    extensions:
+      - jpg
+      - jpeg
+      - png
+      - webp
+      - avif
+  - name: logos
+    label: Company logos
+    input: public/uploads
+    output: /uploads
+    rename: safe
+    extensions:
+      - svg
+      - png
+      - webp
+  - name: fonts
+    label: Fonts (.ttf)
+    input: public/uploads/fonts
+    output: /uploads/fonts
+    rename: safe
+    extensions:
+      - ttf
 content:
-- name: english
-  label: English + Shared Settings
-  type: group
-  items:
-  - name: home
-    label: English · Home
-    type: file
-    path: src/data/home.json
-    fields:
-    - name: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/home
-          rename: safe
-      - name: imageAlt
-        type: string
-      - name: primaryLabel
-        type: string
-      - name: primaryUrl
-        type: string
-      - name: secondaryLabel
-        type: string
-      - name: secondaryUrl
-        type: string
-    - name: intro
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: title
-        type: string
-      - name: text
-        type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/home
-          rename: safe
-      - name: imageAlt
-        type: string
-    - name: statistics
-      type: object
-      fields:
-      - name: value
-        type: string
-      - name: label
-        type: string
-      list: true
-    - name: productsHeading
-      type: string
-    - name: productsDescription
-      type: text
-    - name: factoryHeading
-      type: string
-    - name: factoryText
-      type: text
-    - name: factoryImage
-      type: image
-      options:
-        media: images
-        path: public/uploads/factory
-        rename: safe
-    - name: factoryImageAlt
-      type: string
-    - name: benefitsHeading
-      type: string
-    - name: benefits
-      type: object
-      fields:
-      - name: title
-        type: string
-      - name: text
-        type: text
-      list: true
-    - name: newsHeading
-      type: string
-    - name: cta
-      type: object
-      fields:
-      - name: title
-        type: string
-      - name: text
-        type: text
-      - name: label
-        type: string
-      - name: url
-        type: string
-  - name: about
-    label: English · About
-    type: file
-    path: src/data/about.json
-    fields:
-    - name: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/about
-          rename: safe
-      - name: imageAlt
-        type: string
-    - name: overviewTitle
-      type: string
-    - name: overviewText
-      type: text
-    - name: storyTitle
-      type: text
-    - name: storyText
-      type: text
-    - name: image
-      type: image
-      options:
-        media: images
-        path: public/uploads/about
-        rename: safe
-    - name: imageAlt
-      type: string
-    - name: mission
-      type: text
-    - name: vision
-      type: text
-    - name: values
-      type: object
-      fields:
-      - name: title
-        type: string
-      - name: text
-        type: text
-      list: true
-    - name: milestones
-      type: object
-      fields:
-      - name: year
-        type: string
-      - name: event
-        type: string
-      list: true
-    - name: ctaTitle
-      type: string
-  - name: factory
-    label: English · Factory
-    type: file
-    path: src/data/factory.json
-    fields:
-    - name: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/factory
-          rename: safe
-      - name: imageAlt
-        type: string
-    - name: introTitle
-      type: string
-    - name: introText
-      type: text
-    - name: facilities
-      type: object
-      fields:
-      - name: title
-        type: string
-      - name: text
-        type: text
-      list: true
-    - name: capabilitiesTitle
-      type: text
-    - name: capabilitiesText
-      type: text
-    - name: qualityTitle
-      type: text
-    - name: qualityText
-      type: text
-    - name: safetyTitle
-      type: text
-    - name: safetyText
-      type: text
-    - name: gallery
-      type: object
-      fields:
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/factory
-          rename: safe
-      - name: alt
-        type: string
-      list: true
-  - name: productsPage
-    label: Products page · HERO CONTROL
-    type: file
-    path: src/data/products-page.json
-    fields:
-    - name: hero
-      label: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/products
-          rename: safe
-      - name: imageAlt
-        type: string
-    - name: seoDescription
-      label: SEO description
-      type: text
-  - name: products
-    label: Products items · MAIN CONTROL + English
-    type: collection
-    path: src/content/products
-    filename: '{fields.slug}.md'
-    view:
-      primary: title
-      fields:
-      - slug
-    fields:
-    - name: title
-      type: string
-    - name: slug
-      type: string
-    - name: category
-      type: string
-    - name: shortDescription
-      type: text
-    - name: mainImageAlt
-      label: Main image description — English
-      type: string
-    - name: mainControl
-      label: MAIN CONTROL — Shared for English and Khmer
-      type: object
-      fields:
-      - name: published
-        label: Show this product on both websites
-        type: boolean
-      - name: featured
-        label: Show on both homepages
-        type: boolean
-      - name: displayOrder
-        label: Display order
-        type: number
-      - name: mainImage
-        label: Main image — shared
-        type: image
-        options:
-          media: images
-          path: public/uploads/products
-          rename: safe
-      - name: gallery
-        label: Gallery images — shared
-        type: object
+  - name: companySettings
+    label: 1 · Company Settings
+    type: group
+    items:
+      - name: settings
+        label: Company Settings · English + Khmer + Shared
+        type: file
+        path: src/data/site.yml
         fields:
-        - name: image
-          type: image
-          options:
-            media: images
-            path: public/uploads/products
-            rename: safe
-        - name: alt
-          label: Fallback image description — English
-          type: string
-        list: true
-    - name: specifications
-      type: object
-      fields:
-      - name: label
-        type: string
-      - name: value
-        type: string
-      list: true
-    - name: body
-      type: rich-text
-      options:
-        media: images
-        path: public/uploads/products
-        rename: safe
-  - name: newsPage
-    label: News page · HERO CONTROL
-    type: file
-    path: src/data/news-page.json
-    fields:
-    - name: hero
-      label: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/news
-          rename: safe
-      - name: imageAlt
-        type: string
-    - name: seoDescription
-      label: SEO description
-      type: text
-  - name: news
-    label: News items · MAIN CONTROL + English
-    type: collection
-    path: src/content/news
-    filename: '{fields.slug}.md'
-    view:
-      primary: title
-      fields:
-      - slug
-    fields:
-    - name: title
-      type: string
-    - name: slug
-      type: string
-    - name: summary
-      type: text
-    - name: coverImageAlt
-      label: Cover image description — English
-      type: string
-    - name: mainControl
-      label: MAIN CONTROL — Shared for English and Khmer
-      type: object
-      fields:
-      - name: published
-        label: Publish on both websites
-        type: boolean
-      - name: featured
-        label: Feature on both homepages
-        type: boolean
-      - name: publishDate
-        label: Publish date — shared
-        type: date
-      - name: coverImage
-        label: Cover image — shared
-        type: image
-        options:
-          media: images
-          path: public/uploads/news
-          rename: safe
-    - name: seoTitle
-      type: string
-    - name: seoDescription
-      type: text
-    - name: body
-      type: rich-text
-      options:
-        media: images
-        path: public/uploads/news
-        rename: safe
-  - name: careersPage
-    label: Careers page · HERO CONTROL
-    type: file
-    path: src/data/careers-page.json
-    fields:
-    - name: hero
-      label: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/careers
-          rename: safe
-      - name: imageAlt
-        type: string
-    - name: seoDescription
-      label: SEO description
-      type: text
-  - name: careers
-    label: Careers items · MAIN CONTROL + English
-    type: collection
-    path: src/content/careers
-    filename: '{fields.slug}.md'
-    view:
-      primary: title
-      fields:
-      - slug
-    fields:
-    - name: title
-      type: string
-    - name: slug
-      type: string
-    - name: department
-      type: string
-    - name: location
-      type: string
-    - name: employmentType
-      type: string
-    - name: summary
-      type: text
-    - name: responsibilities
-      type: string
-      list: true
-    - name: requirements
-      type: string
-      list: true
-    - name: mainControl
-      label: MAIN CONTROL — Shared for English and Khmer
-      type: object
-      fields:
-      - name: published
-        label: Publish this job on both websites
-        type: boolean
-      - name: publishDate
-        label: Publish date — shared
-        type: date
-      - name: closingDate
-        label: Closing date — shared (optional)
-        type: date
-    - name: body
-      type: rich-text
-      options:
-        media: images
-        path: public/uploads/careers
-        rename: safe
-  - name: contact
-    label: English · Contact
-    type: file
-    path: src/data/contact.json
-    fields:
-    - name: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: image
-        type: image
-        options:
-          media: images
-          path: public/uploads/about
-          rename: safe
-      - name: imageAlt
-        type: string
-    - name: mapEmbedUrl
-      type: string
-    - name: ctaTitle
-      type: string
-    - name: ctaText
-      type: text
-  - name: settings
-    label: Company Settings · English + Khmer + Shared
-    type: file
-    path: src/data/site.yml
-    fields:
-    - name: companyNameEn
-      label: Company name — English
-      type: string
-    - name: companyNameKh
-      label: Company name — Khmer
-      type: string
-    - name: logo
-      label: Company logo — shared
-      type: image
-      options:
-        media: logos
-        path: public/uploads
-        rename: safe
-    - name: fontUrl
-      label: English font (.ttf) — optional
-      type: file
-      options:
-        media: fonts
-        path: public/uploads/fonts
-        extensions:
-        - ttf
-        rename: safe
-    - name: fontKhUrl
-      label: Khmer font (.ttf) — optional
-      type: file
-      options:
-        media: fonts
-        path: public/uploads/fonts
-        extensions:
-        - ttf
-        rename: safe
-    - name: descriptionEn
-      label: Company description — English
-      type: text
-    - name: descriptionKh
-      label: Company description — Khmer
-      type: text
-    - name: contact
-      label: Contact details — shared and bilingual
-      type: object
-      fields:
-      - name: phone
-        label: Phone — shared
-        type: string
-      - name: email
-        label: General email — shared
-        type: string
-      - name: addressEn
-        label: Address — English
-        type: text
-      - name: addressKh
-        label: Address — Khmer
-        type: text
-      - name: businessHoursEn
-        label: Business hours — English
-        type: string
-      - name: businessHoursKh
-        label: Business hours — Khmer
-        type: string
-      - name: applicationEmail
-        label: Job application email — shared
-        type: string
-    - name: social
-      label: Social links — shared
-      type: object
-      fields:
-      - name: facebook
-        type: string
-      - name: linkedin
-        type: string
-      - name: telegram
-        type: string
-      - name: youtube
-        type: string
-    - name: footer
-      label: Footer text — bilingual
-      type: object
-      fields:
-      - name: copyrightEn
-        label: Copyright — English
-        type: string
-      - name: copyrightKh
-        label: Copyright — Khmer
-        type: string
-    - name: seo
-      label: Search and sharing — bilingual
-      type: object
-      fields:
-      - name: defaultTitleEn
-        label: Default page title — English
-        type: string
-      - name: defaultTitleKh
-        label: Default page title — Khmer
-        type: string
-      - name: titleTemplateEn
-        label: Page title format — English (keep %s)
-        type: string
-      - name: titleTemplateKh
-        label: Page title format — Khmer (keep %s)
-        type: string
-      - name: defaultDescriptionEn
-        label: Search description — English
-        type: text
-      - name: defaultDescriptionKh
-        label: Search description — Khmer
-        type: text
-      - name: defaultImage
-        label: Default sharing image — shared
-        type: image
-        options:
-          media: images
-          path: public/uploads/home
-          rename: safe
-    - name: appearance
-      label: Website colors — shared
-      type: object
-      fields:
-      - name: accentColor
-        label: Accent color (hex, for example #f5b34a)
-        type: string
-      - name: lightBackground
-        label: Light mode page background
-        type: string
-      - name: lightSurface
-        label: Light mode cards and header
-        type: string
-      - name: lightMuted
-        label: Light mode secondary sections
-        type: string
-      - name: lightText
-        label: Light mode main text
-        type: string
-      - name: darkBackground
-        label: Dark mode page background
-        type: string
-      - name: darkSurface
-        label: Dark mode cards and header
-        type: string
-      - name: darkMuted
-        label: Dark mode secondary sections
-        type: string
-      - name: darkText
-        label: Dark mode main text
-        type: string
-  - name: uiEn
-    label: English · Interface text
-    type: file
-    path: src/data/ui.json
-    fields:
-    - name: nav
-      type: object
-      fields:
+          - name: companyNameEn
+            label: Company name — English
+            type: string
+          - name: companyNameKh
+            label: Company name — Khmer
+            type: string
+          - name: logo
+            label: Company logo — shared
+            type: image
+            options:
+              media: logos
+              path: public/uploads
+              rename: safe
+          - name: fontUrl
+            label: English font (.ttf) — optional
+            type: file
+            options:
+              media: fonts
+              path: public/uploads/fonts
+              extensions:
+                - ttf
+              rename: safe
+          - name: fontKhUrl
+            label: Khmer font (.ttf) — optional
+            type: file
+            options:
+              media: fonts
+              path: public/uploads/fonts
+              extensions:
+                - ttf
+              rename: safe
+          - name: descriptionEn
+            label: Company description — English
+            type: text
+          - name: descriptionKh
+            label: Company description — Khmer
+            type: text
+          - name: contact
+            label: Contact details — shared and bilingual
+            type: object
+            fields:
+              - name: phone
+                label: Phone — shared
+                type: string
+              - name: email
+                label: General email — shared
+                type: string
+              - name: addressEn
+                label: Address — English
+                type: text
+              - name: addressKh
+                label: Address — Khmer
+                type: text
+              - name: businessHoursEn
+                label: Business hours — English
+                type: string
+              - name: businessHoursKh
+                label: Business hours — Khmer
+                type: string
+              - name: applicationEmail
+                label: Job application email — shared
+                type: string
+          - name: social
+            label: Social links — shared
+            type: object
+            fields:
+              - name: facebook
+                type: string
+              - name: linkedin
+                type: string
+              - name: telegram
+                type: string
+              - name: youtube
+                type: string
+          - name: footer
+            label: Footer text — bilingual
+            type: object
+            fields:
+              - name: copyrightEn
+                label: Copyright — English
+                type: string
+              - name: copyrightKh
+                label: Copyright — Khmer
+                type: string
+          - name: seo
+            label: Search and sharing — bilingual
+            type: object
+            fields:
+              - name: defaultTitleEn
+                label: Default page title — English
+                type: string
+              - name: defaultTitleKh
+                label: Default page title — Khmer
+                type: string
+              - name: titleTemplateEn
+                label: Page title format — English (keep %s)
+                type: string
+              - name: titleTemplateKh
+                label: Page title format — Khmer (keep %s)
+                type: string
+              - name: defaultDescriptionEn
+                label: Search description — English
+                type: text
+              - name: defaultDescriptionKh
+                label: Search description — Khmer
+                type: text
+              - name: defaultImage
+                label: Default sharing image — shared
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/home
+                  rename: safe
+          - name: appearance
+            label: Website colors — shared
+            type: object
+            fields:
+              - name: accentColor
+                label: Accent color (hex, for example
+                type: string
+              - name: lightBackground
+                label: Light mode page background
+                type: string
+              - name: lightSurface
+                label: Light mode cards and header
+                type: string
+              - name: lightMuted
+                label: Light mode secondary sections
+                type: string
+              - name: lightText
+                label: Light mode main text
+                type: string
+              - name: darkBackground
+                label: Dark mode page background
+                type: string
+              - name: darkSurface
+                label: Dark mode cards and header
+                type: string
+              - name: darkMuted
+                label: Dark mode secondary sections
+                type: string
+              - name: darkText
+                label: Dark mode main text
+                type: string
+  - name: homePage
+    label: 2 · Home Page
+    type: group
+    items:
       - name: home
-        type: string
+        label: Home · English + shared images and links
+        type: file
+        path: src/data/home.json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: image
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/home
+                  rename: safe
+              - name: imageAlt
+                type: string
+              - name: primaryLabel
+                type: string
+              - name: primaryUrl
+                type: string
+              - name: secondaryLabel
+                type: string
+              - name: secondaryUrl
+                type: string
+          - name: intro
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: text
+                type: text
+              - name: image
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/home
+                  rename: safe
+              - name: imageAlt
+                type: string
+          - name: statistics
+            type: object
+            fields:
+              - name: value
+                type: string
+              - name: label
+                type: string
+            list: true
+          - name: productsHeading
+            type: string
+          - name: productsDescription
+            type: text
+          - name: factoryHeading
+            type: string
+          - name: factoryText
+            type: text
+          - name: factoryImage
+            type: image
+            options:
+              media: images
+              path: public/uploads/factory
+              rename: safe
+          - name: factoryImageAlt
+            type: string
+          - name: benefitsHeading
+            type: string
+          - name: benefits
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: text
+                type: text
+            list: true
+          - name: newsHeading
+            type: string
+          - name: cta
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: text
+                type: text
+              - name: label
+                type: string
+              - name: url
+                type: string
+      - name: homeKh
+        label: Home · Khmer text
+        type: file
+        path: src/data/kh/home.json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: imageAlt
+                type: string
+              - name: primaryLabel
+                type: string
+              - name: secondaryLabel
+                type: string
+          - name: intro
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: text
+                type: text
+              - name: imageAlt
+                type: string
+          - name: statistics
+            type: object
+            fields:
+              - name: value
+                type: string
+              - name: label
+                type: string
+            list: true
+          - name: productsHeading
+            type: string
+          - name: productsDescription
+            type: text
+          - name: factoryHeading
+            type: string
+          - name: factoryText
+            type: text
+          - name: factoryImageAlt
+            type: string
+          - name: benefitsHeading
+            type: string
+          - name: benefits
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: text
+                type: text
+            list: true
+          - name: newsHeading
+            type: string
+          - name: cta
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: text
+                type: text
+              - name: label
+                type: string
+  - name: aboutPage
+    label: 3 · About Page
+    type: group
+    items:
       - name: about
-        type: string
+        label: About · English + shared images
+        type: file
+        path: src/data/about.json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: image
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/about
+                  rename: safe
+              - name: imageAlt
+                type: string
+          - name: overviewTitle
+            type: string
+          - name: overviewText
+            type: text
+          - name: storyTitle
+            type: text
+          - name: storyText
+            type: text
+          - name: image
+            type: image
+            options:
+              media: images
+              path: public/uploads/about
+              rename: safe
+          - name: imageAlt
+            type: string
+          - name: mission
+            type: text
+          - name: vision
+            type: text
+          - name: values
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: text
+                type: text
+            list: true
+          - name: milestones
+            type: object
+            fields:
+              - name: year
+                type: string
+              - name: event
+                type: string
+            list: true
+          - name: ctaTitle
+            type: string
+      - name: aboutKh
+        label: About · Khmer text
+        type: file
+        path: src/data/kh/about.json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: imageAlt
+                type: string
+          - name: overviewTitle
+            type: string
+          - name: overviewText
+            type: text
+          - name: storyTitle
+            type: text
+          - name: storyText
+            type: text
+          - name: imageAlt
+            type: string
+          - name: mission
+            type: text
+          - name: vision
+            type: text
+          - name: values
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: text
+                type: text
+            list: true
+          - name: milestones
+            type: object
+            fields:
+              - name: year
+                type: string
+              - name: event
+                type: string
+            list: true
+          - name: ctaTitle
+            type: string
+  - name: productsPageGroup
+    label: 4 · Products Page
+    type: group
+    items:
+      - name: productsPage
+        label: Products page · English hero + shared image
+        type: file
+        path: src/data/products-page.json
+        fields:
+          - name: hero
+            label: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: image
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/products
+                  rename: safe
+              - name: imageAlt
+                type: string
+          - name: seoDescription
+            label: SEO description
+            type: text
+      - name: productsPageKh
+        label: Products page · Khmer hero text
+        type: file
+        path: src/data/kh/products-page.json
+        fields:
+          - name: hero
+            label: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: imageAlt
+                label: ការពិពណ៌នារូបភាពជាភាសាខ្មែរ
+                type: string
+          - name: seoDescription
+            type: text
       - name: products
-        type: string
+        label: Products items · English + shared controls
+        type: collection
+        path: src/content/products
+        filename: "{fields.slug}.md"
+        view:
+          primary: title
+          fields:
+            - slug
+        fields:
+          - name: title
+            type: string
+          - name: slug
+            type: string
+          - name: category
+            type: string
+          - name: shortDescription
+            type: text
+          - name: mainImageAlt
+            label: Main image description — English
+            type: string
+          - name: mainControl
+            label: MAIN CONTROL — Shared for English and Khmer
+            type: object
+            fields:
+              - name: published
+                label: Show this product on both websites
+                type: boolean
+              - name: featured
+                label: Show on both homepages
+                type: boolean
+              - name: displayOrder
+                label: Display order
+                type: number
+              - name: mainImage
+                label: Main image — shared
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/products
+                  rename: safe
+              - name: gallery
+                label: Gallery images — shared
+                type: object
+                fields:
+                  - name: image
+                    type: image
+                    options:
+                      media: images
+                      path: public/uploads/products
+                      rename: safe
+                  - name: alt
+                    label: Fallback image description — English
+                    type: string
+                list: true
+          - name: specifications
+            type: object
+            fields:
+              - name: label
+                type: string
+              - name: value
+                type: string
+            list: true
+          - name: body
+            type: rich-text
+            options:
+              media: images
+              path: public/uploads/products
+              rename: safe
+      - name: productsKh
+        label: Products items · Khmer translations
+        type: collection
+        path: src/content/kh/products
+        filename: "{fields.slug}.md"
+        view:
+          primary: title
+          fields:
+            - slug
+        fields:
+          - name: title
+            type: string
+          - name: slug
+            type: string
+          - name: category
+            type: string
+          - name: shortDescription
+            type: text
+          - name: mainImageAlt
+            type: string
+          - name: gallery
+            type: object
+            fields:
+              - name: alt
+                type: string
+            list: true
+          - name: specifications
+            type: object
+            fields:
+              - name: label
+                type: string
+              - name: value
+                type: string
+            list: true
+          - name: body
+            type: rich-text
+            options:
+              media: images
+              path: public/uploads/products
+              rename: safe
+  - name: factoryPage
+    label: 5 · Factory Page
+    type: group
+    items:
       - name: factory
-        type: string
+        label: Factory · English + shared images
+        type: file
+        path: src/data/factory.json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: image
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/factory
+                  rename: safe
+              - name: imageAlt
+                type: string
+          - name: introTitle
+            type: string
+          - name: introText
+            type: text
+          - name: facilities
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: text
+                type: text
+            list: true
+          - name: capabilitiesTitle
+            type: text
+          - name: capabilitiesText
+            type: text
+          - name: qualityTitle
+            type: text
+          - name: qualityText
+            type: text
+          - name: safetyTitle
+            type: text
+          - name: safetyText
+            type: text
+          - name: gallery
+            type: object
+            fields:
+              - name: image
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/factory
+                  rename: safe
+              - name: alt
+                type: string
+            list: true
+      - name: factoryKh
+        label: Factory · Khmer text
+        type: file
+        path: src/data/kh/factory.json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: imageAlt
+                type: string
+          - name: introTitle
+            type: string
+          - name: introText
+            type: text
+          - name: facilities
+            type: object
+            fields:
+              - name: title
+                type: string
+              - name: text
+                type: text
+            list: true
+          - name: capabilitiesTitle
+            type: text
+          - name: capabilitiesText
+            type: text
+          - name: qualityTitle
+            type: text
+          - name: qualityText
+            type: text
+          - name: safetyTitle
+            type: text
+          - name: safetyText
+            type: text
+          - name: gallery
+            type: object
+            fields:
+              - name: alt
+                type: string
+            list: true
+  - name: newsPageGroup
+    label: 6 · News Page
+    type: group
+    items:
+      - name: newsPage
+        label: News page · English hero + shared image
+        type: file
+        path: src/data/news-page.json
+        fields:
+          - name: hero
+            label: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: image
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/news
+                  rename: safe
+              - name: imageAlt
+                type: string
+          - name: seoDescription
+            label: SEO description
+            type: text
+      - name: newsPageKh
+        label: News page · Khmer hero text
+        type: file
+        path: src/data/kh/news-page.json
+        fields:
+          - name: hero
+            label: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: imageAlt
+                label: ការពិពណ៌នារូបភាពជាភាសាខ្មែរ
+                type: string
+          - name: seoDescription
+            type: text
       - name: news
-        type: string
+        label: News items · English + shared controls
+        type: collection
+        path: src/content/news
+        filename: "{fields.slug}.md"
+        view:
+          primary: title
+          fields:
+            - slug
+        fields:
+          - name: title
+            type: string
+          - name: slug
+            type: string
+          - name: summary
+            type: text
+          - name: coverImageAlt
+            label: Cover image description — English
+            type: string
+          - name: mainControl
+            label: MAIN CONTROL — Shared for English and Khmer
+            type: object
+            fields:
+              - name: published
+                label: Publish on both websites
+                type: boolean
+              - name: featured
+                label: Feature on both homepages
+                type: boolean
+              - name: publishDate
+                label: Publish date — shared
+                type: date
+              - name: coverImage
+                label: Cover image — shared
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/news
+                  rename: safe
+          - name: seoTitle
+            type: string
+          - name: seoDescription
+            type: text
+          - name: body
+            type: rich-text
+            options:
+              media: images
+              path: public/uploads/news
+              rename: safe
+      - name: newsKh
+        label: News items · Khmer translations
+        type: collection
+        path: src/content/kh/news
+        filename: "{fields.slug}.md"
+        view:
+          primary: title
+          fields:
+            - slug
+        fields:
+          - name: title
+            type: string
+          - name: slug
+            type: string
+          - name: summary
+            type: text
+          - name: coverImageAlt
+            type: string
+          - name: seoTitle
+            type: string
+          - name: seoDescription
+            type: text
+          - name: body
+            type: rich-text
+            options:
+              media: images
+              path: public/uploads/news
+              rename: safe
+  - name: careersPageGroup
+    label: 7 · Careers Page
+    type: group
+    items:
+      - name: careersPage
+        label: Careers page · English hero + shared image
+        type: file
+        path: src/data/careers-page.json
+        fields:
+          - name: hero
+            label: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: image
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/careers
+                  rename: safe
+              - name: imageAlt
+                type: string
+          - name: seoDescription
+            label: SEO description
+            type: text
+      - name: careersPageKh
+        label: Careers page · Khmer hero text
+        type: file
+        path: src/data/kh/careers-page.json
+        fields:
+          - name: hero
+            label: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: imageAlt
+                label: ការពិពណ៌នារូបភាពជាភាសាខ្មែរ
+                type: string
+          - name: seoDescription
+            type: text
       - name: careers
-        type: string
+        label: Career items · English + shared controls
+        type: collection
+        path: src/content/careers
+        filename: "{fields.slug}.md"
+        view:
+          primary: title
+          fields:
+            - slug
+        fields:
+          - name: title
+            type: string
+          - name: slug
+            type: string
+          - name: department
+            type: string
+          - name: location
+            type: string
+          - name: employmentType
+            type: string
+          - name: summary
+            type: text
+          - name: responsibilities
+            type: string
+            list: true
+          - name: requirements
+            type: string
+            list: true
+          - name: mainControl
+            label: MAIN CONTROL — Shared for English and Khmer
+            type: object
+            fields:
+              - name: published
+                label: Publish this job on both websites
+                type: boolean
+              - name: publishDate
+                label: Publish date — shared
+                type: date
+              - name: closingDate
+                label: Closing date — shared (optional)
+                type: date
+          - name: body
+            type: rich-text
+            options:
+              media: images
+              path: public/uploads/careers
+              rename: safe
+      - name: careersKh
+        label: Career items · Khmer translations
+        type: collection
+        path: src/content/kh/careers
+        filename: "{fields.slug}.md"
+        view:
+          primary: title
+          fields:
+            - slug
+        fields:
+          - name: title
+            type: string
+          - name: slug
+            type: string
+          - name: department
+            type: string
+          - name: location
+            type: string
+          - name: employmentType
+            type: string
+          - name: summary
+            type: text
+          - name: responsibilities
+            type: string
+            list: true
+          - name: requirements
+            type: string
+            list: true
+          - name: body
+            type: rich-text
+            options:
+              media: images
+              path: public/uploads/careers
+              rename: safe
+  - name: contactPage
+    label: 8 · Contact Page
+    type: group
+    items:
       - name: contact
-        type: string
-    - name: actions
-      type: object
-      fields:
-      - name: about
-        type: string
-      - name: factory
-        type: string
-      - name: allProducts
-        type: string
-      - name: allNews
-        type: string
-      - name: viewProduct
-        type: string
-      - name: readStory
-        type: string
-      - name: contact
-        type: string
-      - name: getInTouch
-        type: string
-      - name: backHome
-        type: string
-    - name: empty
-      type: object
-      fields:
-      - name: products
-        type: string
-      - name: featuredProducts
-        type: string
-      - name: news
-        type: string
-      - name: homeNews
-        type: string
-      - name: jobs
-        type: string
-    - name: headings
-      type: object
-      fields:
-      - name: mission
-        type: string
-      - name: vision
-        type: string
-      - name: values
-        type: string
-      - name: journey
-        type: string
-      - name: openPositions
-        type: string
-      - name: responsibilities
-        type: string
-      - name: requirements
-        type: string
-      - name: apply
-        type: string
-      - name: closingDate
-        type: string
-      - name: address
-        type: string
-      - name: phone
-        type: string
-      - name: email
-        type: string
-      - name: businessHours
-        type: string
-      - name: explore
-        type: string
-      - name: skip
-        type: string
-      - name: all
-        type: string
-    - name: accessibility
-      label: System and accessibility labels
-      type: object
-      fields:
-      - name: primaryNavigation
-        type: string
-      - name: openMenu
-        type: string
-      - name: closeMenu
-        type: string
-      - name: switchToEnglish
-        type: string
-      - name: switchToKhmer
-        type: string
-      - name: toggleTheme
-        type: string
-      - name: mapTitle
-        type: string
-      - name: statistics
-        type: string
-      - name: filterProducts
-        type: string
-      - name: filterStatus
-        label: Filter result message (keep {count})
-        type: string
-      - name: socialMedia
-        type: string
-      - name: unavailableSocial
-        type: string
-    - name: application
-      type: object
-      fields:
-      - name: emailPrefix
-        type: string
-      - name: emailSuffix
-        type: string
-      - name: fallbackPrefix
-        type: string
-      - name: fallbackLink
-        type: string
-      - name: fallbackSuffix
-        type: string
-      - name: subject
-        type: string
-    - name: notFound
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: string
-    - name: manage
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: title
-        type: string
-      - name: intro
-        type: text
-      - name: open
-        type: string
-      - name: areas
-        type: string
-      - name: edit
-        type: string
-      - name: view
-        type: string
-      - name: steps
-        type: string
-      - name: sign
-        type: string
-      - name: signText
-        type: string
-      - name: change
-        type: string
-      - name: changeText
-        type: text
-      - name: review
-        type: string
-      - name: reviewText
-        type: string
-      - name: note
-        type: text
-      - name: enEditor
-        type: string
-      - name: khEditor
-        type: string
-      - name: enHint
-        type: string
-      - name: khHint
-        type: string
-      - name: previewEn
-        type: string
-      - name: previewKh
-        type: string
-    - name: manageSections
-      type: object
-      list: true
-      fields:
-      - name: name
-        type: string
-      - name: path
-        type: string
-      - name: description
-        type: text
-- name: khmer
-  label: ភាសាខ្មែរ · Khmer Text Only
-  type: group
-  items:
-  - name: homeKh
-    label: ភាសាខ្មែរ · ទំព័រដើម
-    type: file
-    path: src/data/kh/home.json
-    fields:
-    - name: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: imageAlt
-        type: string
-      - name: primaryLabel
-        type: string
-      - name: secondaryLabel
-        type: string
-    - name: intro
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: title
-        type: string
-      - name: text
-        type: text
-      - name: imageAlt
-        type: string
-    - name: statistics
-      type: object
-      fields:
-      - name: value
-        type: string
-      - name: label
-        type: string
-      list: true
-    - name: productsHeading
-      type: string
-    - name: productsDescription
-      type: text
-    - name: factoryHeading
-      type: string
-    - name: factoryText
-      type: text
-    - name: factoryImageAlt
-      type: string
-    - name: benefitsHeading
-      type: string
-    - name: benefits
-      type: object
-      fields:
-      - name: title
-        type: string
-      - name: text
-        type: text
-      list: true
-    - name: newsHeading
-      type: string
-    - name: cta
-      type: object
-      fields:
-      - name: title
-        type: string
-      - name: text
-        type: text
-      - name: label
-        type: string
-  - name: aboutKh
-    label: ភាសាខ្មែរ · អំពីយើង
-    type: file
-    path: src/data/kh/about.json
-    fields:
-    - name: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: imageAlt
-        type: string
-    - name: overviewTitle
-      type: string
-    - name: overviewText
-      type: text
-    - name: storyTitle
-      type: text
-    - name: storyText
-      type: text
-    - name: imageAlt
-      type: string
-    - name: mission
-      type: text
-    - name: vision
-      type: text
-    - name: values
-      type: object
-      fields:
-      - name: title
-        type: string
-      - name: text
-        type: text
-      list: true
-    - name: milestones
-      type: object
-      fields:
-      - name: year
-        type: string
-      - name: event
-        type: string
-      list: true
-    - name: ctaTitle
-      type: string
-  - name: factoryKh
-    label: ភាសាខ្មែរ · រោងចក្រ
-    type: file
-    path: src/data/kh/factory.json
-    fields:
-    - name: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: imageAlt
-        type: string
-    - name: introTitle
-      type: string
-    - name: introText
-      type: text
-    - name: facilities
-      type: object
-      fields:
-      - name: title
-        type: string
-      - name: text
-        type: text
-      list: true
-    - name: capabilitiesTitle
-      type: text
-    - name: capabilitiesText
-      type: text
-    - name: qualityTitle
-      type: text
-    - name: qualityText
-      type: text
-    - name: safetyTitle
-      type: text
-    - name: safetyText
-      type: text
-    - name: gallery
-      type: object
-      fields:
-      - name: alt
-        type: string
-      list: true
-  - name: productsPageKh
-    label: ទំព័រផលិតផល · HERO CONTROL
-    type: file
-    path: src/data/kh/products-page.json
-    fields:
-    - name: hero
-      label: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: imageAlt
-        label: ការពិពណ៌នារូបភាពជាភាសាខ្មែរ
-        type: string
-    - name: seoDescription
-      type: text
-  - name: productsKh
-    label: ផលិតផល · Khmer translation only
-    type: collection
-    path: src/content/kh/products
-    filename: '{fields.slug}.md'
-    view:
-      primary: title
-      fields:
-      - slug
-    fields:
-    - name: title
-      type: string
-    - name: slug
-      type: string
-    - name: category
-      type: string
-    - name: shortDescription
-      type: text
-    - name: mainImageAlt
-      type: string
-    - name: gallery
-      type: object
-      fields:
-      - name: alt
-        type: string
-      list: true
-    - name: specifications
-      type: object
-      fields:
-      - name: label
-        type: string
-      - name: value
-        type: string
-      list: true
-    - name: body
-      type: rich-text
-      options:
-        media: images
-        path: public/uploads/products
-        rename: safe
-  - name: newsPageKh
-    label: ទំព័រព័ត៌មាន · HERO CONTROL
-    type: file
-    path: src/data/kh/news-page.json
-    fields:
-    - name: hero
-      label: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: imageAlt
-        label: ការពិពណ៌នារូបភាពជាភាសាខ្មែរ
-        type: string
-    - name: seoDescription
-      type: text
-  - name: newsKh
-    label: ព័ត៌មាន · Khmer translation only
-    type: collection
-    path: src/content/kh/news
-    filename: '{fields.slug}.md'
-    view:
-      primary: title
-      fields:
-      - slug
-    fields:
-    - name: title
-      type: string
-    - name: slug
-      type: string
-    - name: summary
-      type: text
-    - name: coverImageAlt
-      type: string
-    - name: seoTitle
-      type: string
-    - name: seoDescription
-      type: text
-    - name: body
-      type: rich-text
-      options:
-        media: images
-        path: public/uploads/news
-        rename: safe
-  - name: careersPageKh
-    label: ទំព័រឱកាសការងារ · HERO CONTROL
-    type: file
-    path: src/data/kh/careers-page.json
-    fields:
-    - name: hero
-      label: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: imageAlt
-        label: ការពិពណ៌នារូបភាពជាភាសាខ្មែរ
-        type: string
-    - name: seoDescription
-      type: text
-  - name: careersKh
-    label: ឱកាសការងារ · Khmer translation only
-    type: collection
-    path: src/content/kh/careers
-    filename: '{fields.slug}.md'
-    view:
-      primary: title
-      fields:
-      - slug
-    fields:
-    - name: title
-      type: string
-    - name: slug
-      type: string
-    - name: department
-      type: string
-    - name: location
-      type: string
-    - name: employmentType
-      type: string
-    - name: summary
-      type: text
-    - name: responsibilities
-      type: string
-      list: true
-    - name: requirements
-      type: string
-      list: true
-    - name: body
-      type: rich-text
-      options:
-        media: images
-        path: public/uploads/careers
-        rename: safe
-  - name: contactKh
-    label: ភាសាខ្មែរ · ទំនាក់ទំនង
-    type: file
-    path: src/data/kh/contact.json
-    fields:
-    - name: hero
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: text
-      - name: imageAlt
-        type: string
-    - name: ctaTitle
-      type: string
-    - name: ctaText
-      type: text
-  - name: uiKh
-    label: ភាសាខ្មែរ · អត្ថបទលើគេហទំព័រ
-    type: file
-    path: src/data/kh/ui.json
-    fields:
-    - name: nav
-      type: object
-      fields:
-      - name: home
-        type: string
-      - name: about
-        type: string
-      - name: products
-        type: string
-      - name: factory
-        type: string
-      - name: news
-        type: string
-      - name: careers
-        type: string
-      - name: contact
-        type: string
-    - name: actions
-      type: object
-      fields:
-      - name: about
-        type: string
-      - name: factory
-        type: string
-      - name: allProducts
-        type: string
-      - name: allNews
-        type: string
-      - name: viewProduct
-        type: string
-      - name: readStory
-        type: string
-      - name: contact
-        type: string
-      - name: getInTouch
-        type: string
-      - name: backHome
-        type: string
-    - name: empty
-      type: object
-      fields:
-      - name: products
-        type: string
-      - name: featuredProducts
-        type: string
-      - name: news
-        type: string
-      - name: homeNews
-        type: string
-      - name: jobs
-        type: string
-    - name: headings
-      type: object
-      fields:
-      - name: mission
-        type: string
-      - name: vision
-        type: string
-      - name: values
-        type: string
-      - name: journey
-        type: string
-      - name: openPositions
-        type: string
-      - name: responsibilities
-        type: string
-      - name: requirements
-        type: string
-      - name: apply
-        type: string
-      - name: closingDate
-        type: string
-      - name: address
-        type: string
-      - name: phone
-        type: string
-      - name: email
-        type: string
-      - name: businessHours
-        type: string
-      - name: explore
-        type: string
-      - name: skip
-        type: string
-      - name: all
-        type: string
-    - name: accessibility
-      label: System and accessibility labels
-      type: object
-      fields:
-      - name: primaryNavigation
-        type: string
-      - name: openMenu
-        type: string
-      - name: closeMenu
-        type: string
-      - name: switchToEnglish
-        type: string
-      - name: switchToKhmer
-        type: string
-      - name: toggleTheme
-        type: string
-      - name: mapTitle
-        type: string
-      - name: statistics
-        type: string
-      - name: filterProducts
-        type: string
-      - name: filterStatus
-        label: Filter result message (keep {count})
-        type: string
-      - name: socialMedia
-        type: string
-      - name: unavailableSocial
-        type: string
-    - name: application
-      type: object
-      fields:
-      - name: emailPrefix
-        type: string
-      - name: emailSuffix
-        type: string
-      - name: fallbackPrefix
-        type: string
-      - name: fallbackLink
-        type: string
-      - name: fallbackSuffix
-        type: string
-      - name: subject
-        type: string
-    - name: notFound
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: headline
-        type: string
-      - name: description
-        type: string
-    - name: manage
-      type: object
-      fields:
-      - name: eyebrow
-        type: string
-      - name: title
-        type: string
-      - name: intro
-        type: text
-      - name: open
-        type: string
-      - name: areas
-        type: string
-      - name: edit
-        type: string
-      - name: view
-        type: string
-      - name: steps
-        type: string
-      - name: sign
-        type: string
-      - name: signText
-        type: string
-      - name: change
-        type: string
-      - name: changeText
-        type: text
-      - name: review
-        type: string
-      - name: reviewText
-        type: string
-      - name: note
-        type: text
-      - name: enEditor
-        type: string
-      - name: khEditor
-        type: string
-      - name: enHint
-        type: string
-      - name: khHint
-        type: string
-      - name: previewEn
-        type: string
-      - name: previewKh
-        type: string
-    - name: manageSections
-      type: object
-      list: true
-      fields:
-      - name: name
-        type: string
-      - name: path
-        type: string
-      - name: description
-        type: text
+        label: Contact · English + shared image and map
+        type: file
+        path: src/data/contact.json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: image
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/about
+                  rename: safe
+              - name: imageAlt
+                type: string
+          - name: mapEmbedUrl
+            type: string
+          - name: ctaTitle
+            type: string
+          - name: ctaText
+            type: text
+      - name: contactKh
+        label: Contact · Khmer text
+        type: file
+        path: src/data/kh/contact.json
+        fields:
+          - name: hero
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: text
+              - name: imageAlt
+                type: string
+          - name: ctaTitle
+            type: string
+          - name: ctaText
+            type: text
+  - name: interfaceText
+    label: 9 · Interface Text
+    type: group
+    items:
+      - name: uiEn
+        label: Interface text · English
+        type: file
+        path: src/data/ui.json
+        fields:
+          - name: nav
+            type: object
+            fields:
+              - name: home
+                type: string
+              - name: about
+                type: string
+              - name: products
+                type: string
+              - name: factory
+                type: string
+              - name: news
+                type: string
+              - name: careers
+                type: string
+              - name: contact
+                type: string
+          - name: actions
+            type: object
+            fields:
+              - name: about
+                type: string
+              - name: factory
+                type: string
+              - name: allProducts
+                type: string
+              - name: allNews
+                type: string
+              - name: viewProduct
+                type: string
+              - name: readStory
+                type: string
+              - name: contact
+                type: string
+              - name: getInTouch
+                type: string
+              - name: backHome
+                type: string
+          - name: empty
+            type: object
+            fields:
+              - name: products
+                type: string
+              - name: featuredProducts
+                type: string
+              - name: news
+                type: string
+              - name: homeNews
+                type: string
+              - name: jobs
+                type: string
+          - name: headings
+            type: object
+            fields:
+              - name: mission
+                type: string
+              - name: vision
+                type: string
+              - name: values
+                type: string
+              - name: journey
+                type: string
+              - name: openPositions
+                type: string
+              - name: responsibilities
+                type: string
+              - name: requirements
+                type: string
+              - name: apply
+                type: string
+              - name: closingDate
+                type: string
+              - name: address
+                type: string
+              - name: phone
+                type: string
+              - name: email
+                type: string
+              - name: businessHours
+                type: string
+              - name: explore
+                type: string
+              - name: skip
+                type: string
+              - name: all
+                type: string
+          - name: accessibility
+            label: System and accessibility labels
+            type: object
+            fields:
+              - name: primaryNavigation
+                type: string
+              - name: openMenu
+                type: string
+              - name: closeMenu
+                type: string
+              - name: switchToEnglish
+                type: string
+              - name: switchToKhmer
+                type: string
+              - name: toggleTheme
+                type: string
+              - name: mapTitle
+                type: string
+              - name: statistics
+                type: string
+              - name: filterProducts
+                type: string
+              - name: filterStatus
+                label: Filter result message (keep {count})
+                type: string
+              - name: socialMedia
+                type: string
+              - name: unavailableSocial
+                type: string
+          - name: application
+            type: object
+            fields:
+              - name: emailPrefix
+                type: string
+              - name: emailSuffix
+                type: string
+              - name: fallbackPrefix
+                type: string
+              - name: fallbackLink
+                type: string
+              - name: fallbackSuffix
+                type: string
+              - name: subject
+                type: string
+          - name: notFound
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: string
+          - name: manage
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: intro
+                type: text
+              - name: open
+                type: string
+              - name: areas
+                type: string
+              - name: edit
+                type: string
+              - name: view
+                type: string
+              - name: steps
+                type: string
+              - name: sign
+                type: string
+              - name: signText
+                type: string
+              - name: change
+                type: string
+              - name: changeText
+                type: text
+              - name: review
+                type: string
+              - name: reviewText
+                type: string
+              - name: note
+                type: text
+              - name: enEditor
+                type: string
+              - name: khEditor
+                type: string
+              - name: enHint
+                type: string
+              - name: khHint
+                type: string
+              - name: previewEn
+                type: string
+              - name: previewKh
+                type: string
+          - name: manageSections
+            type: object
+            list: true
+            fields:
+              - name: name
+                type: string
+              - name: path
+                type: string
+              - name: description
+                type: text
+      - name: uiKh
+        label: Interface text · Khmer
+        type: file
+        path: src/data/kh/ui.json
+        fields:
+          - name: nav
+            type: object
+            fields:
+              - name: home
+                type: string
+              - name: about
+                type: string
+              - name: products
+                type: string
+              - name: factory
+                type: string
+              - name: news
+                type: string
+              - name: careers
+                type: string
+              - name: contact
+                type: string
+          - name: actions
+            type: object
+            fields:
+              - name: about
+                type: string
+              - name: factory
+                type: string
+              - name: allProducts
+                type: string
+              - name: allNews
+                type: string
+              - name: viewProduct
+                type: string
+              - name: readStory
+                type: string
+              - name: contact
+                type: string
+              - name: getInTouch
+                type: string
+              - name: backHome
+                type: string
+          - name: empty
+            type: object
+            fields:
+              - name: products
+                type: string
+              - name: featuredProducts
+                type: string
+              - name: news
+                type: string
+              - name: homeNews
+                type: string
+              - name: jobs
+                type: string
+          - name: headings
+            type: object
+            fields:
+              - name: mission
+                type: string
+              - name: vision
+                type: string
+              - name: values
+                type: string
+              - name: journey
+                type: string
+              - name: openPositions
+                type: string
+              - name: responsibilities
+                type: string
+              - name: requirements
+                type: string
+              - name: apply
+                type: string
+              - name: closingDate
+                type: string
+              - name: address
+                type: string
+              - name: phone
+                type: string
+              - name: email
+                type: string
+              - name: businessHours
+                type: string
+              - name: explore
+                type: string
+              - name: skip
+                type: string
+              - name: all
+                type: string
+          - name: accessibility
+            label: System and accessibility labels
+            type: object
+            fields:
+              - name: primaryNavigation
+                type: string
+              - name: openMenu
+                type: string
+              - name: closeMenu
+                type: string
+              - name: switchToEnglish
+                type: string
+              - name: switchToKhmer
+                type: string
+              - name: toggleTheme
+                type: string
+              - name: mapTitle
+                type: string
+              - name: statistics
+                type: string
+              - name: filterProducts
+                type: string
+              - name: filterStatus
+                label: Filter result message (keep {count})
+                type: string
+              - name: socialMedia
+                type: string
+              - name: unavailableSocial
+                type: string
+          - name: application
+            type: object
+            fields:
+              - name: emailPrefix
+                type: string
+              - name: emailSuffix
+                type: string
+              - name: fallbackPrefix
+                type: string
+              - name: fallbackLink
+                type: string
+              - name: fallbackSuffix
+                type: string
+              - name: subject
+                type: string
+          - name: notFound
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: headline
+                type: string
+              - name: description
+                type: string
+          - name: manage
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: intro
+                type: text
+              - name: open
+                type: string
+              - name: areas
+                type: string
+              - name: edit
+                type: string
+              - name: view
+                type: string
+              - name: steps
+                type: string
+              - name: sign
+                type: string
+              - name: signText
+                type: string
+              - name: change
+                type: string
+              - name: changeText
+                type: text
+              - name: review
+                type: string
+              - name: reviewText
+                type: string
+              - name: note
+                type: text
+              - name: enEditor
+                type: string
+              - name: khEditor
+                type: string
+              - name: enHint
+                type: string
+              - name: khHint
+                type: string
+              - name: previewEn
+                type: string
+              - name: previewKh
+                type: string
+          - name: manageSections
+            type: object
+            list: true
+            fields:
+              - name: name
+                type: string
+              - name: path
+                type: string
+              - name: description
+                type: text
