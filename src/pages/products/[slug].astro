@@ -1,5 +1,5 @@
 ---
-import ArticleLayout from '../../layouts/ArticleLayout.astro';import {getCollection,render} from 'astro:content';import {publicEntries,language,contentFor,pathFor} from '../../lib/content';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';import {getCollection,render} from 'astro:content';import {publicEntries,language,contentFor} from '../../lib/content';
 export async function getStaticPaths(){return publicEntries(await getCollection('products')).map(product=>({params:{slug:product.data.slug},props:{product}}));}
 const lang=language(Astro.url),ui=contentFor(lang).ui;const {product}=Astro.props;const {Content}=await render(product);
 ---

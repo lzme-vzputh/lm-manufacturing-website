@@ -44,6 +44,20 @@
     "skip": "Skip to content",
     "all": "All products"
   },
+  "accessibility": {
+    "primaryNavigation": "Primary navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchToEnglish": "Switch to English",
+    "switchToKhmer": "Switch to Khmer",
+    "toggleTheme": "Toggle light or dark mode",
+    "mapTitle": "Company location map",
+    "statistics": "Company statistics",
+    "filterProducts": "Filter products by category",
+    "filterStatus": "Showing {count} products",
+    "socialMedia": "Social media",
+    "unavailableSocial": "Link not available yet"
+  },
   "listings": {
     "products": {
       "eyebrow": "OUR PRODUCTS",
@@ -80,7 +94,7 @@
   "manage": {
     "eyebrow": "WEBSITE MANAGEMENT",
     "title": "Update your website",
-    "intro": "Edit shared images, links and contact details once under English in Pages CMS. Edit English and Khmer wording in their own menus.",
+    "intro": "Edit shared images, links, dates and company details once under English + Shared Settings. Edit Khmer page wording under Khmer Text Only.",
     "open": "Open content editor",
     "areas": "Content you can update",
     "edit": "Edit in CMS",
@@ -89,14 +103,14 @@
     "sign": "Sign in",
     "signText": "Sign in to Pages CMS with GitHub and choose the website repository.",
     "change": "Edit both languages",
-    "changeText": "Use English + shared images and links for photos, URLs, dates and common company details. Use ភាសាខ្មែរ for Khmer text and image descriptions.",
+    "changeText": "Company Settings keeps English and Khmer company names, descriptions, addresses, hours, footer and SEO together. Shared photos, URLs, dates, publishing controls and common contact details appear only once.",
     "review": "Review the public pages",
     "reviewText": "Wait for your host to finish building. Check / and /kh for the updated content.",
     "note": "The editor requires a connected GitHub repository and Pages CMS access. This page itself is a public guide, not a login or a content editor.",
     "enEditor": "Edit English content",
     "khEditor": "Edit Khmer content",
-    "enHint": "Choose English + shared images and links for common photos, URLs and contact details.",
-    "khHint": "Choose ភាសាខ្មែរ · អត្ថបទ for Khmer text and image descriptions.",
+    "enHint": "Choose English + Shared Settings for English text and all shared photos, URLs, dates, publishing controls and company settings.",
+    "khHint": "Choose Khmer Text Only for Khmer page text, product translations, news translations and image descriptions.",
     "previewEn": "View English site",
     "previewKh": "View Khmer site"
   },

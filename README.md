@@ -11,7 +11,7 @@ A statically generated bilingual company website with editable pages, products, 
 1. Ask a developer to publish this project to a GitHub repository and connect that repository to Cloudflare Pages.
 2. The repository administrator installs the [Pages CMS GitHub App](https://pagescms.org/docs/quick-start/) and grants it access to this repository. Editors need appropriate repository access.
 3. Open [Pages CMS](https://app.pagescms.org), sign in with GitHub, and select the repository and branch used by Cloudflare Pages.
-4. Update **Company Settings** first: name, description, logo, contact details, social links and SEO text. Then update **Home**, **About**, **Factory**, and **Contact**.
+4. Update **Company Settings · English + Khmer + Shared** first: both company names and descriptions, logo, contact details, social links, fonts, colors and SEO text. Then update **Home**, **About**, **Factory**, and **Contact**.
 5. Save an edit. Pages CMS commits the content to GitHub; Cloudflare Pages rebuilds the site automatically. Wait for deployment before checking the public site.
 
 ### Language and theme
@@ -20,13 +20,13 @@ The English site is at `/`; Khmer pages are at `/kh`. Visitors can switch langua
 
 The header stays visible while scrolling. Navigation uses a soft highlighted pill on hover and a gold pill for the current page, without a link underline. Buttons, product filters and cards provide hover and pressed feedback; people who request reduced motion see the same content without animation.
 
-Pages CMS has separate **English + shared images and links** and **ភាសាខ្មែរ · អត្ថបទ** menus. Each contains Home, About, Factory, Products, News, Careers, Contact, Company Settings and Interface text. Edit common images, destinations, dates and company contact details once under English; edit Khmer wording under Khmer. Each language has its own image descriptions and publication switch. For products and news, create entries in both languages with the **same slug**. Careers work differently: a published English vacancy automatically appears in the Khmer Open Positions list and links to its English detail page. An optional published Khmer version with the same slug replaces that listing and provides a Khmer detail page. An unpublished English entry stays hidden in both languages.
+Pages CMS has two clear menus: **English + Shared Settings** and **Khmer Text Only**. Shared images, destinations, dates, publication switches and company contact details appear only under English. Khmer contains only Khmer wording and image descriptions. For products and news, create a Khmer translation with the **same slug** as its English entry. The English entry controls its image, date, order, featured state and publication in both languages. A published English vacancy automatically appears on the Khmer Careers page; a Khmer entry with the same slug supplies the Khmer wording. An unpublished English entry stays hidden in both languages.
 
-English Company Settings owns the logo, phone, email, application email, social links and default SEO image for both languages. English and Khmer each own their company name, description, address, hours, footer and SEO wording. The English Contact page owns the Google Maps embed URL for both languages.
+One **Company Settings · English + Khmer + Shared** form owns both company names and descriptions, both addresses and business hours, both footer and SEO texts, plus one shared logo, phone, email, application email, social links, fonts, default image and color palette. The English Contact page owns the Google Maps embed URL for both languages.
 
-The Khmer site uses the bundled **Noto Sans Khmer** variable font by default; the English site keeps its current font. To change either font later, open **English + shared images and links → Company Settings**. Upload a `.ttf` file to **English font (.ttf)** or **Khmer font (.ttf)** and save. Fonts are stored in `public/uploads/fonts/` automatically. Leave the Khmer field blank to use Noto Sans Khmer. Choose a font that contains the characters needed by that language; the browser uses fallback fonts for missing characters.
+The Khmer site uses the bundled **Noto Sans Khmer** variable font by default; the English site keeps its current font. To change either font later, open **English + Shared Settings → Company Settings · English + Khmer + Shared**. Upload a `.ttf` file to the English or Khmer font field and save. Fonts are stored in `public/uploads/fonts/` automatically. Leave the Khmer field blank to use Noto Sans Khmer.
 
-The Contact page displays LinkedIn, Telegram and YouTube icons even while their URLs are empty. Enter verified company URLs once in **English + shared images and links → Company Settings → Social** to make the icons clickable in both languages. Facebook appears after its URL is entered. External URLs must use HTTPS and match the named service.
+The Contact page displays LinkedIn, Telegram and YouTube icons even while their URLs are empty. Enter verified company URLs once in **Company Settings → Social links — shared** to make the icons clickable in both languages. Facebook appears after its URL is entered. External URLs must use HTTPS and match the named service.
 
 The `/manage` page is a public editing guide. Actual editing requires access to the connected GitHub repository through Pages CMS. A local ZIP alone does not provide a working admin login or live content updates.
 
@@ -55,9 +55,9 @@ Every saved CMS change creates a GitHub commit. The repository owner can inspect
 - Node.js 20.3 or later; Node 22 LTS is recommended for Cloudflare Pages.
 - `src/pages/` contains routes and detail page generators.
 - `src/components/` contains shared markup; `src/layouts/` contains page layouts.
-- `src/data/*.json` and `src/data/kh/*.json` contain English and Khmer page content; their `site.yml` files contain language-specific settings.
+- `src/data/*.json` and `src/data/kh/*.json` contain English and Khmer page content. `src/data/site.yml` contains unified bilingual and shared company settings.
 - `src/content/{products,news,careers}/*.md` and `src/content/kh/{products,news,careers}/*.md` contain language-specific entries, validated by `src/content.config.ts`.
-- `.pages.yml` models English shared values and separate Khmer text. `src/lib/content.ts` combines them for the Khmer site by page and by collection slug.
+- `.pages.yml` exposes shared values once and separate Khmer text. `src/lib/content.ts` combines them for the Khmer site by page and by matching collection slug.
 - `public/uploads/` contains CMS uploaded images; the generated WebP assets are illustrative; the checked-in SVG is a fallback placeholder.
 - `src/assets/css/` contains the shared design system and component styles.
 - `.github/workflows/normalize-images.yml` runs after image uploads, and `scripts/normalize-images.mjs` converts images and updates references. The workflow requires GitHub Actions enabled and `contents: write` permission on the repository.

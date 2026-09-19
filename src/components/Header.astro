@@ -1,23 +1,24 @@
 ---
-import {siteFor,language,pathFor} from '../lib/content';
+import {siteFor,language,pathFor,contentFor} from '../lib/content';
 import {getCollection} from 'astro:content';
 const lang=language(Astro.url),site=siteFor(lang);const other=lang==='kh'?'en':'kh';const original=Astro.url.pathname.replace(/^\/kh(?=\/|$)/,'')||'/';let switchTo=pathFor(original.startsWith('/404')?'/':original,other);
 const detail=lang==='en'?original.match(/^\/(careers|products|news)\/([^/]+)\/?$/):undefined;
 if(detail){
   const collection=({careers:'careersKh',products:'productsKh',news:'newsKh'} as const)[detail[1] as 'careers'|'products'|'news'];
   const translations=await getCollection(collection);
-  if(!translations.some(entry=>entry.data.slug===detail[2]&&entry.data.published))switchTo=`/kh/${detail[1]}`;
+  if(!translations.some(entry=>entry.data.slug===detail[2]))switchTo=`/kh/${detail[1]}`;
 }
+const ui=contentFor(lang).ui;
 import Navigation from './Navigation.astro';
 ---
-<header class="site-header"><div class="container header-inner"><a class="brand" href={pathFor('/',lang)} aria-label={`${site.companyName} home`}><img src={site.logo} width="40" height="40" alt=""/><span>{site.companyName}</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label="Open menu"><span></span><span></span><span></span></button><Navigation/><div class="header-actions"><a class="language-switch" href={switchTo} hreflang={other} aria-label={lang==='kh'?'Switch to English':'ប្ដូរទៅភាសាខ្មែរ'}>{lang==='kh'?'EN':'ខ្មែរ'}</a><button class="theme-toggle" type="button" aria-label={lang==='kh'?'ប្ដូររូបរាងពន្លឺ ឬងងឹត':'Toggle dark mode'} title={lang==='kh'?'ប្ដូររូបរាង':'Toggle dark mode'} aria-pressed="false"><span aria-hidden="true">◐</span></button></div></div></header>
+<header class="site-header"><div class="container header-inner"><a class="brand" href={pathFor('/',lang)} aria-label={`${site.companyName} ${ui.nav.home}`}><img src={site.logo} width="40" height="40" alt=""/><span>{site.companyName}</span></a><button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation" aria-label={ui.accessibility.openMenu} data-open-label={ui.accessibility.openMenu} data-close-label={ui.accessibility.closeMenu}><span></span><span></span><span></span></button><Navigation/><div class="header-actions"><a class="language-switch" href={switchTo} hreflang={other} aria-label={lang==='kh'?ui.accessibility.switchToEnglish:ui.accessibility.switchToKhmer}>{lang==='kh'?'EN':'ខ្មែរ'}</a><button class="theme-toggle" type="button" aria-label={ui.accessibility.toggleTheme} title={ui.accessibility.toggleTheme} aria-pressed="false"><span aria-hidden="true">◐</span></button></div></div></header>
 <script>
 const themeButton=document.querySelector<HTMLButtonElement>('.theme-toggle');const syncTheme=()=>themeButton?.setAttribute('aria-pressed',String(document.documentElement.dataset.theme==='dark'));syncTheme();themeButton?.addEventListener('click',()=>{const next=document.documentElement.dataset.theme==='dark'?'light':'dark';document.documentElement.dataset.theme=next;try{localStorage.setItem('lm-theme',next)}catch(e){}syncTheme()});
 const toggle=document.querySelector<HTMLButtonElement>('.nav-toggle');
 const nav=document.querySelector<HTMLElement>('#primary-navigation');
-if(toggle && nav){toggle.addEventListener('click',()=>{const opened=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!opened));toggle.setAttribute('aria-label',opened?'Open menu':'Close menu');nav.classList.toggle('is-open',!opened);});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open');}));}
+if(toggle && nav){toggle.addEventListener('click',()=>{const opened=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!opened));toggle.setAttribute('aria-label',opened?(toggle.dataset.openLabel||'Open menu'):(toggle.dataset.closeLabel||'Close menu'));nav.classList.toggle('is-open',!opened);});nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{toggle.setAttribute('aria-expanded','false');nav.classList.remove('is-open');}));}
 const header=document.querySelector<HTMLElement>('.site-header');
 const syncHeader=()=>header?.classList.toggle('is-scrolled',window.scrollY>8);
 syncHeader();window.addEventListener('scroll',syncHeader,{passive:true});
-document.addEventListener('keydown',event=>{if(event.key==='Escape'&&toggle?.getAttribute('aria-expanded')==='true'){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open menu');nav?.classList.remove('is-open');toggle.focus();}});
+document.addEventListener('keydown',event=>{if(event.key==='Escape'&&toggle?.getAttribute('aria-expanded')==='true'){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label',toggle.dataset.openLabel||'Open menu');nav?.classList.remove('is-open');toggle.focus();}});
 </script>

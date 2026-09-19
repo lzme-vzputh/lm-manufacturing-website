@@ -1,7 +1,6 @@
 ---
 import {siteFor,language,pathFor,contentFor} from '../lib/content';const lang=language(Astro.url),site=siteFor(lang),ui=contentFor(lang).ui;
-import {getCollection} from 'astro:content';
-import {publicEntries,byOrder,productsFor} from '../lib/content';
+import {publicEntries,productsFor} from '../lib/content';
 import SocialLinks from './SocialLinks.astro';
 const products=publicEntries(await productsFor(lang)).sort((a,b)=>a.data.displayOrder-b.data.displayOrder).slice(0,4);
 ---

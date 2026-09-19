@@ -1,6 +1,5 @@
 import { parse } from 'yaml';
 import siteEnSource from '../data/site.yml?raw';
-import siteKhSource from '../data/kh/site.yml?raw';
 import homeEn from '../data/home.json'; import homeKh from '../data/kh/home.json';
 import aboutEn from '../data/about.json'; import aboutKh from '../data/kh/about.json';
 import factoryEn from '../data/factory.json'; import factoryKh from '../data/kh/factory.json';
@@ -28,17 +27,41 @@ const factoryShared = {
 const contactShared = {...contactKh, hero: {...contactKh.hero, image: contactEn.hero.image}, mapEmbedUrl: contactEn.mapEmbedUrl};
 const uiShared = {...uiKh, manageSections: uiKh.manageSections.map((section, index) => ({...section, path: uiEn.manageSections[index]?.path || '/'}))};
 export const contentFor = (lang: Lang) => ({home:lang==='kh'?homeShared:homeEn,about:lang==='kh'?aboutShared:aboutEn,factory:lang==='kh'?factoryShared:factoryEn,contact:lang==='kh'?contactShared:contactEn,ui:lang==='kh'?uiShared:uiEn});
-type Site = {companyName:string;logo:string;fontUrl?:string;fontKhUrl?:string;description:string;contact:{phone:string;email:string;address:string;businessHours:string;applicationEmail:string};social:Record<string,string>;footer:{copyright:string};seo:{defaultTitle:string;titleTemplate:string;defaultDescription:string;defaultImage:string}};
+type Site = {companyName:string;logo:string;fontUrl?:string;fontKhUrl?:string;description:string;contact:{phone:string;email:string;address:string;businessHours:string;applicationEmail:string};social:Record<string,string>;footer:{copyright:string};seo:{defaultTitle:string;titleTemplate:string;defaultDescription:string;defaultImage:string};appearance?:Record<string,string>};
+type SiteSource = {
+  companyNameEn:string; companyNameKh:string; logo:string; fontUrl?:string; fontKhUrl?:string;
+  descriptionEn:string; descriptionKh:string;
+  contact:{phone:string;email:string;addressEn:string;addressKh:string;businessHoursEn:string;businessHoursKh:string;applicationEmail:string};
+  social:Record<string,string>;
+  footer:{copyrightEn:string;copyrightKh:string};
+  seo:{defaultTitleEn:string;defaultTitleKh:string;titleTemplateEn:string;titleTemplateKh:string;defaultDescriptionEn:string;defaultDescriptionKh:string;defaultImage:string};
+  appearance?:Record<string,string>;
+};
 export const siteFor = (lang: Lang):Site => {
-  const en = parse(siteEnSource) as Site;
-  if (lang === 'en') return en;
-  const kh = parse(siteKhSource) as Site;
+  const source = parse(siteEnSource) as SiteSource;
+  const kh = lang === 'kh';
   return {
-    ...kh,
-    logo: en.logo,
-    contact: {...en.contact, address: kh.contact?.address || en.contact.address, businessHours: kh.contact?.businessHours || en.contact.businessHours},
-    social: en.social,
-    seo: {...kh.seo, defaultImage: en.seo.defaultImage},
+    companyName: kh ? source.companyNameKh : source.companyNameEn,
+    logo: source.logo,
+    fontUrl: source.fontUrl,
+    fontKhUrl: source.fontKhUrl,
+    description: kh ? source.descriptionKh : source.descriptionEn,
+    contact: {
+      phone: source.contact.phone,
+      email: source.contact.email,
+      address: kh ? source.contact.addressKh : source.contact.addressEn,
+      businessHours: kh ? source.contact.businessHoursKh : source.contact.businessHoursEn,
+      applicationEmail: source.contact.applicationEmail,
+    },
+    social: source.social,
+    footer: {copyright: kh ? source.footer.copyrightKh : source.footer.copyrightEn},
+    seo: {
+      defaultTitle: kh ? source.seo.defaultTitleKh : source.seo.defaultTitleEn,
+      titleTemplate: kh ? source.seo.titleTemplateKh : source.seo.titleTemplateEn,
+      defaultDescription: kh ? source.seo.defaultDescriptionKh : source.seo.defaultDescriptionEn,
+      defaultImage: source.seo.defaultImage,
+    },
+    appearance: source.appearance,
   };
 };
 export const site=siteFor('en');
@@ -61,7 +84,7 @@ export async function productsFor(lang: Lang): Promise<CollectionEntry<'products
       gallery: base.data.gallery.map((photo, index) => ({...photo, alt: entry.data.gallery[index]?.alt || photo.alt})),
       featured: base.data.featured,
       displayOrder: base.data.displayOrder,
-      published: entry.data.published && base.data.published,
+      published: base.data.published,
     }} as unknown as CollectionEntry<'products'>];
   });
 }
@@ -76,7 +99,7 @@ export async function newsFor(lang: Lang): Promise<CollectionEntry<'news'>[]> {
     if (!base) return [];
     return [{...entry, data: {...entry.data,
       coverImage: base.data.coverImage, publishDate: base.data.publishDate,
-      featured: base.data.featured, published: entry.data.published && base.data.published,
+      featured: base.data.featured, published: base.data.published,
     }} as unknown as CollectionEntry<'news'>];
   });
 }
@@ -85,7 +108,7 @@ export async function careersFor(lang: Lang): Promise<CollectionEntry<'careers'>
   const english = await getCollection('careers');
   if (lang === 'en') return english;
   const khmer = await getCollection('careersKh');
-  const translations = new Map(khmer.filter(entry => entry.data.published).map(entry => [entry.data.slug, entry]));
+  const translations = new Map(khmer.map(entry => [entry.data.slug, entry]));
   return english.filter(base => base.data.published).map(base => {
     const entry = translations.get(base.data.slug);
     if (!entry) return base;

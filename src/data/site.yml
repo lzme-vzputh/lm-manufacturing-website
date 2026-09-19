@@ -1,11 +1,17 @@
-companyName: LM MANUFACTURING CO., LTD.
-logo: /uploads/lmllogo.png
-description: An instant noodle manufacturing company in Kampong Speu, Cambodia.
+companyNameEn: LM MANUFACTURING CO., LTD.
+companyNameKh: ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង
+logo: /uploads/lmlogo3d.png
+fontUrl: ''
+fontKhUrl: ''
+descriptionEn: An instant noodle manufacturing company in Kampong Speu, Cambodia.
+descriptionKh: ក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា។
 contact:
   phone: "010332004"
   email: vzputh@gmail.com
-  address: Kampong Speu, Cambodia
-  businessHours: Monday–Saturday, 8:00–17:00
+  addressEn: Kampong Speu, Cambodia
+  addressKh: ខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា
+  businessHoursEn: Monday–Saturday, 8:00–17:00
+  businessHoursKh: ចន្ទ–សៅរ៍ ៨:០០–១៧:០០
   applicationEmail: vzputh@gmail.com
 social:
   facebook: https://www.facebook.com/vzputh/
@@ -13,10 +19,24 @@ social:
   telegram: https://t.me/viiputh
   youtube: https://www.youtube.com/watch?v=sVFjNrI0of0&list=RDsVFjNrI0of0&start_radio=1
 footer:
-  copyright: LM MANUFACTURING CO., LTD. All rights reserved.
+  copyrightEn: LM MANUFACTURING CO., LTD. All rights reserved.
+  copyrightKh: ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង រក្សាសិទ្ធិគ្រប់យ៉ាង។
 seo:
-  defaultTitle: LM MANUFACTURING CO., LTD.
-  titleTemplate: "%s | LM MANUFACTURING CO., LTD."
-  defaultDescription: Explore LM MANUFACTURING CO., LTD., an instant noodle
+  defaultTitleEn: LM MANUFACTURING CO., LTD.
+  defaultTitleKh: ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង
+  titleTemplateEn: "%s | LM MANUFACTURING CO., LTD."
+  titleTemplateKh: "%s | ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង"
+  defaultDescriptionEn: Explore LM MANUFACTURING CO., LTD., an instant noodle
     manufacturing company in Kampong Speu, Cambodia.
+  defaultDescriptionKh: ស្វែងយល់អំពីក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា។
   defaultImage: /uploads/home/production-hero.webp
+appearance:
+  accentColor: "#f5b34a"
+  lightBackground: "#ffffff"
+  lightSurface: "#ffffff"
+  lightMuted: "#f3f6f5"
+  lightText: "#162d39"
+  darkBackground: "#102128"
+  darkSurface: "#193039"
+  darkMuted: "#1b323b"
+  darkText: "#eff5f6"
