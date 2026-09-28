@@ -1,54 +1,49 @@
-import { existsSync } from 'node:fs';
-import { readdir, readFile, writeFile, unlink } from 'node:fs/promises';
-import { join, relative, extname, basename, dirname } from 'node:path';
+import {readdir, readFile, writeFile, mkdir, stat} from 'node:fs/promises';
+import {resolve, join, relative, extname, dirname, sep} from 'node:path';
 import sharp from 'sharp';
 
-const mediaRoot = join(process.cwd(), 'public/uploads');
-const contentRoot = join(process.cwd(), 'src');
-const convertible = new Set(['.jpg', '.jpeg', '.png', '.avif']);
-const textFiles = new Set(['.json', '.yml', '.yaml', '.md', '.mdx', '.astro', '.ts', '.js']);
+const root=resolve(process.argv[2] || '.');
+const uploads=join(root,'public','uploads');
+const source=join(root,'src');
+const convertible=new Set(['.jpg','.jpeg','.png','.avif']);
+const editable=new Set(['.astro','.css','.json','.md','.yaml','.yml']);
 
-async function* files(directory) {
-  for (const entry of await readdir(directory, { withFileTypes: true })) {
-    const path = join(directory, entry.name);
-    if (entry.isDirectory()) yield* files(path);
-    else if (entry.isFile()) yield path;
-  }
-}
-
-const replacements = new Map();
-for await (const source of files(mediaRoot)) {
-  const extension = extname(source).toLowerCase();
-  if (!convertible.has(extension)) continue;
-  const stem = basename(source, extname(source));
-  const target = join(dirname(source), `${stem}.webp`);
-  // Keep an existing WebP separate from an uploaded image with the same stem.
-  let destination = target;
-  if (existsSync(destination)) {
-    let suffix = 1;
-    do { destination = join(dirname(source), `${stem}-converted-${suffix++}.webp`); }
-    while (existsSync(destination));
-  }
+async function files(directory){
   try {
-    await sharp(source).rotate().resize({ width: 2400, withoutEnlargement: true }).webp({ quality: 82, effort: 4 }).toFile(destination);
-  } catch (error) {
-    console.error(`Could not convert ${relative(process.cwd(), source)}:`, error);
-    process.exitCode = 1;
-    continue;
+    const entries=await readdir(directory,{withFileTypes:true});
+    const nested=await Promise.all(entries.map(entry=>entry.isDirectory()?files(join(directory,entry.name)):[join(directory,entry.name)]));
+    return nested.flat();
+  } catch(error){
+    if(error.code==='ENOENT')return [];
+    throw error;
   }
-  const before = `/uploads/${relative(mediaRoot, source).split('\\').join('/')}`;
-  const after = `/uploads/${relative(mediaRoot, destination).split('\\').join('/')}`;
-  replacements.set(before, after);
-  await unlink(source);
-  console.log(`${before} -> ${after}`);
 }
 
-if (replacements.size) {
-  for await (const file of files(contentRoot)) {
-    if (!textFiles.has(extname(file).toLowerCase())) continue;
-    const oldText = await readFile(file, 'utf8');
-    let newText = oldText;
-    for (const [before, after] of replacements) newText = newText.split(before).join(after);
-    if (newText !== oldText) await writeFile(file, newText);
+const images=(await files(uploads)).filter(file=>convertible.has(extname(file).toLowerCase()));
+const replacements=new Map();
+for(const file of images){
+  const output=file.slice(0,-extname(file).length)+'.webp';
+  const original=`/uploads/${relative(uploads,file).split(sep).join('/')}`;
+  const converted=`/uploads/${relative(uploads,output).split(sep).join('/')}`;
+  try {
+    await stat(output);
+  } catch(error){
+    if(error.code!=='ENOENT')throw error;
+    await mkdir(dirname(output),{recursive:true});
+    await sharp(file).rotate().webp({quality:88,effort:4}).toFile(output);
+    console.log(`Converted ${original} to ${converted}`);
+  }
+  replacements.set(original,converted);
+}
+
+let updated=0;
+for(const file of (await files(source)).filter(file=>editable.has(extname(file).toLowerCase()))){
+  const before=await readFile(file,'utf8');
+  let after=before;
+  for(const [oldPath,newPath] of replacements)after=after.split(oldPath).join(newPath);
+  if(after!==before){
+    await writeFile(file,after);
+    updated++;
   }
 }
+console.log(`Image normalization complete: ${images.length} eligible images, ${updated} content files updated.`);

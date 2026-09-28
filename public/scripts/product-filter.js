@@ -14,7 +14,7 @@
       card.hidden = !visible;
       if (visible) {
         count++;
-        if (!reducedMotion.matches) {
+        if (!reducedMotion.matches && typeof card.animate === 'function') {
           card.animate(
             [{ opacity: .35, transform: 'translateY(10px)' }, { opacity: 1, transform: 'translateY(0)' }],
             { duration: 280, easing: 'cubic-bezier(.22,1,.36,1)' }

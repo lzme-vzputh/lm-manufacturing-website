@@ -6,7 +6,7 @@ coverImageAlt: Placeholder for a company news photograph
 mainControl:
   publishDate: 2026-09-15
   coverImage: /uploads/image-placeholder.svg
-  published: true
+  published: false
   featured: true
 seoTitle: Company update
 seoDescription: Read the latest update from LM Manufacturing.
