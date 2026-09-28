@@ -56,7 +56,7 @@ Every saved CMS change creates a GitHub commit. The repository owner can inspect
 
 ### Structure and prerequisites
 
-- Node.js 22.12 or later, matching `package.json`.
+- Node.js 20.3 or later; Node 22 LTS is recommended for Cloudflare Pages.
 - `src/pages/` contains routes and detail page generators.
 - `src/components/` contains shared markup; `src/layouts/` contains page layouts.
 - `src/data/*.json` and `src/data/kh/*.json` contain English and Khmer page content. `src/data/site.yml` contains unified bilingual and shared company settings.
@@ -66,7 +66,7 @@ Every saved CMS change creates a GitHub commit. The repository owner can inspect
 - `src/assets/css/` contains the shared design system and component styles.
 - `.github/workflows/normalize-images.yml` runs after image uploads, and `scripts/normalize-images.mjs` converts images and updates references. The workflow requires GitHub Actions enabled and `contents: write` permission on the repository.
 
-Run `npm ci`, `npm run dev` for local development, `npm run check` for content/type validation, `npm run build` for a production build in `dist/`, then `npm run test:site`. The site test checks generated pages, links, assets, language alternates, CMS paths, theme/menu/filter behavior and the image workflow. Visit the local pages, including detail URLs, on desktop and mobile for visual review. Content changes require another build. Avoid renaming a published slug without planning redirects from its previous URL.
+Run `npm install`, `npm run dev` for local development, `npm run check` for content/type validation, and `npm run build` for a production build in `dist/`. Visit the local pages, including detail URLs, on desktop and mobile. Content changes require another build. Avoid renaming a published slug without planning redirects from its previous URL.
 
 ### GitHub and Cloudflare Pages
 
@@ -78,9 +78,9 @@ Push the project to a GitHub repository on the branch editors will use. In Cloud
 | Build command | `npm run build` |
 | Build output directory | `dist` |
 | Node version | 22 (set `NODE_VERSION=22` if the build environment needs it) |
-| Environment variable | `PUBLIC_SITE_URL=https://lm-manufacturing.pages.dev` for preview; change it to the final domain when ready |
+| Environment variable | `PUBLIC_SITE_URL=https://your-real-domain.example` |
 
-Set `PUBLIC_SITE_URL` to the public origin including `https://`, with no trailing path. The project defaults to the preview URL `https://lm-manufacturing.pages.dev`; change the variable to the canonical company domain when DNS and HTTPS are ready. It controls canonical tags, the sitemap and robots.txt. Never put credentials in this repo; `.env` files are ignored. GitHub commits from Pages CMS automatically trigger a fresh deployment once the repository is connected.
+Set `PUBLIC_SITE_URL` to the final public origin including `https://`, with no trailing path. It controls canonical tags and sitemap. The generated robots file uses the same origin. Replace the example.com origin before launch. Connect a custom domain in Cloudflare Pages, verify DNS/HTTPS, and set `PUBLIC_SITE_URL` to the canonical domain. Never put credentials in this repo; `.env` files are ignored. GitHub commits from Pages CMS automatically trigger a fresh deployment once the repository is connected.
 
 ### Maintenance
 

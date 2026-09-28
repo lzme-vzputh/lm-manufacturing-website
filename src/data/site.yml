@@ -1,23 +1,23 @@
 companyNameEn: LM MANUFACTURING CO., LTD.
 companyNameKh: ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង
-logo: /uploads/lmlogo3d.webp
+logo: /uploads/lmlogo3d.png
 fontUrl: ''
 fontKhUrl: ''
 descriptionEn: An instant noodle manufacturing company in Kampong Speu, Cambodia.
 descriptionKh: ក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា។
 contact:
   phone: "010332004"
-  email: ''
+  email: vzputh@gmail.com
   addressEn: Kampong Speu, Cambodia
   addressKh: ខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា
   businessHoursEn: Monday–Saturday, 8:00–17:00
   businessHoursKh: ចន្ទ–សៅរ៍ ៨:០០–១៧:០០
-  applicationEmail: ''
+  applicationEmail: vzputh@gmail.com
 social:
-  facebook: ''
-  linkedin: ''
-  telegram: ''
-  youtube: ''
+  facebook: https://www.facebook.com/vzputh/
+  linkedin: https://www.linkedin.com/in/viputh/
+  telegram: https://t.me/viiputh
+  youtube: https://www.youtube.com/watch?v=sVFjNrI0of0&list=RDsVFjNrI0of0&start_radio=1
 footer:
   copyrightEn: LM MANUFACTURING CO., LTD. All rights reserved.
   copyrightKh: ក្រុមហ៊ុន អិលអឹម មេនូហ្វេកឆឺរីង រក្សាសិទ្ធិគ្រប់យ៉ាង។
@@ -31,12 +31,12 @@ seo:
   defaultDescriptionKh: ស្វែងយល់អំពីក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា។
   defaultImage: /uploads/home/production-hero.webp
 appearance:
-  accentColor: "#efb34f"
-  lightBackground: "#eaf2f4"
-  lightSurface: "#f9fcfc"
-  lightMuted: "#dcebef"
-  lightText: "#14333f"
-  darkBackground: "#0b202a"
-  darkSurface: "#183846"
-  darkMuted: "#244752"
+  accentColor: "#f5b34a"
+  lightBackground: "#ffffff"
+  lightSurface: "#ffffff"
+  lightMuted: "#f3f6f5"
+  lightText: "#162d39"
+  darkBackground: "#102128"
+  darkSurface: "#193039"
+  darkMuted: "#1b323b"
   darkText: "#eff5f6"

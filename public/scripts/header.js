@@ -20,7 +20,6 @@
     });
     nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
       toggle.setAttribute('aria-expanded', 'false');
-      toggle.setAttribute('aria-label', toggle.dataset.openLabel || 'Open menu');
       nav.classList.remove('is-open');
     }));
   }

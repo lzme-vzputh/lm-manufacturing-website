@@ -1,25 +1,15 @@
 ---
 import {siteFor,language} from '../lib/content';
-import {getCollection} from 'astro:content';
 const lang=language(Astro.url);const site=siteFor(lang);
 interface Props {title?:string; description?:string; image?:string; type?:string; published?:string}
 const {title,description=site.seo.defaultDescription,image=site.seo.defaultImage,type='website',published}=Astro.props;
 const pageTitle=title ? site.seo.titleTemplate.replace('%s',title) : site.seo.defaultTitle;
-const origin=Astro.site ?? new URL('https://lm-manufacturing.pages.dev');
-const canonical=new URL(Astro.url.pathname, origin).href;
-const socialImage=image ? new URL(image,origin).href : undefined;
-const englishPath=Astro.url.pathname.replace(/^\/kh(?=\/|$)/, '') || '/';
-const notFound=/^\/404(?:\/|\.html|$)/.test(englishPath);
-const noIndex=notFound || englishPath==='/manage' || englishPath==='/manage/';
-const detail=englishPath.match(/^\/(products|news|careers)\/([^/]+)\/?$/);
-const translatedCollections={products:'productsKh',news:'newsKh',careers:'careersKh'} as const;
-const hasKhTranslation=!detail || (await getCollection(translatedCollections[detail[1] as keyof typeof translatedCollections])).some(entry=>entry.data.slug===detail[2]);
-const englishUrl=new URL(englishPath,origin).href;
-const khUrl=new URL(`/kh${englishPath==='/'?'':englishPath}`,origin).href;
+const canonical=new URL(Astro.url.pathname, Astro.site ?? 'https://example.com').href;
+const socialImage=image ? new URL(image,Astro.site ?? 'https://example.com').href : undefined;
 ---
 <title>{pageTitle}</title>
 <meta name="description" content={description}/>
-{noIndex?<meta name="robots" content="noindex,follow"/>:<><link rel="canonical" href={canonical}/><link rel="alternate" hreflang="en" href={englishUrl}/>{hasKhTranslation && <link rel="alternate" hreflang="km" href={khUrl}/>}</>}
+<link rel="canonical" href={canonical}/><link rel="alternate" hreflang="en" href={new URL(Astro.url.pathname.replace(/^\/kh(?=\/|$)/, '') || '/', Astro.site ?? 'https://example.com').href}/><link rel="alternate" hreflang="km" href={new URL(`/kh${Astro.url.pathname.replace(/^\/kh(?=\/|$)/, '') === '/' ? '' : Astro.url.pathname.replace(/^\/kh(?=\/|$)/, '')}`, Astro.site ?? 'https://example.com').href}/>
 <meta property="og:type" content={type}/><meta property="og:title" content={pageTitle}/><meta property="og:description" content={description}/><meta property="og:url" content={canonical}/>
 {socialImage && <meta property="og:image" content={socialImage}/>}
 {published && <meta property="article:published_time" content={published}/>}
