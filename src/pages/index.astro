@@ -4,6 +4,7 @@ import Hero from '../components/Hero.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ProductCard from '../components/ProductCard.astro';
 import NewsCard from '../components/NewsCard.astro';
+import TurtleBadge from '../components/TurtleBadge.astro';
 import {contentFor,language,pathFor,publicEntries,byNewest,productsFor,newsFor} from '../lib/content';
 const lang=language(Astro.url),{home,ui}=contentFor(lang);
 const products=publicEntries(await productsFor(lang)).filter(p=>p.data.mainControl.featured).sort((a,b)=>a.data.mainControl.displayOrder-b.data.mainControl.displayOrder).slice(0,3);
@@ -53,7 +54,11 @@ const singleProduct=products.length===1?products[0]:undefined;
           <a class="home-product-visual" href={pathFor(`/products/${singleProduct.data.slug}`,lang)} aria-label={`${ui.actions.viewProduct}: ${singleProduct.data.title}`}>
             <span class="product-orbit product-orbit-one" aria-hidden="true"></span>
             <span class="product-orbit product-orbit-two" aria-hidden="true"></span>
+            <span class="product-flex-bg product-flex-bg-one" aria-hidden="true"></span>
+            <span class="product-flex-bg product-flex-bg-two" aria-hidden="true"></span>
+            <span class="product-showcase-label">Flexible background</span>
             <img src={singleProduct.data.mainControl.mainImage} alt={singleProduct.data.mainImageAlt} width="850" height="850" loading="eager"/>
+            <div class="product-badge-anchor"><TurtleBadge compact title="Turtle Packaging" subtitle="Mee Bak Thom noodle pack" /></div>
           </a>
         </article>
       ) : products.length ? (
