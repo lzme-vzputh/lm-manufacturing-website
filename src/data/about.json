@@ -12,6 +12,15 @@
   "storyText": "We are at an early stage. Rather than claim a long history, we want this space to reflect our progress as it happens. We will add dated milestones, actual factory photographs and product information when the company has confirmed them.",
   "image": "/uploads/home/production-hero.webp",
   "imageAlt": "Illustrative instant noodle production line; actual company photographs pending",
+  "owner": {
+    "eyebrow": "LEADERSHIP",
+    "title": "Message from Our Owner",
+    "name": "Company Owner",
+    "position": "Owner, LM MANUFACTURING CO., LTD.",
+    "photo": "/uploads/about/photo2026-09-2214-11-33-2.jpg",
+    "photoAlt": "Owner of LM MANUFACTURING CO., LTD. — replace with approved portrait",
+    "message": "Our company is being built with a long-term commitment to quality, responsibility and steady growth. We aim to create food products that customers can trust while developing a strong team and reliable manufacturing operation in Cambodia."
+  },
   "mission": "To make convenient food products through coordinated work, responsible decision-making and attention to consistent production.",
   "vision": "To grow into a dependable manufacturing partner for the people and businesses we serve.",
   "values": [
@@ -34,14 +43,5 @@
       "event": "LM MANUFACTURING CO., LTD. begins developing its manufacturing operations in Kampong Speu."
     }
   ],
-  "ctaTitle": "Interested in working with us?",
-  "owner": {
-    "eyebrow": "LEADERSHIP",
-    "title": "Message from Our Owner",
-    "name": "Company Owner",
-    "position": "Owner, LM MANUFACTURING CO., LTD.",
-    "photo": "/uploads/image-placeholder.svg",
-    "photoAlt": "Owner of LM MANUFACTURING CO., LTD. — replace with approved portrait",
-    "message": "Our company is being built with a long-term commitment to quality, responsibility and steady growth. We aim to create food products that customers can trust while developing a strong team and reliable manufacturing operation in Cambodia."
-  }
+  "ctaTitle": "Interested in working with us?"
 }
