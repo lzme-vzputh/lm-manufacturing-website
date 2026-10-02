@@ -2,15 +2,15 @@
 title: Instant Noodles
 slug: instant-noodles
 category: Instant Noodles
-shortDescription: Our instant noodle product family for convenient everyday meals. Confirmed variants and specifications will be added as available.
-mainImageAlt: Instant noodles with a branded Mee Bak Thom turtle packaging concept displayed beside the bowl
+shortDescription: Our instant noodle product family for convenient everyday
+  meals. Confirmed variants and specifications will be added as available.
+mainImageAlt: Instant noodles with a branded Mee Bak Thom turtle packaging
+  concept displayed beside the bowl
 mainControl:
-  mainImage: /uploads/products/instant-noodles-turtle.webp
-  gallery: []
-  featured: true
   published: true
+  featured: true
   displayOrder: 1
-specifications: []
+  mainImage: /uploads/products/noodles-snack-packaging1288574-647-removebg-preview.png
 ---
 ## Product overview
 
