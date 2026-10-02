@@ -17,11 +17,11 @@ html[lang="kh"]{--font:"Noto Sans Khmer Variable","Khmer OS",system-ui,sans-seri
 /* One continuous page canvas: only the header and footer use separate surfaces. */
 main{background:var(--paper)}.hero,.section,.section-muted,.section-dark{background:var(--paper);color:var(--ink)}.section-muted:before,.section-muted:after,.section-dark:before,.hero:after{display:none}.hero-atmosphere{background:radial-gradient(circle at var(--pointer-x,72%) var(--pointer-y,28%),color-mix(in srgb,var(--accent) 12%,transparent),transparent 25rem),radial-gradient(ellipse at 12% 18%,color-mix(in srgb,var(--ink) 4%,transparent),transparent 38rem),var(--paper)}.hero-atmosphere:after{opacity:.045;background-image:linear-gradient(color-mix(in srgb,var(--ink) 24%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--ink) 24%,transparent) 1px,transparent 1px)}.hero-content .eyebrow{color:var(--link)}.hero-description,.section-dark .cta-panel p{color:var(--ink-soft)}.hero-visual{border-color:var(--line);box-shadow:var(--shadow-strong)}.hero .button-light{color:var(--ink);border-color:var(--line);background:color-mix(in srgb,var(--surface) 76%,transparent)}.hero .button-light:hover,.hero .button-light:focus-visible{color:var(--ink);border-color:var(--accent);background:var(--mist)}
 
-/* 2026 corporate refresh: larger brand mark */
-.brand img{width:72px;height:72px;flex:0 0 72px}
-.header-inner{min-height:6rem}
-@media(max-width:1050px){.brand img{width:60px;height:60px;flex-basis:60px}}
-@media(max-width:550px){.brand img{width:48px;height:48px;flex-basis:48px}.header-inner{min-height:4.8rem}.brand{max-width:13.5rem}}
+/* 2026 corporate refresh: extra-large brand mark */
+.brand img{width:110px;height:110px;flex:0 0 110px}
+.header-inner{min-height:7.4rem}
+@media(max-width:1050px){.brand img{width:86px;height:86px;flex-basis:86px}.header-inner{min-height:6.3rem}}
+@media(max-width:550px){.brand img{width:64px;height:64px;flex-basis:64px}.header-inner{min-height:5.4rem}.brand{max-width:14.5rem}}
 
 /* Owner / leadership section */
 .owner-section{background:linear-gradient(180deg,var(--surface),var(--mist))}
