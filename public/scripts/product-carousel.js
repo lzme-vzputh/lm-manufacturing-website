@@ -21,7 +21,6 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
   if (count > 1) {
     const before = document.createDocumentFragment();
     const after = document.createDocumentFragment();
-
     originalSlides.forEach((slide, index) => {
       const cloneBefore = slide.cloneNode(true);
       cloneBefore.dataset.clone = 'true';
@@ -33,7 +32,6 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
       cloneAfter.dataset.logicalIndex = String(index);
       after.appendChild(cloneAfter);
     });
-
     track.prepend(before);
     track.append(after);
   }
@@ -42,10 +40,22 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
   let physical = count > 1 ? count + initialLogical : initialLogical;
   let logical = initialLogical;
   let jumping = false;
+  let baseOffset = 0;
+  let dragging = false;
+  let moved = false;
+  let startX = 0;
+  let dragX = 0;
+  let activePointerId = null;
 
   const getGap = () => {
     const styles = window.getComputedStyle(track);
     return parseFloat(styles.columnGap || styles.gap || '0');
+  };
+
+  const getBaseOffset = () => {
+    const slideWidth = slides[0]?.offsetWidth || 0;
+    const gap = getGap();
+    return viewport.clientWidth / 2 - slideWidth / 2 - physical * (slideWidth + gap);
   };
 
   const updateDetail = () => {
@@ -57,13 +67,7 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
     if (link && current.dataset.url) link.setAttribute('href', current.dataset.url);
   };
 
-  const update = ({ animate = true } = {}) => {
-    const slideWidth = slides[0]?.offsetWidth || 0;
-    const gap = getGap();
-    const offset = viewport.clientWidth / 2 - slideWidth / 2 - physical * (slideWidth + gap);
-    track.style.transition = animate ? '' : 'none';
-    track.style.transform = `translate3d(${offset}px,0,0)`;
-
+  const paintSlides = () => {
     slides.forEach((slide, index) => {
       const active = index === physical;
       slide.dataset.active = active ? 'true' : 'false';
@@ -71,19 +75,22 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
       slide.setAttribute('aria-current', active ? 'true' : 'false');
       slide.tabIndex = active ? 0 : -1;
     });
-
     logical = ((Number(slides[physical]?.dataset.logicalIndex ?? physical) % count) + count) % count;
     updateDetail();
+  };
 
+  const update = ({ animate = true, extraOffset = 0 } = {}) => {
+    baseOffset = getBaseOffset();
+    track.style.transition = animate ? '' : 'none';
+    track.style.transform = `translate3d(${baseOffset + extraOffset}px,0,0)`;
+    paintSlides();
     if (!animate) {
-      requestAnimationFrame(() => {
-        track.style.transition = '';
-      });
+      requestAnimationFrame(() => { track.style.transition = ''; });
     }
   };
 
   const normalizeAfterTransition = () => {
-    if (count <= 1 || jumping) return;
+    if (count <= 1 || jumping || dragging) return;
     if (physical < count) {
       jumping = true;
       physical += count;
@@ -109,6 +116,11 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
 
   slides.forEach((slide, index) => {
     slide.addEventListener('click', (event) => {
+      if (moved) {
+        event.preventDefault();
+        moved = false;
+        return;
+      }
       if (index !== physical) {
         event.preventDefault();
         physical = index;
@@ -117,21 +129,51 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
     });
   });
 
-  let startX = 0;
-  let dragging = false;
   viewport.addEventListener('pointerdown', (event) => {
+    if (count <= 1) return;
     dragging = true;
+    moved = false;
     startX = event.clientX;
+    dragX = 0;
+    activePointerId = event.pointerId;
     viewport.setPointerCapture?.(event.pointerId);
+    track.style.transition = 'none';
   });
-  viewport.addEventListener('pointerup', (event) => {
+
+  viewport.addEventListener('pointermove', (event) => {
+    if (!dragging || event.pointerId !== activePointerId) return;
+    dragX = event.clientX - startX;
+    if (Math.abs(dragX) > 4) moved = true;
+    track.style.transform = `translate3d(${baseOffset + dragX}px,0,0)`;
+  });
+
+  const endDrag = (event) => {
     if (!dragging) return;
-    const diff = event.clientX - startX;
-    if (Math.abs(diff) > 35) move(diff < 0 ? 1 : -1);
+    if (event && activePointerId !== null && event.pointerId !== activePointerId) return;
     dragging = false;
+    activePointerId = null;
+    track.style.transition = '';
+
+    const slideWidth = slides[0]?.offsetWidth || 1;
+    const gap = getGap();
+    const stepSize = slideWidth + gap;
+    const threshold = Math.min(70, stepSize * .22);
+
+    if (Math.abs(dragX) > threshold) {
+      const steps = Math.max(1, Math.round(Math.abs(dragX) / stepSize));
+      physical += dragX < 0 ? steps : -steps;
+      update({ animate: true });
+    } else {
+      update({ animate: true });
+    }
+    dragX = 0;
+  };
+
+  viewport.addEventListener('pointerup', endDrag);
+  viewport.addEventListener('pointercancel', endDrag);
+  viewport.addEventListener('lostpointercapture', () => {
+    if (dragging) endDrag({ pointerId: activePointerId });
   });
-  viewport.addEventListener('pointercancel', () => { dragging = false; });
-  viewport.addEventListener('pointerleave', () => { dragging = false; });
 
   window.addEventListener('resize', () => update({ animate: false }), { passive: true });
   update({ animate: false });
