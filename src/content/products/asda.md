@@ -1,5 +1,5 @@
 ---
-title: xsds
+title: xsdswsdew
 slug: asda
 category: Noodles
 shortDescription: asasc
@@ -11,6 +11,4 @@ mainControl:
 specifications:
   - label: WQDAWEFAFS
     value: AWASEFWAFE
-  - label: WEFWAF
-    value: FWEF
 ---
