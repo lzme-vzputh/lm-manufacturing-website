@@ -391,6 +391,35 @@ content:
               rename: safe
           - name: imageAlt
             type: string
+          - name: owner
+            label: Owner / Leadership
+            type: object
+            fields:
+              - name: eyebrow
+                label: Small heading
+                type: string
+              - name: title
+                label: Section title
+                type: string
+              - name: name
+                label: Owner name
+                type: string
+              - name: position
+                label: Position
+                type: string
+              - name: photo
+                label: Owner photo — shared
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/about
+                  rename: safe
+              - name: photoAlt
+                label: Owner photo description
+                type: string
+              - name: message
+                label: Owner message
+                type: text
           - name: mission
             type: text
           - name: vision
@@ -439,6 +468,22 @@ content:
             type: text
           - name: imageAlt
             type: string
+          - name: owner
+            label: Owner / Leadership · Khmer
+            type: object
+            fields:
+              - name: eyebrow
+                type: string
+              - name: title
+                type: string
+              - name: name
+                type: string
+              - name: position
+                type: string
+              - name: photoAlt
+                type: string
+              - name: message
+                type: text
           - name: mission
             type: text
           - name: vision
