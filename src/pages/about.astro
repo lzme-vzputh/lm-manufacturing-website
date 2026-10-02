@@ -22,9 +22,12 @@ const lang=language(Astro.url),{about,ui}=contentFor(lang);
 
   <section class="section owner-section">
     <div class="container owner-panel">
-      <div class="owner-photo-wrap">
-        <img class="owner-photo" src={about.owner.photo} alt={about.owner.photoAlt} width="620" height="760" loading="lazy"/>
-      </div>
+      <div
+        class="owner-photo-wrap background-image-block"
+        role="img"
+        aria-label={about.owner.photoAlt}
+        style={`--bg-image: url("${about.owner.photo}")`}
+      ></div>
       <div class="owner-copy">
         <p class="eyebrow">{about.owner.eyebrow}</p>
         <h2>{about.owner.title}</h2>

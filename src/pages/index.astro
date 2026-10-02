@@ -24,8 +24,12 @@ const singleProduct=products.length===1?products[0]:undefined;
         <a class="text-link home-arrow-link" href={pathFor('/about',lang)}>{ui.actions.about} <span aria-hidden="true">↗</span></a>
       </div>
     </div>
-    <div class="container home-intro-media">
-      <img src={home.intro.image} alt={home.intro.imageAlt} width="1400" height="760" loading="lazy"/>
+    <div
+      class="container home-intro-media background-image-block"
+      role="img"
+      aria-label={home.intro.imageAlt}
+      style={`--bg-image: url("${home.intro.image}")`}
+    >
       <div class="home-intro-stats" aria-label={ui.accessibility.statistics}>
         {home.statistics.map(stat=><div class="home-stat"><strong>{stat.value}</strong><span>{stat.label}</span></div>)}
       </div>
@@ -60,8 +64,12 @@ const singleProduct=products.length===1?products[0]:undefined;
 
   <section class="section home-factory-section">
     <div class="container home-factory-grid">
-      <div class="home-factory-visual">
-        <img src={home.factoryImage} alt={home.factoryImageAlt} width="900" height="1100" loading="lazy"/>
+      <div
+        class="home-factory-visual background-image-block"
+        role="img"
+        aria-label={home.factoryImageAlt}
+        style={`--bg-image: url("${home.factoryImage}")`}
+      >
         <span class="factory-label">LM · KAMPONG SPEU</span>
       </div>
       <div class="home-factory-copy">

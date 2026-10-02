@@ -15,8 +15,13 @@ const {eyebrow,headline,description,image,imageAlt='',primaryLabel,primaryUrl,se
         {secondaryLabel && secondaryUrl && <a class="button button-light" href={pathFor(secondaryUrl,lang)}>{secondaryLabel}</a>}
       </div>
     </div>
-    <div class="hero-visual" data-depth-card>
-      <img src={imageUrl(image)} alt={imageAlt} width="1200" height="800" fetchpriority="high"/>
+    <div
+      class="hero-visual background-image-block"
+      data-depth-card
+      role="img"
+      aria-label={imageAlt}
+      style={`--bg-image: url("${imageUrl(image)}")`}
+    >
       <span class="hero-image-line" aria-hidden="true"></span>
     </div>
   </div>
