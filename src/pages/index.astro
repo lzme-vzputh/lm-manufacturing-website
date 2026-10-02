@@ -62,13 +62,17 @@ const singleProduct=products.length===1?products[0]:undefined;
 
   <section class="section home-factory-section">
     <div class="container home-factory-grid">
-      <div
-        class="home-factory-visual background-image-block"
-        role="img"
-        aria-label={home.factoryImageAlt}
-        style={`--bg-image: url("${home.factoryImage}")`}
-      >
-        <span class="factory-label">LM · KAMPONG SPEU</span>
+      <div class="home-factory-media">
+        <div
+          class="home-factory-visual background-image-block"
+          role="img"
+          aria-label={home.factoryImageAlt}
+          style={`--bg-image: url("${home.factoryImage}")`}
+        ></div>
+        <div class="factory-location-badge" aria-label="Factory location">
+          <span aria-hidden="true">●</span>
+          <span>LM · KAMPONG SPEU</span>
+        </div>
       </div>
       <div class="home-factory-copy">
         <p class="eyebrow">MANUFACTURING</p>
