@@ -1236,3 +1236,55 @@ body{background:var(--paper)}
     background:linear-gradient(145deg,#102c34,#1b4746);
   }
 }
+
+/* Final product carousel palette: restore original cream / gold background */
+.product-carousel{
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255,255,255,.35), transparent 20rem),
+    radial-gradient(circle at 86% 20%, rgba(42,121,95,.16), transparent 18rem),
+    linear-gradient(180deg,#f3e6c8 0%, #e6c58a 100%) !important;
+}
+.product-carousel::before{
+  background:radial-gradient(110% 100% at 50% 0%, rgba(248,246,241,0) 58%, rgba(248,246,241,.98) 59% 100%) !important;
+}
+.product-carousel::after{
+  background:radial-gradient(circle, rgba(251,232,168,.92) 0 58%, rgba(237,201,113,.55) 59% 73%, rgba(237,201,113,.18) 74% 100%) !important;
+}
+.product-slide{color:#493022 !important}
+.product-slide-caption span{color:rgba(73,48,34,.78) !important}
+.product-carousel-arrow{background:rgba(110,67,35,.78) !important;color:#fff}
+
+/* Phone header: larger logo, hide company-name text */
+@media (max-width:720px){
+  .site-header .brand{
+    max-width:none;
+    width:auto;
+    gap:0;
+  }
+  .site-header .brand span{
+    display:none !important;
+  }
+  .site-header .brand img{
+    width:96px !important;
+    height:96px !important;
+    flex:0 0 96px !important;
+    margin-block:-.65rem !important;
+  }
+  .site-header .header-inner{
+    min-height:5.7rem;
+    padding-block:.35rem;
+  }
+}
+
+@media (max-width:480px){
+  .site-header .brand img{
+    width:88px !important;
+    height:88px !important;
+    flex-basis:88px !important;
+    margin-block:-.55rem !important;
+  }
+  .site-header .header-inner{min-height:5.35rem}
+  .product-carousel{
+    background:linear-gradient(180deg,#f3e6c8 0%, #e6c58a 100%) !important;
+  }
+}
