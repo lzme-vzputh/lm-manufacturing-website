@@ -16,3 +16,37 @@ html[lang="kh"]{--font:"Noto Sans Khmer Variable","Khmer OS",system-ui,sans-seri
 
 /* One continuous page canvas: only the header and footer use separate surfaces. */
 main{background:var(--paper)}.hero,.section,.section-muted,.section-dark{background:var(--paper);color:var(--ink)}.section-muted:before,.section-muted:after,.section-dark:before,.hero:after{display:none}.hero-atmosphere{background:radial-gradient(circle at var(--pointer-x,72%) var(--pointer-y,28%),color-mix(in srgb,var(--accent) 12%,transparent),transparent 25rem),radial-gradient(ellipse at 12% 18%,color-mix(in srgb,var(--ink) 4%,transparent),transparent 38rem),var(--paper)}.hero-atmosphere:after{opacity:.045;background-image:linear-gradient(color-mix(in srgb,var(--ink) 24%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,var(--ink) 24%,transparent) 1px,transparent 1px)}.hero-content .eyebrow{color:var(--link)}.hero-description,.section-dark .cta-panel p{color:var(--ink-soft)}.hero-visual{border-color:var(--line);box-shadow:var(--shadow-strong)}.hero .button-light{color:var(--ink);border-color:var(--line);background:color-mix(in srgb,var(--surface) 76%,transparent)}.hero .button-light:hover,.hero .button-light:focus-visible{color:var(--ink);border-color:var(--accent);background:var(--mist)}
+
+/* 2026 corporate refresh: larger brand mark */
+.brand img{width:72px;height:72px;flex:0 0 72px}
+.header-inner{min-height:6rem}
+@media(max-width:1050px){.brand img{width:60px;height:60px;flex-basis:60px}}
+@media(max-width:550px){.brand img{width:48px;height:48px;flex-basis:48px}.header-inner{min-height:4.8rem}.brand{max-width:13.5rem}}
+
+/* Owner / leadership section */
+.owner-section{background:linear-gradient(180deg,var(--surface),var(--mist))}
+.owner-panel{display:grid;grid-template-columns:minmax(280px,.78fr) minmax(0,1.22fr);align-items:center;gap:clamp(2.5rem,7vw,7rem)}
+.owner-photo-wrap{position:relative;max-width:500px;margin-inline:auto;width:100%}
+.owner-photo-wrap:before{content:"";position:absolute;inset:1.25rem -1.25rem -1.25rem 1.25rem;border-radius:var(--radius-lg);background:var(--accent);opacity:.2}
+.owner-photo{position:relative;width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--radius-lg);border:1px solid var(--line);box-shadow:var(--shadow-strong);background:var(--surface)}
+.owner-copy .eyebrow{color:var(--link);margin-bottom:1rem}
+.owner-copy h2{max-width:14ch}
+.owner-message{font-size:clamp(1.15rem,2.1vw,1.55rem);line-height:1.75;color:var(--ink-soft);margin-top:1.6rem;max-width:44rem}
+.owner-signature{display:flex;flex-direction:column;gap:.35rem;margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--line)}
+.owner-signature strong{font-size:1.08rem;color:var(--ink)}
+.owner-signature span{color:var(--ink-soft)}
+@media(max-width:800px){.owner-panel{grid-template-columns:1fr}.owner-photo-wrap{max-width:420px}.owner-copy{text-align:center}.owner-copy h2{margin-inline:auto}.owner-signature{align-items:center}}
+
+/* Single-product presentation: center the noodle package as the hero object */
+.single-product-showcase{max-width:980px;margin-inline:auto;text-align:center;display:flex;flex-direction:column;align-items:center}
+.single-product-copy{max-width:680px;margin-inline:auto}
+.single-product-copy .eyebrow{color:var(--link)}
+.single-product-copy h2{font-size:clamp(2.25rem,5vw,4.7rem);margin-top:.75rem}
+.single-product-copy p{max-width:620px;margin:1rem auto 0;color:var(--ink-soft);font-size:1.08rem;line-height:1.75}
+.single-product-image-link{position:relative;display:grid;place-items:center;width:min(100%,700px);min-height:420px;margin:2.4rem auto 1.6rem;isolation:isolate}
+.single-product-image-link:hover{text-decoration:none}
+.single-product-glow{position:absolute;z-index:-1;width:min(74vw,540px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--accent) 34%,transparent),transparent 68%);filter:blur(2px)}
+.single-product-image{display:block;width:min(100%,620px);max-height:620px;object-fit:contain;filter:drop-shadow(0 28px 35px rgba(9,30,40,.2));transition:transform var(--motion-normal) var(--ease-out)}
+.single-product-image-link:hover .single-product-image{transform:translateY(-8px) scale(1.02)}
+@media(max-width:550px){.single-product-image-link{min-height:310px;margin-top:1.5rem}.single-product-image{max-height:390px}.single-product-copy h2{font-size:clamp(2rem,12vw,3.2rem)}}
+@media(prefers-reduced-motion:reduce){.single-product-image-link:hover .single-product-image{transform:none}}

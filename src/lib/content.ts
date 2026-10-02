@@ -21,7 +21,7 @@ const homeShared = {
   factoryImage: homeEn.factoryImage,
   cta: {...homeKh.cta, url: homeEn.cta.url},
 };
-const aboutShared = {...aboutKh, hero: {...aboutKh.hero, image: aboutEn.hero.image}, image: aboutEn.image};
+const aboutShared = {...aboutKh, hero: {...aboutKh.hero, image: aboutEn.hero.image}, image: aboutEn.image, owner: {...aboutKh.owner, photo: aboutEn.owner.photo}};
 const factoryShared = {
   ...factoryKh,
   hero: {...factoryKh.hero, image: factoryEn.hero.image},

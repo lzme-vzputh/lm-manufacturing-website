@@ -1,6 +1,37 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';import Hero from '../../components/Hero.astro';import ProductCard from '../../components/ProductCard.astro';import {publicEntries,language,contentFor,productsFor} from '../../lib/content';const lang=language(Astro.url),{ui,productsPage}=contentFor(lang);
-const products=publicEntries(await productsFor(lang)).sort((a,b)=>a.data.mainControl.displayOrder-b.data.mainControl.displayOrder);const categories=[...new Set(products.map(p=>p.data.category))];
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Hero from '../../components/Hero.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import {publicEntries,language,contentFor,productsFor,pathFor} from '../../lib/content';
+const lang=language(Astro.url),{ui,productsPage}=contentFor(lang);
+const products=publicEntries(await productsFor(lang)).sort((a,b)=>a.data.mainControl.displayOrder-b.data.mainControl.displayOrder);
+const categories=[...new Set(products.map(p=>p.data.category))];
+const singleProduct=products.length===1?products[0]:undefined;
 ---
-<BaseLayout title={ui.nav.products} description={productsPage.seoDescription}><Hero {...productsPage.hero}/><section class="section"><div class="container">{categories.length>1 && <><div class="filters" role="group" aria-label={ui.accessibility.filterProducts}><button type="button" data-category="all" aria-pressed="true">{ui.actions.allProducts}</button>{categories.map(category=><button type="button" data-category={category} aria-pressed="false">{category}</button>)}</div><p class="sr-only" role="status" data-filter-status data-template={ui.accessibility.filterStatus}></p></>}{products.length?<div class="grid-3 product-grid">{products.map(product=><div data-product-category={product.data.category}><ProductCard {product}/></div>)}</div>:<p>{ui.empty.products}</p>}</div></section></BaseLayout>
+<BaseLayout title={ui.nav.products} description={productsPage.seoDescription}>
+  <Hero {...productsPage.hero}/>
+  <section class="section">
+    <div class="container">
+      {singleProduct ? (
+        <article class="single-product-showcase">
+          <div class="single-product-copy">
+            <span class="eyebrow">{singleProduct.data.category}</span>
+            <h2>{singleProduct.data.title}</h2>
+            <p>{singleProduct.data.shortDescription}</p>
+          </div>
+          <a class="single-product-image-link" href={pathFor(`/products/${singleProduct.data.slug}`,lang)} aria-label={`${ui.actions.viewProduct}: ${singleProduct.data.title}`}>
+            <div class="single-product-glow" aria-hidden="true"></div>
+            <img class="single-product-image" src={singleProduct.data.mainControl.mainImage} alt={singleProduct.data.mainImageAlt} width="820" height="820" loading="eager"/>
+          </a>
+          <a class="button button-primary" href={pathFor(`/products/${singleProduct.data.slug}`,lang)}>{ui.actions.viewProduct} <span aria-hidden="true">↗</span></a>
+        </article>
+      ) : products.length ? (
+        <>
+          {categories.length>1 && <><div class="filters" role="group" aria-label={ui.accessibility.filterProducts}><button type="button" data-category="all" aria-pressed="true">{ui.actions.allProducts}</button>{categories.map(category=><button type="button" data-category={category} aria-pressed="false">{category}</button>)}</div><p class="sr-only" role="status" data-filter-status data-template={ui.accessibility.filterStatus}></p></>}
+          <div class="grid-3 product-grid">{products.map(product=><div data-product-category={product.data.category}><ProductCard {product}/></div>)}</div>
+        </>
+      ) : <p>{ui.empty.products}</p>}
+    </div>
+  </section>
+</BaseLayout>
 <script is:inline src="/scripts/product-filter.js"></script>

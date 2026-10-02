@@ -34,5 +34,14 @@
       "event": "LM MANUFACTURING CO., LTD. begins developing its manufacturing operations in Kampong Speu."
     }
   ],
-  "ctaTitle": "Interested in working with us?"
+  "ctaTitle": "Interested in working with us?",
+  "owner": {
+    "eyebrow": "LEADERSHIP",
+    "title": "Message from Our Owner",
+    "name": "Company Owner",
+    "position": "Owner, LM MANUFACTURING CO., LTD.",
+    "photo": "/uploads/image-placeholder.svg",
+    "photoAlt": "Owner of LM MANUFACTURING CO., LTD. — replace with approved portrait",
+    "message": "Our company is being built with a long-term commitment to quality, responsibility and steady growth. We aim to create food products that customers can trust while developing a strong team and reliable manufacturing operation in Cambodia."
+  }
 }

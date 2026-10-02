@@ -8,7 +8,7 @@ mainControl:
   mainImage: /uploads/image-placeholder.svg
   gallery: []
   featured: true
-  published: true
+  published: false
   displayOrder: 1
 specifications: []
 ---
