@@ -1392,3 +1392,43 @@ img{
   .product-slide-pack{max-height:15rem}
   .product-slide[data-active="true"] .product-slide-pack{max-height:17rem}
 }
+
+
+/* Carousel compactness + drag UX */
+.product-carousel-viewport{
+  max-width:68rem;
+  margin-inline:auto;
+  touch-action:pan-y;
+  user-select:none;
+  -webkit-user-select:none;
+}
+.product-carousel-track{
+  align-items:center;
+}
+.product-slide{
+  flex:0 0 clamp(210px, 28vw, 320px);
+  transform:translateY(1.25rem) scale(.86);
+}
+.product-slide[data-active="true"]{
+  transform:translateY(0) scale(1);
+}
+.product-slide-pack-wrap{min-height:20rem}
+.product-slide-pack{max-height:21rem}
+.product-slide[data-active="true"] .product-slide-pack{max-height:25rem}
+.product-carousel-arrow{top:42%}
+
+@media(max-width:900px){
+  .product-carousel-viewport{max-width:44rem}
+  .product-slide{flex-basis:clamp(185px, 40vw, 250px)}
+  .product-slide-pack-wrap{min-height:17rem}
+  .product-slide-pack{max-height:18rem}
+  .product-slide[data-active="true"] .product-slide-pack{max-height:21rem}
+}
+
+@media(max-width:680px){
+  .product-carousel-viewport{max-width:100%}
+  .product-slide{flex-basis:78%}
+  .product-slide-pack-wrap{min-height:14rem}
+  .product-slide-pack{max-height:15rem}
+  .product-slide[data-active="true"] .product-slide-pack{max-height:17rem}
+}
