@@ -1,28 +1,38 @@
 ---
-import {imageUrl,language,pathFor} from '../lib/content';const lang=language(Astro.url);
-interface Props {eyebrow?:string; headline:string; description?:string; image?:string; imageAlt?:string; primaryLabel?:string; primaryUrl?:string; secondaryLabel?:string; secondaryUrl?:string; home?:boolean}
+import {imageUrl,language,pathFor} from '../lib/content';
+const lang=language(Astro.url);
+interface Props {
+  eyebrow?:string;
+  headline:string;
+  description?:string;
+  image?:string;
+  imageAlt?:string;
+  primaryLabel?:string;
+  primaryUrl?:string;
+  secondaryLabel?:string;
+  secondaryUrl?:string;
+  home?:boolean;
+}
 const {eyebrow,headline,description,image,imageAlt='',primaryLabel,primaryUrl,secondaryLabel,secondaryUrl,home=false}=Astro.props;
+const bg=image ? imageUrl(image) : '';
 ---
-<section class:list={['hero',{'hero-home':home}]}>
-  <div class="hero-atmosphere" aria-hidden="true"></div>
-  <div class="container hero-grid">
-    <div class="hero-content">
-      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+<section
+  class:list={['hero','hero-background',{'hero-home':home}]}
+  style={bg ? `--hero-bg: url("${bg}")` : undefined}
+  aria-label={imageAlt || undefined}
+>
+  <div class="hero-backdrop" aria-hidden="true"></div>
+  <div class="container hero-background-inner">
+    <div class="hero-copy-panel">
+      {eyebrow && <p class="eyebrow hero-kicker">{eyebrow}</p>}
       <h1>{headline}</h1>
       {description && <p class="hero-description">{description}</p>}
-      <div class="hero-actions">
-        {primaryLabel && primaryUrl && <a class="button button-primary" href={pathFor(primaryUrl,lang)}>{primaryLabel}<span aria-hidden="true">↗</span></a>}
-        {secondaryLabel && secondaryUrl && <a class="button button-light" href={pathFor(secondaryUrl,lang)}>{secondaryLabel}</a>}
-      </div>
-    </div>
-    <div
-      class="hero-visual background-image-block"
-      data-depth-card
-      role="img"
-      aria-label={imageAlt}
-      style={`--bg-image: url("${imageUrl(image)}")`}
-    >
-      <span class="hero-image-line" aria-hidden="true"></span>
+      {(primaryLabel || secondaryLabel) && (
+        <div class="hero-actions">
+          {primaryLabel && primaryUrl && <a class="button button-primary" href={pathFor(primaryUrl,lang)}>{primaryLabel}<span aria-hidden="true">↗</span></a>}
+          {secondaryLabel && secondaryUrl && <a class="button button-light" href={pathFor(secondaryUrl,lang)}>{secondaryLabel}</a>}
+        </div>
+      )}
     </div>
   </div>
 </section>
