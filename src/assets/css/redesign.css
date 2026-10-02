@@ -370,3 +370,72 @@ body{background:var(--paper)}
   .hero-background .hero-actions{flex-direction:column;align-items:stretch}
   .hero-background .hero-actions .button{width:100%}
 }
+
+/* Hero text shadow for readability across all background images */
+.hero-background .hero-kicker,
+.hero-background h1,
+.hero-background .hero-description {
+  text-shadow:
+    0 2px 4px rgba(0,0,0,.55),
+    0 8px 24px rgba(0,0,0,.38);
+}
+
+.hero-background h1 {
+  text-shadow:
+    0 3px 6px rgba(0,0,0,.62),
+    0 12px 34px rgba(0,0,0,.45);
+}
+
+.hero-background .hero-description {
+  text-shadow:
+    0 2px 5px rgba(0,0,0,.6),
+    0 6px 18px rgba(0,0,0,.34);
+}
+
+@media (max-width: 550px) {
+  .hero-background .hero-kicker,
+  .hero-background h1,
+  .hero-background .hero-description {
+    text-shadow:
+      0 2px 4px rgba(0,0,0,.68),
+      0 7px 20px rgba(0,0,0,.42);
+  }
+}
+
+/* Owner portrait — refined professional card */
+.owner-photo-wrap{
+  max-width:440px;
+  aspect-ratio:4/5;
+  border-radius:2rem;
+  overflow:hidden;
+  border:1px solid rgba(255,255,255,.22);
+  box-shadow:0 28px 60px rgba(0,0,0,.28),0 8px 20px rgba(0,0,0,.14);
+  background-position:center top;
+  isolation:isolate;
+}
+.owner-photo-wrap:before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  border-radius:inherit;
+  background:linear-gradient(180deg,rgba(255,255,255,.03) 52%,rgba(5,20,25,.34) 100%);
+  pointer-events:none;
+}
+.owner-photo-wrap:after{
+  content:"";
+  position:absolute;
+  right:1rem;
+  bottom:1rem;
+  width:4.25rem;
+  height:4.25rem;
+  z-index:2;
+  border-right:3px solid var(--accent);
+  border-bottom:3px solid var(--accent);
+  border-radius:0 0 1rem 0;
+  pointer-events:none;
+}
+@media(max-width:800px){
+  .owner-photo-wrap{max-width:390px;border-radius:1.6rem}
+  .owner-photo-wrap:after{right:.8rem;bottom:.8rem;width:3.4rem;height:3.4rem}
+}
