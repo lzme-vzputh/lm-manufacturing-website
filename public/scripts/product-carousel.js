@@ -40,12 +40,12 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
   let physical = count > 1 ? count + initialLogical : initialLogical;
   let logical = initialLogical;
   let jumping = false;
-  let baseOffset = 0;
   let dragging = false;
   let moved = false;
   let startX = 0;
   let dragX = 0;
   let activePointerId = null;
+  let wheelLocked = false;
 
   const getGap = () => {
     const styles = window.getComputedStyle(track);
@@ -79,10 +79,10 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
     updateDetail();
   };
 
-  const update = ({ animate = true, extraOffset = 0 } = {}) => {
-    baseOffset = getBaseOffset();
+  const update = ({ animate = true } = {}) => {
+    const baseOffset = getBaseOffset();
     track.style.transition = animate ? '' : 'none';
-    track.style.transform = `translate3d(${baseOffset + extraOffset}px,0,0)`;
+    track.style.transform = `translate3d(${baseOffset}px,0,0)`;
     paintSlides();
     if (!animate) {
       requestAnimationFrame(() => { track.style.transition = ''; });
@@ -137,32 +137,25 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
     dragX = 0;
     activePointerId = event.pointerId;
     viewport.setPointerCapture?.(event.pointerId);
-    track.style.transition = 'none';
+    viewport.classList.add('is-dragging');
   });
 
   viewport.addEventListener('pointermove', (event) => {
     if (!dragging || event.pointerId !== activePointerId) return;
     dragX = event.clientX - startX;
-    if (Math.abs(dragX) > 4) moved = true;
-    track.style.transform = `translate3d(${baseOffset + dragX}px,0,0)`;
+    if (Math.abs(dragX) > 8) moved = true;
   });
 
   const endDrag = (event) => {
     if (!dragging) return;
     if (event && activePointerId !== null && event.pointerId !== activePointerId) return;
     dragging = false;
+    viewport.classList.remove('is-dragging');
     activePointerId = null;
-    track.style.transition = '';
 
-    const slideWidth = slides[0]?.offsetWidth || 1;
-    const gap = getGap();
-    const stepSize = slideWidth + gap;
-    const threshold = Math.min(70, stepSize * .22);
-
+    const threshold = 50;
     if (Math.abs(dragX) > threshold) {
-      const steps = Math.max(1, Math.round(Math.abs(dragX) / stepSize));
-      physical += dragX < 0 ? steps : -steps;
-      update({ animate: true });
+      move(dragX < 0 ? 1 : -1);
     } else {
       update({ animate: true });
     }
@@ -174,6 +167,17 @@ document.querySelectorAll('[data-product-carousel]').forEach((carousel) => {
   viewport.addEventListener('lostpointercapture', () => {
     if (dragging) endDrag({ pointerId: activePointerId });
   });
+
+  viewport.addEventListener('wheel', (event) => {
+    if (count <= 1) return;
+    const delta = Math.abs(event.deltaX) > Math.abs(event.deltaY) ? event.deltaX : event.deltaY;
+    if (Math.abs(delta) < 18) return;
+    event.preventDefault();
+    if (wheelLocked) return;
+    wheelLocked = true;
+    move(delta > 0 ? 1 : -1);
+    window.setTimeout(() => { wheelLocked = false; }, 280);
+  }, { passive: false });
 
   window.addEventListener('resize', () => update({ animate: false }), { passive: true });
   update({ animate: false });
