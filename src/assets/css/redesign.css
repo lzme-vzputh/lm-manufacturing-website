@@ -574,3 +574,123 @@ body{background:var(--paper)}
   .turtle-badge,
   .turtle-badge-compact{min-width:auto; width:min(100%, 250px);}
 }
+
+/* Compact footer: professional but not too tall */
+.site-footer{
+  padding-top:2.6rem;
+}
+.footer-grid{
+  gap:clamp(1.4rem,3vw,2.2rem);
+  align-items:start;
+}
+.footer-brand{
+  max-width:20rem;
+  gap:.65rem;
+}
+.footer-brand img{
+  width:64px;
+  height:64px;
+  flex-basis:64px;
+}
+.footer-grid h2{
+  margin-bottom:.65rem;
+  font-size:.86rem;
+}
+.footer-grid li+li{
+  margin-top:.4rem;
+}
+.footer-grid p,
+.footer-grid address{
+  margin-top:.55rem;
+  line-height:1.55;
+}
+.site-footer .social-links{
+  margin-top:.9rem;
+  gap:.5rem;
+}
+.site-footer .social-links a,
+.site-footer .social-unlinked{
+  min-height:2.35rem;
+  padding:.38rem .65rem;
+  font-size:.82rem;
+}
+.footer-bottom{
+  margin-top:2.1rem;
+  padding-block:1rem;
+}
+
+@media(max-width:800px){
+  .site-footer{padding-top:2.25rem}
+  .footer-grid{gap:1.6rem 2rem}
+  .footer-bottom{margin-top:1.6rem}
+}
+
+@media(max-width:550px){
+  .site-footer{padding-top:1.9rem}
+  .footer-grid{gap:1.35rem}
+  .footer-brand img{width:56px;height:56px;flex-basis:56px}
+  .footer-grid p,.footer-grid address{margin-top:.4rem}
+  .footer-bottom{margin-top:1.3rem;padding-block:.85rem;gap:.45rem}
+}
+
+/* Larger header logo without making the navigation bar excessively tall */
+.site-header .brand img{
+  width:150px;
+  height:150px;
+  flex:0 0 150px;
+  object-fit:contain;
+  transform:scale(1.03);
+  margin-block:-1.1rem;
+  background:transparent;
+}
+.site-header .header-inner{
+  min-height:7.15rem;
+}
+.site-header .brand{
+  gap:.55rem;
+}
+
+@media(max-width:1050px){
+  .site-header .brand img{
+    width:112px;
+    height:112px;
+    flex-basis:112px;
+    margin-block:-.75rem;
+  }
+  .site-header .header-inner{min-height:6.25rem}
+}
+
+@media(max-width:550px){
+  .site-header .brand img{
+    width:84px;
+    height:84px;
+    flex-basis:84px;
+    margin-block:-.45rem;
+  }
+  .site-header .header-inner{min-height:5.55rem}
+  .site-header .brand{max-width:15.5rem;gap:.25rem}
+}
+
+/* Clean product image only: no decorative background behind package */
+.home-product-visual::before{display:none!important}
+.home-product-visual .product-orbit,
+.product-flex-bg,
+.product-showcase-label,
+.product-badge-anchor,
+.single-product-glow{display:none!important}
+.home-product-visual,
+.single-product-image-link{
+  background:transparent!important;
+  box-shadow:none!important;
+}
+.home-product-visual img,
+.single-product-image{
+  width:min(100%,520px)!important;
+  max-height:620px!important;
+  object-fit:contain!important;
+  filter:drop-shadow(0 28px 30px rgba(0,0,0,.22));
+}
+@media(max-width:550px){
+  .home-product-visual img,
+  .single-product-image{width:min(88vw,390px)!important;max-height:470px!important}
+}

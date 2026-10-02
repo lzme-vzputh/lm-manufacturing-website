@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Hero from '../../components/Hero.astro';
 import ProductCard from '../../components/ProductCard.astro';
-import TurtleBadge from '../../components/TurtleBadge.astro';
 import {publicEntries,language,contentFor,productsFor,pathFor} from '../../lib/content';
 const lang=language(Astro.url),{ui,productsPage}=contentFor(lang);
 const products=publicEntries(await productsFor(lang)).sort((a,b)=>a.data.mainControl.displayOrder-b.data.mainControl.displayOrder);
@@ -21,12 +20,7 @@ const singleProduct=products.length===1?products[0]:undefined;
             <p>{singleProduct.data.shortDescription}</p>
           </div>
           <a class="single-product-image-link" href={pathFor(`/products/${singleProduct.data.slug}`,lang)} aria-label={`${ui.actions.viewProduct}: ${singleProduct.data.title}`}>
-            <div class="single-product-glow" aria-hidden="true"></div>
-            <span class="product-flex-bg product-flex-bg-one" aria-hidden="true"></span>
-            <span class="product-flex-bg product-flex-bg-two" aria-hidden="true"></span>
-            <span class="product-showcase-label">Flexible background</span>
             <img class="single-product-image" src={singleProduct.data.mainControl.mainImage} alt={singleProduct.data.mainImageAlt} width="820" height="820" loading="eager"/>
-            <div class="product-badge-anchor product-badge-anchor-detail"><TurtleBadge title="Turtle Packaging" subtitle="Featured noodle pack concept" /></div>
           </a>
           <a class="button button-primary" href={pathFor(`/products/${singleProduct.data.slug}`,lang)}>{ui.actions.viewProduct} <span aria-hidden="true">↗</span></a>
         </article>
