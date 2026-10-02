@@ -1288,3 +1288,107 @@ body{background:var(--paper)}
     background:linear-gradient(180deg,#f3e6c8 0%, #e6c58a 100%) !important;
   }
 }
+
+/* Final QA pass: phone logo, original product background, responsive image safety */
+.product-carousel{
+  background:
+    radial-gradient(circle at 16% 18%, rgba(255,255,255,.35), transparent 20rem),
+    radial-gradient(circle at 86% 20%, rgba(42,121,95,.16), transparent 18rem),
+    linear-gradient(180deg,#f3e6c8 0%, #e6c58a 100%) !important;
+}
+.product-carousel::before{
+  background:radial-gradient(110% 100% at 50% 0%, rgba(248,246,241,0) 58%, rgba(248,246,241,.98) 59% 100%) !important;
+}
+.product-carousel::after{
+  background:radial-gradient(circle, rgba(251,232,168,.92) 0 58%, rgba(237,201,113,.55) 59% 73%, rgba(237,201,113,.18) 74% 100%) !important;
+}
+.product-carousel-arrow{background:rgba(110,67,35,.78) !important;color:#fff}
+
+/* image QA */
+img,
+picture,
+svg,
+video,
+canvas{
+  max-width:100%;
+}
+img{
+  height:auto;
+}
+.card img,
+.gallery img,
+.article-cover,
+.product-slide-pack,
+.single-product-image,
+.product-detail-pack-image,
+.home-product-visual img,
+.home-intro-media,
+.home-factory-visual,
+.hero-visual,
+.owner-photo-wrap{
+  image-rendering:auto;
+}
+.hero-visual,
+.home-intro-media,
+.home-factory-visual,
+.owner-photo-wrap,
+.product-slide-pack-wrap,
+.single-product-image-link,
+.product-detail-hero-card,
+.product-carousel{
+  overflow:hidden;
+}
+
+@media (max-width:720px){
+  .site-header .brand{
+    max-width:none;
+    width:auto;
+    gap:0;
+    flex:0 0 auto;
+  }
+  .site-header .brand span{
+    display:none !important;
+  }
+  .site-header .brand img{
+    width:118px !important;
+    height:118px !important;
+    flex:0 0 118px !important;
+    margin-block:-.85rem !important;
+    transform:none !important;
+  }
+  .site-header .header-inner{
+    min-height:6.2rem !important;
+    padding-block:.35rem !important;
+    gap:.5rem;
+  }
+  .site-header .header-actions{margin-left:auto}
+  .navigation{top:100%}
+
+  .product-carousel{
+    background:
+      radial-gradient(circle at 50% 20%, rgba(251,232,168,.55), transparent 12rem),
+      linear-gradient(180deg,#f3e6c8 0%, #e6c58a 100%) !important;
+    padding:1.5rem .55rem 1.5rem;
+  }
+  .product-carousel::before,
+  .product-carousel::after{
+    display:none;
+  }
+  .product-carousel-detail{
+    background:rgba(56,5,19,.82);
+  }
+}
+
+@media (max-width:480px){
+  .site-header .brand img{
+    width:108px !important;
+    height:108px !important;
+    flex-basis:108px !important;
+    margin-block:-.75rem !important;
+  }
+  .site-header .header-inner{
+    min-height:6rem !important;
+  }
+  .product-slide-pack{max-height:15rem}
+  .product-slide[data-active="true"] .product-slide-pack{max-height:17rem}
+}
