@@ -5,10 +5,12 @@ category: Noodles
 shortDescription: A convenient noodle product designed for everyday meals.
 mainImageAlt: Placeholder for chicken noodles product photography
 mainControl:
-  published: true
+  mainImage: /uploads/image-placeholder.svg
+  gallery: []
   featured: true
+  published: false
   displayOrder: 1
-  mainImage: /uploads/products/noodles-snack-packaging1288574-647-removebg-preview-3.png
+specifications: []
 ---
 ## Product overview
 
