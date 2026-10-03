@@ -8,34 +8,50 @@ const lang=language(Astro.url),{about,ui}=contentFor(lang);
 <BaseLayout title={ui.nav.about} description={about.hero.description}>
   <Hero {...about.hero}/>
 
-  <section class="section">
-    <div class="container split">
+  <section class="section owner-section owner-section-first">
+    <div class="container">
+      <article class="owner-panel owner-panel-modern">
+        <div class="owner-photo-column">
+          <div
+            class="owner-photo-wrap background-image-block"
+            role="img"
+            aria-label={about.owner.photoAlt}
+            style={`--bg-image: url("${about.owner.photo}")`}
+          ></div>
+          <div class="owner-photo-meta">
+            <strong>{about.owner.name}</strong>
+            <span>{about.owner.position}</span>
+          </div>
+        </div>
+
+        <div class="owner-copy owner-copy-modern">
+          <p class="eyebrow">{about.owner.eyebrow}</p>
+          <h2>{about.owner.title}</h2>
+          <div class="owner-quote-mark" aria-hidden="true">“</div>
+          <p class="owner-message">{about.owner.message}</p>
+          <div class="owner-signature owner-signature-modern">
+            <span class="owner-signature-line" aria-hidden="true"></span>
+            <div>
+              <strong>{about.owner.name}</strong>
+              <span>{about.owner.position}</span>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section about-overview-section">
+    <div class="container split about-overview-split">
       <div class="split-copy">
+        <p class="eyebrow about-overview-eyebrow">ABOUT LM MANUFACTURING</p>
         <h2>{about.overviewTitle}</h2>
         <p>{about.overviewText}</p>
         <h3 class="subheading">{about.storyTitle}</h3>
         <p>{about.storyText}</p>
       </div>
-      <img class="split-image" src={about.image} alt={about.imageAlt} width="700" height="530" loading="lazy"/>
-    </div>
-  </section>
-
-  <section class="section owner-section">
-    <div class="container owner-panel">
-      <div
-        class="owner-photo-wrap background-image-block"
-        role="img"
-        aria-label={about.owner.photoAlt}
-        style={`--bg-image: url("${about.owner.photo}")`}
-      ></div>
-      <div class="owner-copy">
-        <p class="eyebrow">{about.owner.eyebrow}</p>
-        <h2>{about.owner.title}</h2>
-        <p class="owner-message">“{about.owner.message}”</p>
-        <div class="owner-signature">
-          <strong>{about.owner.name}</strong>
-          <span>{about.owner.position}</span>
-        </div>
+      <div class="about-overview-image-wrap">
+        <img class="split-image" src={about.image} alt={about.imageAlt} width="700" height="530" loading="lazy"/>
       </div>
     </div>
   </section>
