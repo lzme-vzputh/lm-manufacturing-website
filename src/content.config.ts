@@ -3,7 +3,16 @@ import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
 
 const media = z.string().startsWith('/uploads/');
-const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/);
+const slug = z.preprocess((value) => {
+  if (typeof value !== 'string') return value;
+  return value
+    .trim()
+    .toLowerCase()
+    .replace(/[_\s]+/g, '-')
+    .replace(/[^a-z0-9-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}, z.string().min(1).regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/));
 const productControl = z.object({mainImage:media,gallery:z.array(z.object({image:media,alt:z.string().min(1)})).default([]),featured:z.boolean(),published:z.boolean(),displayOrder:z.number().int().nonnegative()});
 const productSchema = z.object({title:z.string().min(1),slug,category:z.string().min(1),shortDescription:z.string().min(1),mainImageAlt:z.string().min(1),mainControl:productControl,specifications:z.array(z.object({label:z.string(),value:z.string()})).default([])});
 const product = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/products'}),schema:productSchema});
