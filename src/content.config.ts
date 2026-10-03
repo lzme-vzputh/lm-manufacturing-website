@@ -8,7 +8,16 @@ const productControl = z.object({mainImage:media,gallery:z.array(z.object({image
 const productSchema = z.object({title:z.string().min(1),slug,category:z.string().min(1),shortDescription:z.string().min(1),mainImageAlt:z.string().min(1),mainControl:productControl,specifications:z.array(z.object({label:z.string(),value:z.string()})).default([])});
 const product = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/products'}),schema:productSchema});
 const newsControl = z.object({publishDate:z.coerce.date(),coverImage:media,published:z.boolean(),featured:z.boolean()});
-const newsSchema = z.object({title:z.string().min(1),slug,summary:z.string().min(1),coverImageAlt:z.string().min(1),mainControl:newsControl,seoTitle:z.string().optional(),seoDescription:z.string().optional()});
+const newsVideo = z.object({
+  title:z.string().optional().default(''),
+  url:z.string().url(),
+});
+const newsSchema = z.object({
+  title:z.string().min(1),slug,summary:z.string().min(1),coverImageAlt:z.string().min(1),
+  mainControl:newsControl,
+  videos:z.array(newsVideo).default([]),
+  seoTitle:z.string().optional(),seoDescription:z.string().optional()
+});
 const news = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/news'}),schema:newsSchema});
 const careerControl = z.object({publishDate:z.coerce.date(),closingDate:z.coerce.date().optional(),published:z.boolean()});
 const careersSchema = z.object({title:z.string().min(1),slug,department:z.string().min(1),location:z.string().min(1),employmentType:z.string().min(1),summary:z.string().min(1),responsibilities:z.array(z.string()).min(1),requirements:z.array(z.string()).min(1),mainControl:careerControl});

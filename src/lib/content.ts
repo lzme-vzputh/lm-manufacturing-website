@@ -103,6 +103,7 @@ export async function newsFor(lang: Lang): Promise<CollectionEntry<'news'>[]> {
     if (!base) return [];
     return [{...entry, data: {...entry.data,
       mainControl: base.data.mainControl,
+      videos: base.data.videos || [],
     }} as unknown as CollectionEntry<'news'>];
   });
 }
