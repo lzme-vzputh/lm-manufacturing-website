@@ -1,6 +1,6 @@
 ---
 title: ប្រធានផ្នែក ព័ត៌មានវិទ្យា
-slug: it-team
+slug: it-team001
 department: នាយកដ្ឋាន ព័ត៌មានវិទ្យា
 location: កំពង់ស្ពឺ
 employmentType: Full-time
