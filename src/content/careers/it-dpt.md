@@ -80,7 +80,7 @@ requirements:
     an advantage.
 mainControl:
   published: true
-  showOnKhmer: true
+  showOnKhmer: false
   useKhmerTranslation: true
   publishDate: 2026-09-14
   closingDate: 2026-11-30
