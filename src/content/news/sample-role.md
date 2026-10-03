@@ -11,4 +11,7 @@ mainControl:
 videos:
   - title: tena song
     url: https://www.youtube.com/watch?v=dxBUUHvzs5s
+seoTitle: wesfasf
+seoDescription: asfar
 ---
+aefegesb dzvzsdvwe
