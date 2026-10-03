@@ -1,12 +1,17 @@
 ---
-import {siteFor,language,pathFor,contentFor} from '../lib/content';
+import {siteFor,language,pathFor,contentFor,careersFor} from '../lib/content';
 import {getCollection} from 'astro:content';
 const lang=language(Astro.url),site=siteFor(lang);const other=lang==='kh'?'en':'kh';const original=Astro.url.pathname.replace(/^\/kh(?=\/|$)/,'')||'/';let switchTo=pathFor(original.startsWith('/404')?'/':original,other);if(lang==='kh'&&original==='/')switchTo='/?lang=en';
 const detail=lang==='en'?original.match(/^\/(careers|products|news)\/([^/]+)\/?$/):undefined;
 if(detail){
-  const collection=({careers:'careersKh',products:'productsKh',news:'newsKh'} as const)[detail[1] as 'careers'|'products'|'news'];
-  const translations=await getCollection(collection);
-  if(!translations.some(entry=>entry.data.slug===detail[2]))switchTo=`/kh/${detail[1]}`;
+  if(detail[1]==='careers'){
+    const khmerJobs=await careersFor('kh');
+    if(!khmerJobs.some(entry=>entry.data.slug===detail[2])) switchTo='/kh/careers';
+  }else{
+    const collection=({products:'productsKh',news:'newsKh'} as const)[detail[1] as 'products'|'news'];
+    const translations=await getCollection(collection);
+    if(!translations.some(entry=>entry.data.slug===detail[2]))switchTo=`/kh/${detail[1]}`;
+  }
 }
 const ui=contentFor(lang).ui;
 import Navigation from './Navigation.astro';

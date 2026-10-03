@@ -19,7 +19,13 @@ const newsSchema = z.object({
   seoTitle:z.string().optional(),seoDescription:z.string().optional()
 });
 const news = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/news'}),schema:newsSchema});
-const careerControl = z.object({publishDate:z.coerce.date(),closingDate:z.coerce.date().optional(),published:z.boolean()});
+const careerControl = z.object({
+  publishDate:z.coerce.date(),
+  closingDate:z.coerce.date().optional(),
+  published:z.boolean(),
+  showOnKhmer:z.boolean().default(true),
+  useKhmerTranslation:z.boolean().default(true),
+});
 const careersSchema = z.object({title:z.string().min(1),slug,department:z.string().min(1),location:z.string().min(1),employmentType:z.string().min(1),summary:z.string().min(1),responsibilities:z.array(z.string()).min(1),requirements:z.array(z.string()).min(1),mainControl:careerControl});
 const careers = defineCollection({loader:glob({pattern:'**/*.md',base:'./src/content/careers'}),schema:careersSchema});
 // Shared media, ordering and dates are read from the English entry with the same slug.

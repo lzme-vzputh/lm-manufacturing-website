@@ -111,13 +111,15 @@ export async function newsFor(lang: Lang): Promise<CollectionEntry<'news'>[]> {
 export async function careersFor(lang: Lang): Promise<CollectionEntry<'careers'>[]> {
   const english = await getCollection('careers');
   if (lang === 'en') return english;
+
   const khmer = await getCollection('careersKh');
   const translations = new Map(khmer.map(entry => [entry.data.slug, entry]));
-  return english.filter(base => base.data.mainControl.published).map(base => {
-    const entry = translations.get(base.data.slug);
-    if (!entry) return base;
-    return {...entry, data: {...entry.data,
-      mainControl: base.data.mainControl,
-    }} as unknown as CollectionEntry<'careers'>;
-  });
+
+  return english
+    .filter(base => base.data.mainControl.published && base.data.mainControl.showOnKhmer)
+    .map(base => {
+      const translation = translations.get(base.data.slug);
+      if (!base.data.mainControl.useKhmerTranslation || !translation) return base;
+      return {...translation, data: {...translation.data, mainControl: base.data.mainControl}} as unknown as CollectionEntry<'careers'>;
+    });
 }
