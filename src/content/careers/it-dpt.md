@@ -79,7 +79,7 @@ requirements:
   - Certifications such as CCNA, Microsoft, Fortinet, MikroTik, or CompTIA are
     an advantage.
 mainControl:
-  published: false
+  published: true
   publishDate: 2026-09-14
   closingDate: 2026-11-30
 ---
