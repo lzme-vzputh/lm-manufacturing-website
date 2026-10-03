@@ -5,7 +5,9 @@ interface Props {
   eyebrow?:string;
   headline:string;
   description?:string;
-  image?:string;
+  desktopImage?:string;
+  mobileImage?:string;
+  image?:string; // legacy fallback
   imageAlt?:string;
   primaryLabel?:string;
   primaryUrl?:string;
@@ -13,12 +15,15 @@ interface Props {
   secondaryUrl?:string;
   home?:boolean;
 }
-const {eyebrow,headline,description,image,imageAlt='',primaryLabel,primaryUrl,secondaryLabel,secondaryUrl,home=false}=Astro.props;
-const bg=image ? imageUrl(image) : '';
+const {eyebrow,headline,description,desktopImage,mobileImage,image,imageAlt='',primaryLabel,primaryUrl,secondaryLabel,secondaryUrl,home=false}=Astro.props;
+const desktopBg=desktopImage || image;
+const mobileBg=mobileImage || desktopBg;
+const bgDesktop=desktopBg ? imageUrl(desktopBg) : '';
+const bgMobile=mobileBg ? imageUrl(mobileBg) : bgDesktop;
 ---
 <section
   class:list={['hero','hero-background',{'hero-home':home}]}
-  style={bg ? `--hero-bg: url("${bg}")` : undefined}
+  style={bgDesktop ? `--hero-bg-desktop: url("${bgDesktop}"); --hero-bg-mobile: url("${bgMobile}")` : undefined}
   aria-label={imageAlt || undefined}
 >
   <div class="hero-backdrop" aria-hidden="true"></div>

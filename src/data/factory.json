@@ -3,7 +3,8 @@
     "eyebrow": "OUR FACTORY",
     "headline": "The work behind the product",
     "description": "An introduction to the spaces and practices that support instant noodle manufacturing.",
-    "image": "/uploads/factory/photo2026-10-0308-10-57.jpg",
+    "desktopImage": "/uploads/factory/photo2026-10-0308-10-57.jpg",
+    "mobileImage": "/uploads/factory/photo2026-10-0308-10-57.jpg",
     "imageAlt": "Illustrative image of noodle production; not the LM Manufacturing factory"
   },
   "introTitle": "Production starts with preparation",

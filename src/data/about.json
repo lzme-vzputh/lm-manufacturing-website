@@ -3,7 +3,8 @@
     "eyebrow": "ABOUT LM MANUFACTURING",
     "headline": "A new manufacturing company with a clear direction",
     "description": "Get to know the company behind our instant noodle manufacturing work in Kampong Speu.",
-    "image": "/uploads/factory/production-line.webp",
+    "desktopImage": "/uploads/factory/production-line.webp",
+    "mobileImage": "/uploads/factory/production-line.webp",
     "imageAlt": "Illustrative noodle production facility image; not the company’s actual factory"
   },
   "overviewTitle": "Who we are",

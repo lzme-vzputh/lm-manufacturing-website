@@ -231,7 +231,7 @@ body{background:var(--paper)}
   min-height:clamp(520px,62vh,760px);
   color:#fff;
   background-color:#102830;
-  background-image:var(--hero-bg);
+  background-image:var(--hero-bg-desktop);
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -243,7 +243,7 @@ body{background:var(--paper)}
   position:absolute;
   inset:0;
   z-index:-3;
-  background-image:var(--hero-bg);
+  background-image:var(--hero-bg-desktop);
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
@@ -2141,20 +2141,20 @@ img{
   .about-overview-image-wrap::before{inset:.7rem -.5rem -.7rem .5rem}
 }
 
-/* Mobile hero image lock: preserve desktop-style image composition */
+/* Mobile hero image: use the dedicated CMS mobile image when provided */
 @media (max-width:720px){
   .hero-background,
   .hero-background.hero-home{
-    /* Keep the image composition stable on narrow screens instead of zooming it to cover. */
+    /* Use a separate mobile image so narrow screens can have their own composition. */
     background-color:#071b23 !important;
-    background-image:var(--hero-bg) !important;
+    background-image:var(--hero-bg-mobile) !important;
     background-repeat:no-repeat !important;
     background-size:100% auto !important;
     background-position:center top !important;
   }
 
   .hero-background::before{
-    background-image:var(--hero-bg) !important;
+    background-image:var(--hero-bg-mobile) !important;
     background-repeat:no-repeat !important;
     background-size:100% auto !important;
     background-position:center top !important;

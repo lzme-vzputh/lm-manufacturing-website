@@ -3,7 +3,8 @@
     "eyebrow": "CAREERS",
     "headline": "Build your future with us",
     "description": "Explore opportunities to join our team.",
-    "image": "/uploads/careers/screenshot-2026-10-03-133824-1.png",
+    "desktopImage": "/uploads/careers/screenshot-2026-10-03-133824-1.png",
+    "mobileImage": "/uploads/careers/screenshot-2026-10-03-133824-1.png",
     "imageAlt": "Illustrative manufacturing workplace image"
   },
   "seoDescription": "Explore opportunities to join LM MANUFACTURING CO., LTD."

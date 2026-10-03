@@ -16,22 +16,22 @@ export const pathFor = (path: string, lang: Lang) => /^https?:|^mailto:|^tel:|^#
 // Images and destination URLs belong to the English content record; Khmer owns its wording.
 const homeShared = {
   ...homeKh,
-  hero: {...homeKh.hero, image: homeEn.hero.image, primaryUrl: homeEn.hero.primaryUrl, secondaryUrl: homeEn.hero.secondaryUrl},
+  hero: {...homeKh.hero, desktopImage: homeEn.hero.desktopImage, mobileImage: homeEn.hero.mobileImage, primaryUrl: homeEn.hero.primaryUrl, secondaryUrl: homeEn.hero.secondaryUrl},
   intro: {...homeKh.intro, image: homeEn.intro.image},
   factoryImage: homeEn.factoryImage,
   cta: {...homeKh.cta, url: homeEn.cta.url},
 };
-const aboutShared = {...aboutKh, hero: {...aboutKh.hero, image: aboutEn.hero.image}, image: aboutEn.image, owner: {...aboutKh.owner, photo: aboutEn.owner.photo}};
+const aboutShared = {...aboutKh, hero: {...aboutKh.hero, desktopImage: aboutEn.hero.desktopImage, mobileImage: aboutEn.hero.mobileImage}, image: aboutEn.image, owner: {...aboutKh.owner, photo: aboutEn.owner.photo}};
 const factoryShared = {
   ...factoryKh,
-  hero: {...factoryKh.hero, image: factoryEn.hero.image},
+  hero: {...factoryKh.hero, desktopImage: factoryEn.hero.desktopImage, mobileImage: factoryEn.hero.mobileImage},
   gallery: factoryEn.gallery.map((item, index) => ({image: item.image, alt: factoryKh.gallery?.[index]?.alt || item.alt})),
 };
-const contactShared = {...contactKh, hero: {...contactKh.hero, image: contactEn.hero.image}, mapEmbedUrl: contactEn.mapEmbedUrl};
+const contactShared = {...contactKh, hero: {...contactKh.hero, desktopImage: contactEn.hero.desktopImage, mobileImage: contactEn.hero.mobileImage}, mapEmbedUrl: contactEn.mapEmbedUrl};
 const uiShared = {...uiKh, manageSections: uiKh.manageSections.map((section, index) => ({...section, path: uiEn.manageSections[index]?.path || '/'}))};
-const productsPageShared={...productsPageKh,hero:{...productsPageKh.hero,image:productsPageEn.hero.image}};
-const newsPageShared={...newsPageKh,hero:{...newsPageKh.hero,image:newsPageEn.hero.image}};
-const careersPageShared={...careersPageKh,hero:{...careersPageKh.hero,image:careersPageEn.hero.image}};
+const productsPageShared={...productsPageKh,hero:{...productsPageKh.hero,desktopImage:productsPageEn.hero.desktopImage,mobileImage:productsPageEn.hero.mobileImage}};
+const newsPageShared={...newsPageKh,hero:{...newsPageKh.hero,desktopImage:newsPageEn.hero.desktopImage,mobileImage:newsPageEn.hero.mobileImage}};
+const careersPageShared={...careersPageKh,hero:{...careersPageKh.hero,desktopImage:careersPageEn.hero.desktopImage,mobileImage:careersPageEn.hero.mobileImage}};
 export const contentFor = (lang: Lang) => ({home:lang==='kh'?homeShared:homeEn,about:lang==='kh'?aboutShared:aboutEn,factory:lang==='kh'?factoryShared:factoryEn,contact:lang==='kh'?contactShared:contactEn,productsPage:lang==='kh'?productsPageShared:productsPageEn,newsPage:lang==='kh'?newsPageShared:newsPageEn,careersPage:lang==='kh'?careersPageShared:careersPageEn,ui:lang==='kh'?uiShared:uiEn});
 type Site = {companyName:string;logo:string;fontUrl?:string;fontKhUrl?:string;description:string;contact:{phone:string;email:string;address:string;businessHours:string;applicationEmail:string};social:Record<string,string>;footer:{copyright:string};seo:{defaultTitle:string;titleTemplate:string;defaultDescription:string;defaultImage:string};appearance?:Record<string,string>};
 type SiteSource = {
