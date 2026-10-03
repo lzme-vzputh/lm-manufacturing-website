@@ -199,7 +199,15 @@ content:
                 type: string
               - name: description
                 type: text
-              - name: image
+              - name: desktopImage
+                label: Hero image · Desktop
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/home
+                  rename: safe
+              - name: mobileImage
+                label: Hero image · Phone / Mobile
                 type: image
                 options:
                   media: images
@@ -367,7 +375,15 @@ content:
                 type: string
               - name: description
                 type: text
-              - name: image
+              - name: desktopImage
+                label: Hero image · Desktop
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/about
+                  rename: safe
+              - name: mobileImage
+                label: Hero image · Phone / Mobile
                 type: image
                 options:
                   media: images
@@ -525,7 +541,15 @@ content:
                 type: string
               - name: description
                 type: text
-              - name: image
+              - name: desktopImage
+                label: Hero image · Desktop
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/products
+                  rename: safe
+              - name: mobileImage
+                label: Hero image · Phone / Mobile
                 type: image
                 options:
                   media: images
@@ -683,7 +707,15 @@ content:
                 type: string
               - name: description
                 type: text
-              - name: image
+              - name: desktopImage
+                label: Hero image · Desktop
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/factory
+                  rename: safe
+              - name: mobileImage
+                label: Hero image · Phone / Mobile
                 type: image
                 options:
                   media: images
@@ -792,7 +824,15 @@ content:
                 type: string
               - name: description
                 type: text
-              - name: image
+              - name: desktopImage
+                label: Hero image · Desktop
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/news
+                  rename: safe
+              - name: mobileImage
+                label: Hero image · Phone / Mobile
                 type: image
                 options:
                   media: images
@@ -930,7 +970,15 @@ content:
                 type: string
               - name: description
                 type: text
-              - name: image
+              - name: desktopImage
+                label: Hero image · Desktop
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/careers
+                  rename: safe
+              - name: mobileImage
+                label: Hero image · Phone / Mobile
                 type: image
                 options:
                   media: images
@@ -1070,7 +1118,15 @@ content:
                 type: string
               - name: description
                 type: text
-              - name: image
+              - name: desktopImage
+                label: Hero image · Desktop
+                type: image
+                options:
+                  media: images
+                  path: public/uploads/about
+                  rename: safe
+              - name: mobileImage
+                label: Hero image · Phone / Mobile
                 type: image
                 options:
                   media: images
