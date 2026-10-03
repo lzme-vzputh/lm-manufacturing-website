@@ -10,7 +10,7 @@ mainControl:
   published: true
   featured: true
   displayOrder: 1
-  mainImage: /uploads/products/screenshot2026-10-02220019-removebg-preview.png
+  mainImage: /uploads/products/asset-1.png
 ---
 ## Product overview
 
