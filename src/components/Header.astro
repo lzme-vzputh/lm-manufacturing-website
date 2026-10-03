@@ -1,7 +1,7 @@
 ---
 import {siteFor,language,pathFor,contentFor} from '../lib/content';
 import {getCollection} from 'astro:content';
-const lang=language(Astro.url),site=siteFor(lang);const other=lang==='kh'?'en':'kh';const original=Astro.url.pathname.replace(/^\/kh(?=\/|$)/,'')||'/';let switchTo=pathFor(original.startsWith('/404')?'/':original,other);
+const lang=language(Astro.url),site=siteFor(lang);const other=lang==='kh'?'en':'kh';const original=Astro.url.pathname.replace(/^\/kh(?=\/|$)/,'')||'/';let switchTo=pathFor(original.startsWith('/404')?'/':original,other);if(lang==='kh'&&original==='/')switchTo='/?lang=en';
 const detail=lang==='en'?original.match(/^\/(careers|products|news)\/([^/]+)\/?$/):undefined;
 if(detail){
   const collection=({careers:'careersKh',products:'productsKh',news:'newsKh'} as const)[detail[1] as 'careers'|'products'|'news'];

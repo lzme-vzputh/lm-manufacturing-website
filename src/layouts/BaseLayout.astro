@@ -16,4 +16,15 @@ const validColor=(value?:string)=>value && /^#[0-9a-f]{6}$/i.test(value)?value:u
 const colors=settings.appearance||{};
 const themeCss=`:root{${validColor(colors.accentColor)?`--accent:${colors.accentColor};`:''}${validColor(colors.lightBackground)?`--paper:${colors.lightBackground};`:''}${validColor(colors.lightSurface)?`--surface:${colors.lightSurface};`:''}${validColor(colors.lightMuted)?`--mist:${colors.lightMuted};`:''}${validColor(colors.lightText)?`--ink:${colors.lightText};`:''}}:root[data-theme="dark"]{${validColor(colors.accentColor)?`--accent:${colors.accentColor};`:''}${validColor(colors.darkBackground)?`--paper:${colors.darkBackground};`:''}${validColor(colors.darkSurface)?`--surface:${colors.darkSurface};`:''}${validColor(colors.darkMuted)?`--mist:${colors.darkMuted};`:''}${validColor(colors.darkText)?`--ink:${colors.darkText};`:''}}`;
 ---
-<!doctype html><html lang={lang} data-custom-font={fontPath?'true':undefined}><head><script is:inline src="/scripts/theme-init.js"></script><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content={validColor(colors.lightText)||'#162d39'}/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><style is:inline set:html={themeCss} />{fontPath && <style is:inline set:html={customFontCss} />}<SeoHead {...props}/></head><body><a class="skip-link" href="#main">{ui.headings.skip}</a><div class="pointer-aura" aria-hidden="true"></div><Header/><main id="main"><slot/></main><Footer/><script is:inline src="/scripts/interactions.js"></script></body></html>
+<!doctype html><html lang={lang} data-custom-font={fontPath?'true':undefined}><head><script is:inline src="/scripts/theme-init.js"></script><script is:inline>
+  (()=>{
+    try{
+      const path=window.location.pathname;
+      const params=new URLSearchParams(window.location.search);
+      const requested=params.get('lang');
+      if(requested==='en') localStorage.setItem('lm-language','en');
+      if(path==='/kh'||path.startsWith('/kh/')) localStorage.setItem('lm-language','kh');
+      if(path==='/'&&requested!=='en'&&localStorage.getItem('lm-language')!=='en') window.location.replace('/kh');
+    }catch{}
+  })();
+</script><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content={validColor(colors.lightText)||'#162d39'}/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><style is:inline set:html={themeCss} />{fontPath && <style is:inline set:html={customFontCss} />}<SeoHead {...props}/></head><body><a class="skip-link" href="#main">{ui.headings.skip}</a><div class="pointer-aura" aria-hidden="true"></div><Header/><main id="main"><slot/></main><Footer/><script is:inline src="/scripts/interactions.js"></script></body></html>
