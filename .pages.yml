@@ -862,6 +862,17 @@ content:
                   media: images
                   path: public/uploads/news
                   rename: safe
+          - name: videos
+            label: Videos — YouTube or Facebook (shared)
+            type: object
+            fields:
+              - name: title
+                label: Video title — optional
+                type: string
+              - name: url
+                label: YouTube or Facebook video URL
+                type: string
+            list: true
           - name: seoTitle
             type: string
           - name: seoDescription
