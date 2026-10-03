@@ -2140,3 +2140,39 @@ img{
   .about-overview-section{padding-top:3.5rem}
   .about-overview-image-wrap::before{inset:.7rem -.5rem -.7rem .5rem}
 }
+
+/* Mobile hero image lock: preserve desktop-style image composition */
+@media (max-width:720px){
+  .hero-background,
+  .hero-background.hero-home{
+    /* Keep the image composition stable on narrow screens instead of zooming it to cover. */
+    background-color:#071b23 !important;
+    background-image:var(--hero-bg) !important;
+    background-repeat:no-repeat !important;
+    background-size:100% auto !important;
+    background-position:center top !important;
+  }
+
+  .hero-background::before{
+    background-image:var(--hero-bg) !important;
+    background-repeat:no-repeat !important;
+    background-size:100% auto !important;
+    background-position:center top !important;
+    transform:none !important;
+  }
+
+  .hero-background::after{
+    background:
+      linear-gradient(90deg,rgba(6,23,29,.82) 0%,rgba(6,23,29,.56) 58%,rgba(6,23,29,.24) 100%),
+      linear-gradient(180deg,rgba(5,18,23,.08) 0%,rgba(5,18,23,.22) 45%,rgba(5,18,23,.88) 100%) !important;
+  }
+}
+
+@media (max-width:480px){
+  .hero-background,
+  .hero-background.hero-home,
+  .hero-background::before{
+    background-size:100% auto !important;
+    background-position:center top !important;
+  }
+}
