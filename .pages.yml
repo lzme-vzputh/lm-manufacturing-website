@@ -974,6 +974,7 @@ content:
           - name: title
             type: string
           - name: slug
+            label: Shared slug / URL key — use lowercase English, for example it-manager
             type: string
           - name: department
             type: string
@@ -994,8 +995,16 @@ content:
             type: object
             fields:
               - name: published
-                label: Publish this job on both websites
+                label: Publish this job
                 type: boolean
+              - name: showOnKhmer
+                label: Show this job on Khmer website
+                type: boolean
+                default: true
+              - name: useKhmerTranslation
+                label: Use Khmer translation when a matching Khmer slug exists
+                type: boolean
+                default: true
               - name: publishDate
                 label: Publish date — shared
                 type: date
@@ -1021,6 +1030,7 @@ content:
           - name: title
             type: string
           - name: slug
+            label: Matching English slug — must be exactly the same
             type: string
           - name: department
             type: string
