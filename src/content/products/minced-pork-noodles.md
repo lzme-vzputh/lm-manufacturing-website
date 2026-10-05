@@ -1,7 +1,7 @@
 ---
 title: Pork Flavor Noodles
 slug: minced-pork-noodles
-category: Instant Noodles
+category: Mee Bakthom
 shortDescription: A savory minced pork flavor instant noodle developed in
   Cambodia for convenient everyday meals, with attention to hygiene and
   consistent quality.
