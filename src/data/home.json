@@ -12,16 +12,16 @@
     "secondaryUrl": "/about"
   },
   "intro": {
-    "eyebrow": "OUR COMPANY",
-    "title": "From Kampong Speu to the everyday table",
-    "text": "LM MANUFACTURING CO., LTD. is developing its instant noodle manufacturing operations in Kampong Speu, Cambodia. We believe useful everyday products begin with thoughtful planning, capable people and attention to each step of production. The images in this preview illustrate the industry; approved photographs of our own facility can replace them later.",
+    "eyebrow": "ROOTED IN CAMBODIA",
+    "title": "From local hands to Cambodian homes.",
+    "text": "We bring together people, practical systems and manufacturing processes to support dependable daily operations.",
     "image": "/uploads/home/photo2026-10-0308-10-28.jpg",
     "imageAlt": "Illustrative image of a noodle production facility; not the company’s actual factory"
   },
   "statistics": [
     {
       "value": "KH",
-      "label": "Based in Cambodia"
+      "label": "Cambodian company"
     },
     {
       "value": "KS",
@@ -32,35 +32,35 @@
       "label": "Manufacturing focus"
     },
     {
-      "value": "New",
-      "label": "Growing company"
+      "value": "Brand",
+      "label": "Mee Bakthom"
     }
   ],
-  "productsHeading": "Our product focus",
-  "productsDescription": "Instant noodles designed for convenient meals. Specific flavors, packaging and specifications will be listed after company approval.",
+  "productsHeading": "Discover Mee Bakthom",
+  "productsDescription": "Mee Bakthom is our Cambodian instant noodle brand, being developed for convenient meals and everyday moments across the country.",
   "factoryHeading": "A closer look at production",
-  "factoryText": "Learn how our factory spaces, teams and daily practices come together. Facility photographs and technical details will be added as they are approved.",
+  "factoryText": "Our factory, warehouse and support teams bring local people and daily operations together behind every Mee Bakthom product.",
   "factoryImage": "/uploads/factory/photo2026-10-0308-10-28.jpg",
   "factoryImageAlt": "Illustrative view of noodle production; not a company facility photograph",
-  "benefitsHeading": "How we approach our work",
+  "benefitsHeading": "What we stand for",
   "benefits": [
     {
-      "title": "Purposeful production",
-      "text": "We organize work around a clear production process and practical day-to-day coordination."
+      "title": "Work with purpose",
+      "text": "Every role contributes to building a Cambodian brand and a stronger local operation."
     },
     {
-      "title": "People behind every product",
-      "text": "Our team is central to operating, improving and supporting the facility."
+      "title": "Grow as one team",
+      "text": "We move forward through cooperation, shared responsibility and respect for the people we work with."
     },
     {
-      "title": "Room to grow",
-      "text": "As the company develops, we will share verified updates about products and capabilities."
+      "title": "Built for the long term",
+      "text": "We develop the business step by step so the brand, team and local capability can grow together."
     }
   ],
-  "newsHeading": "Company news",
+  "newsHeading": "Latest updates",
   "cta": {
-    "title": "Let’s start a conversation",
-    "text": "For product information, business inquiries or questions about the company, contact our team.",
+    "title": "Let’s build local opportunities together",
+    "text": "For product information, distribution or business cooperation in Cambodia, connect with our team.",
     "label": "Contact us",
     "url": "/contact"
   }
