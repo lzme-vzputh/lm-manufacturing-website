@@ -1,0 +1,4 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';import {contentFor,language,pathFor} from '../lib/content';const lang=language(Astro.url),ui=contentFor(lang).ui;
+---
+<BaseLayout title={ui.notFound.headline} description={ui.notFound.description}><section class="section"><div class="container"><p class="eyebrow">{ui.notFound.eyebrow}</p><h1>{ui.notFound.headline}</h1><p class="lead">{ui.notFound.description}</p><a class="button button-primary" href={pathFor('/',lang)}>{ui.actions.backHome}</a></div></section></BaseLayout>

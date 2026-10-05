@@ -1,0 +1,78 @@
+---
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import { getCollection, render } from 'astro:content';
+import { publicEntries, language, contentFor } from '../../lib/content';
+
+export async function getStaticPaths(){
+  return publicEntries(await getCollection('news')).map(article=>({params:{slug:article.data.slug},props:{article}}));
+}
+
+const lang=language(Astro.url),ui=contentFor(lang).ui;
+const {article}=Astro.props;
+const {Content}=await render(article);
+
+const getVideoEmbed = (url:string) => {
+  try {
+    const parsed = new URL(url);
+    const host = parsed.hostname.replace(/^www\./,'').toLowerCase();
+
+    if (host === 'youtu.be') {
+      const id = parsed.pathname.split('/').filter(Boolean)[0];
+      return id ? {provider:'youtube', src:`https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`} : undefined;
+    }
+
+    if (host.endsWith('youtube.com')) {
+      let id = parsed.searchParams.get('v');
+      const parts = parsed.pathname.split('/').filter(Boolean);
+      if (!id && ['shorts','embed','live'].includes(parts[0])) id = parts[1];
+      return id ? {provider:'youtube', src:`https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}`} : undefined;
+    }
+
+    if (host === 'fb.watch' || host.endsWith('facebook.com')) {
+      return {
+        provider:'facebook',
+        src:`https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&width=900`
+      };
+    }
+  } catch {}
+  return undefined;
+};
+
+const videos=(article.data.videos||[]).map(video=>({...video,embed:getVideoEmbed(video.url)}));
+---
+<ArticleLayout
+  title={article.data.seoTitle||article.data.title}
+  description={article.data.seoDescription||article.data.summary}
+  image={article.data.mainControl.coverImage}
+  type="article"
+  published={article.data.mainControl.publishDate.toISOString()}
+  date={article.data.mainControl.publishDate}
+  section={ui.nav.news}
+  sectionUrl="/news"
+>
+  <img class="article-cover" src={article.data.mainControl.coverImage} alt={article.data.coverImageAlt} width="1000" height="650"/>
+  <div class="prose"><Content/></div>
+
+  {videos.length>0 && (
+    <section class="news-video-section" aria-label="Videos">
+      {videos.map((video,index)=>(
+        <article class="news-video-item">
+          {video.title && <h2>{video.title}</h2>}
+          {video.embed ? (
+            <div class:list={["news-video-frame",`news-video-${video.embed.provider}`]}>
+              <iframe
+                src={video.embed.src}
+                title={video.title || `News video ${index+1}`}
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+            </div>
+          ) : (
+            <p><a class="button button-outline" href={video.url} target="_blank" rel="noopener noreferrer">Open video ↗</a></p>
+          )}
+        </article>
+      ))}
+    </section>
+  )}
+</ArticleLayout>

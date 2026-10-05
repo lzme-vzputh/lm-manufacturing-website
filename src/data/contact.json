@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "eyebrow": "CONTACT US",
+    "headline": "Let’s start a conversation.",
+    "description": "Whether you are asking about our company, products, careers or business cooperation, our team is ready to point you in the right direction.",
+    "desktopImage": "/uploads/about/img8008-1.jpg",
+    "mobileImage": "/uploads/about/photo2026-09-2819-55-59.jpg",
+    "imageAlt": "Illustrative food manufacturing scene, not the company’s actual premises"
+  },
+  "ctaTitle": "We’d be glad to hear from you.",
+  "ctaText": "Tell us what you would like to know or discuss, and our team will follow up with the appropriate contact."
+}

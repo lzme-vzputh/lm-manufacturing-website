@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "eyebrow": "HYGIENE · QUALITY · LOCAL PRODUCTION",
+    "headline": "Where care becomes quality.",
+    "description": "Explore the people, spaces and working practices behind our manufacturing operation in Kampong Speu, with a focus on clean, orderly work and consistent quality.",
+    "desktopImage": "/uploads/factory/photo2026-10-0308-10-57.jpg",
+    "mobileImage": "/uploads/factory/photo2026-10-0308-10-57.jpg",
+    "imageAlt": "Illustrative image of noodle production; not the LM Manufacturing factory"
+  },
+  "introTitle": "Clean practices. Consistent quality.",
+  "introText": "Our Kampong Speu site brings together factory, warehouse, office and support areas. Each area has a clear role in supporting clean, organized and responsible daily operations.",
+  "facilities": [
+    {
+      "title": "Factory",
+      "text": "The core area for manufacturing operations, where teams follow organized working practices and focus on consistent product quality."
+    },
+    {
+      "title": "Warehouse",
+      "text": "A dedicated area for organizing raw materials and finished products to support clean, orderly and responsible daily operations."
+    },
+    {
+      "title": "Office and support areas",
+      "text": "Spaces where teams coordinate people, information and support activities that keep the operation moving."
+    }
+  ],
+  "capabilitiesTitle": "Building our capabilities",
+  "capabilitiesText": "We are steadily developing our instant noodle manufacturing capabilities, systems and working practices.",
+  "qualityTitle": "Hygiene and quality in every step",
+  "qualityText": "Clear procedures, clean and orderly working practices, careful daily work and coordinated teams help us strengthen consistency across our manufacturing operation.",
+  "safetyTitle": "A clean and responsible workplace",
+  "safetyText": "We promote clear responsibilities, orderly working methods and daily habits that support a cleaner, safer and more dependable workplace.",
+  "gallery": [
+    {
+      "image": "/uploads/factory/production-line.webp",
+      "alt": "Illustrative image of an instant noodle production line, not the company’s actual equipment"
+    },
+    {
+      "image": "/uploads/home/production-hero.webp",
+      "alt": "Illustrative image of noodles on a factory line, not the company’s actual facility"
+    }
+  ]
+}

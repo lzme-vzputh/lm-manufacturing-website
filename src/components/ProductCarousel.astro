@@ -1,0 +1,64 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { Lang } from '../lib/content';
+import { pathFor } from '../lib/content';
+
+interface Props {
+  products: CollectionEntry<'products'>[];
+  lang: Lang;
+  viewLabel: string;
+}
+
+const { products, lang, viewLabel } = Astro.props;
+---
+<div class="product-carousel" data-product-carousel>
+  <button class="product-carousel-arrow product-carousel-prev" type="button" aria-label="Previous product" data-carousel-prev>
+    <span aria-hidden="true">‹</span>
+  </button>
+
+  <div class="product-carousel-viewport" data-carousel-viewport>
+    <div class="product-carousel-track" data-carousel-track>
+      {products.map((product, index) => (
+        <a
+          class="product-slide"
+          href={pathFor(`/products/${product.data.slug}`, lang)}
+          data-carousel-slide
+          data-title={product.data.title}
+          data-category={product.data.category}
+          data-description={product.data.shortDescription}
+          data-url={pathFor(`/products/${product.data.slug}`, lang)}
+          data-active={index === 0 ? 'true' : 'false'}
+          aria-label={`${viewLabel}: ${product.data.title}`}
+        >
+          <div class="product-slide-pack-wrap">
+            <img
+              class="product-slide-pack"
+              src={product.data.mainControl.mainImage}
+              alt={product.data.mainImageAlt}
+              width="700"
+              height="900"
+              loading={index === 0 ? 'eager' : 'lazy'}
+            />
+          </div>
+          <div class="product-slide-caption">
+            <strong>{product.data.title}</strong>
+            <span>{product.data.category}</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+
+  <button class="product-carousel-arrow product-carousel-next" type="button" aria-label="Next product" data-carousel-next>
+    <span aria-hidden="true">›</span>
+  </button>
+
+  <article class="product-carousel-detail" data-carousel-detail>
+    <span class="product-carousel-kicker" data-carousel-category>{products[0]?.data.category}</span>
+    <h3 data-carousel-title>{products[0]?.data.title}</h3>
+    <p data-carousel-description>{products[0]?.data.shortDescription}</p>
+    <a class="button button-primary" href={pathFor(`/products/${products[0]?.data.slug}`, lang)} data-carousel-link>
+      {viewLabel} <span aria-hidden="true">↗</span>
+    </a>
+  </article>
+</div>

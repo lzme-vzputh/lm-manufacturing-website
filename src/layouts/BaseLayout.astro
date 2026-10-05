@@ -1,0 +1,30 @@
+---
+import {language, contentFor, siteFor} from '../lib/content';
+import SeoHead from '../components/SeoHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '@fontsource-variable/noto-sans-khmer/wght.css';
+import '../assets/css/reset.css';import '../assets/css/variables.css';import '../assets/css/global.css';import '../assets/css/typography.css';import '../assets/css/layout.css';import '../assets/css/components.css';import '../assets/css/interactions.css';import '../assets/css/redesign.css';
+interface Props {title?:string;description?:string;image?:string;type?:string;published?:string}
+const props=Astro.props;const lang=language(Astro.url);const ui=contentFor(lang).ui;
+const settings=siteFor('en');
+const uploadedFont=lang==='kh'?settings.fontKhUrl:settings.fontUrl;
+// CMS filenames are normalized; only local .ttf files can enter CSS.
+const fontPath=uploadedFont && /^\/uploads\/fonts\/[A-Za-z0-9_./%-]+\.ttf$/i.test(uploadedFont) && !uploadedFont.includes('..') ? uploadedFont : undefined;
+const customFontCss=fontPath?`@font-face{font-family:"LM Uploaded Font";src:url("${fontPath}") format("truetype");font-display:swap}html[data-custom-font][lang="en"]{--font:"LM Uploaded Font",Inter,ui-sans-serif,system-ui,sans-serif}html[data-custom-font][lang="kh"]{--font:"LM Uploaded Font","Noto Sans Khmer Variable","Khmer OS",system-ui,sans-serif}`:'';
+const validColor=(value?:string)=>value && /^#[0-9a-f]{6}$/i.test(value)?value:undefined;
+const colors=settings.appearance||{};
+const themeCss=`:root{${validColor(colors.accentColor)?`--accent:${colors.accentColor};`:''}${validColor(colors.lightBackground)?`--paper:${colors.lightBackground};`:''}${validColor(colors.lightSurface)?`--surface:${colors.lightSurface};`:''}${validColor(colors.lightMuted)?`--mist:${colors.lightMuted};`:''}${validColor(colors.lightText)?`--ink:${colors.lightText};`:''}}:root[data-theme="dark"]{${validColor(colors.accentColor)?`--accent:${colors.accentColor};`:''}${validColor(colors.darkBackground)?`--paper:${colors.darkBackground};`:''}${validColor(colors.darkSurface)?`--surface:${colors.darkSurface};`:''}${validColor(colors.darkMuted)?`--mist:${colors.darkMuted};`:''}${validColor(colors.darkText)?`--ink:${colors.darkText};`:''}}`;
+---
+<!doctype html><html lang={lang} data-custom-font={fontPath?'true':undefined}><head><script is:inline src="/scripts/theme-init.js"></script><script is:inline>
+  (()=>{
+    try{
+      const path=window.location.pathname;
+      const params=new URLSearchParams(window.location.search);
+      const requested=params.get('lang');
+      if(requested==='en') localStorage.setItem('lm-language','en');
+      if(path==='/kh'||path.startsWith('/kh/')) localStorage.setItem('lm-language','kh');
+      if(path==='/'&&requested!=='en'&&localStorage.getItem('lm-language')!=='en') window.location.replace('/kh');
+    }catch{}
+  })();
+</script><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta name="theme-color" content={validColor(colors.lightText)||'#162d39'}/><link rel="icon" href="/favicon.svg" type="image/svg+xml"/><style is:inline set:html={themeCss} />{fontPath && <style is:inline set:html={customFontCss} />}<SeoHead {...props}/></head><body><a class="skip-link" href="#main">{ui.headings.skip}</a><div class="pointer-aura" aria-hidden="true"></div><Header/><main id="main"><slot/></main><Footer/><script is:inline src="/scripts/interactions.js"></script></body></html>

@@ -1,0 +1,144 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "products": "Products",
+    "factory": "Factory",
+    "news": "News",
+    "careers": "Careers",
+    "contact": "Contact"
+  },
+  "actions": {
+    "about": "About our company",
+    "factory": "Explore our factory",
+    "allProducts": "All products",
+    "allNews": "All news",
+    "viewProduct": "View product",
+    "readStory": "Read story",
+    "contact": "Contact us",
+    "getInTouch": "Get in touch",
+    "backHome": "Back to home"
+  },
+  "empty": {
+    "products": "Products will appear here once published.",
+    "featuredProducts": "Product information is coming soon.",
+    "news": "News will appear here once published.",
+    "homeNews": "Updates will appear here when published.",
+    "jobs": "There are no open positions right now. Please check back later."
+  },
+  "headings": {
+    "mission": "Mission",
+    "vision": "Vision",
+    "values": "Values",
+    "journey": "Our journey",
+    "openPositions": "Open positions",
+    "responsibilities": "Responsibilities",
+    "requirements": "Requirements",
+    "apply": "Apply for this role",
+    "closingDate": "Closing date",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "businessHours": "Business hours",
+    "explore": "Explore",
+    "skip": "Skip to content",
+    "all": "All products"
+  },
+  "accessibility": {
+    "primaryNavigation": "Primary navigation",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "switchToEnglish": "Switch to English",
+    "switchToKhmer": "Switch to Khmer",
+    "toggleTheme": "Toggle light or dark mode",
+    "mapTitle": "Company location map",
+    "statistics": "Company statistics",
+    "filterProducts": "Filter products by category",
+    "filterStatus": "Showing {count} products",
+    "socialMedia": "Social media",
+    "unavailableSocial": "Link not available yet"
+  },
+  "application": {
+    "emailPrefix": "Email your CV to",
+    "emailSuffix": "and include the job title in the subject.",
+    "fallbackPrefix": "Please use our",
+    "fallbackLink": "contact page",
+    "fallbackSuffix": "to ask about applying.",
+    "subject": "Application"
+  },
+  "notFound": {
+    "eyebrow": "404 · PAGE NOT FOUND",
+    "headline": "That page isn’t here.",
+    "description": "The address may have changed. Find what you need from our homepage."
+  },
+  "manage": {
+    "eyebrow": "WEBSITE MANAGEMENT",
+    "title": "Update your website",
+    "intro": "Edit shared images, links, dates and company details once under English + Shared Settings. Edit Khmer page wording under Khmer Text Only.",
+    "open": "Open content editor",
+    "areas": "Content you can update",
+    "edit": "Edit in CMS",
+    "view": "View page",
+    "steps": "Edit, save and review",
+    "sign": "Sign in",
+    "signText": "Sign in to Pages CMS with GitHub and choose the website repository.",
+    "change": "Edit both languages",
+    "changeText": "Company Settings keeps English and Khmer company names, descriptions, addresses, hours, footer and SEO together. Shared photos, URLs, dates, publishing controls and common contact details appear only once.",
+    "review": "Review the public pages",
+    "reviewText": "Wait for your host to finish building. Check / and /kh for the updated content.",
+    "note": "The editor requires a connected GitHub repository and Pages CMS access. This page itself is a public guide, not a login or a content editor.",
+    "enEditor": "Edit English content",
+    "khEditor": "Edit Khmer content",
+    "enHint": "Choose English + Shared Settings for English text and all shared photos, URLs, dates, publishing controls and company settings.",
+    "khHint": "Choose Khmer Text Only for Khmer page text, product translations, news translations and image descriptions.",
+    "previewEn": "View English site",
+    "previewKh": "View Khmer site"
+  },
+  "manageSections": [
+    {
+      "name": "Home",
+      "path": "/",
+      "description": "Hero, introduction, statistics, products and news"
+    },
+    {
+      "name": "About",
+      "path": "/about",
+      "description": "Story, mission, values and milestones"
+    },
+    {
+      "name": "Factory",
+      "path": "/factory",
+      "description": "Facilities, capabilities and gallery"
+    },
+    {
+      "name": "Products",
+      "path": "/products",
+      "description": "Add, edit and publish products"
+    },
+    {
+      "name": "News",
+      "path": "/news",
+      "description": "Write and publish articles"
+    },
+    {
+      "name": "Careers",
+      "path": "/careers",
+      "description": "Create and close jobs"
+    },
+    {
+      "name": "Contact",
+      "path": "/contact",
+      "description": "Page copy and map"
+    },
+    {
+      "name": "Company settings",
+      "path": "/contact",
+      "description": "Name, logo, address, contact details and social links"
+    },
+    {
+      "name": "Interface text",
+      "path": "/",
+      "description": "Menus, buttons, listing pages and notices"
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "hero": {
+    "eyebrow": "ABOUT LM MANUFACTURING",
+    "headline": "Building a local brand on hygiene and quality.",
+    "description": "Learn about the people, purpose and working practices behind our growing manufacturing operation in Kampong Speu, with hygiene, quality and responsible local production at the center.",
+    "desktopImage": "/uploads/about/photo2026-10-0308-10-57.jpg",
+    "mobileImage": "/uploads/about/photo2026-10-0308-10-28-1.jpg",
+    "imageAlt": "Illustrative noodle production facility image; not the company’s actual factory"
+  },
+  "overviewTitle": "Who we are",
+  "overviewText": "LM MANUFACTURING CO., LTD. is a Cambodian instant noodle manufacturer based in Kampong Speu, focused on developing locally made products for everyday consumers.",
+  "storyTitle": "Our journey",
+  "storyText": "Our journey is still taking shape. As the company grows, we will share meaningful progress and updates from our work in Cambodia.",
+  "image": "/uploads/home/production-hero.webp",
+  "imageAlt": "Illustrative instant noodle production line; actual company photographs pending",
+  "owner": {
+    "eyebrow": "A MESSAGE FROM OUR OWNER",
+    "title": "Huon​ Liming",
+    "name": "Oknha Huon​ Liming",
+    "position": "Owner, LM MANUFACTURING CO., LTD.",
+    "photo": "/uploads/about/81380497711045868920985764893145646496569860n.jpg",
+    "photoAlt": "Owner of LM MANUFACTURING CO., LTD. — replace with approved portrait",
+    "message": "Our company is being built with a long-term commitment to quality, responsibility and steady growth. We aim to create food products that customers can trust while developing a strong team and reliable manufacturing operation in Cambodia."
+  },
+  "mission": "To produce convenient food in Cambodia through hygienic working practices, consistent quality, responsible teamwork and continuous improvement.",
+  "vision": "To become a trusted Cambodian food manufacturer known for quality and for helping strengthen confidence in locally made products.",
+  "values": [
+    {
+      "title": "Hygiene",
+      "text": "We value clean, orderly and responsible working practices throughout our daily operations."
+    },
+    {
+      "title": "Quality",
+      "text": "We pay attention to every step and keep improving our processes to support more consistent product quality."
+    },
+    {
+      "title": "Local Progress",
+      "text": "We want our growth to contribute to stronger local production and greater confidence in products made in Cambodia."
+    }
+  ],
+  "milestones": [
+    {
+      "year": "2026",
+      "event": "LM Manufacturing begins developing its manufacturing operation in Kampong Speu, marking the start of a long-term journey in Cambodia."
+    }
+  ],
+  "ctaTitle": "Growing together"
+}
