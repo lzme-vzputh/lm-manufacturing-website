@@ -2,15 +2,15 @@
 title: Minced Pork Flavor Instant Noodles
 slug: minced-pork-noodles
 category: Instant Noodles
-shortDescription: A savory minced pork flavor instant noodle developed in Cambodia for convenient everyday meals, with attention to hygiene and consistent quality.
+shortDescription: A savory minced pork flavor instant noodle developed in
+  Cambodia for convenient everyday meals, with attention to hygiene and
+  consistent quality.
 mainImageAlt: Mee Bak Thom Minced Pork Flavor Instant Noodles product image
 mainControl:
-  mainImage: /uploads/products/instant-noodles-package-transparent.png
-  gallery: []
-  featured: true
   published: true
+  featured: true
   displayOrder: 1
-specifications: []
+  mainImage: /uploads/products/asset-1-1.png
 ---
 ## Product overview
 
