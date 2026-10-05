@@ -1,20 +1,20 @@
 {
   "hero": {
     "eyebrow": "ABOUT LM MANUFACTURING",
-    "headline": "A new manufacturing company with a clear direction",
-    "description": "Get to know the company behind our instant noodle manufacturing work in Kampong Speu.",
+    "headline": "Building a local brand on hygiene and quality.",
+    "description": "Learn about the people, purpose and working practices behind our growing manufacturing operation in Kampong Speu, with hygiene, quality and responsible local production at the center.",
     "desktopImage": "/uploads/about/photo2026-10-0308-10-57.jpg",
     "mobileImage": "/uploads/about/photo2026-10-0308-10-28-1.jpg",
     "imageAlt": "Illustrative noodle production facility image; not the company’s actual factory"
   },
   "overviewTitle": "Who we are",
-  "overviewText": "LM MANUFACTURING CO., LTD. is an instant noodle manufacturing company based in Kampong Speu, Cambodia. Our company is developing its operations and building the systems, team and relationships that support long-term work.",
-  "storyTitle": "Our story",
-  "storyText": "We are at an early stage. Rather than claim a long history, we want this space to reflect our progress as it happens. We will add dated milestones, actual factory photographs and product information when the company has confirmed them.",
+  "overviewText": "LM MANUFACTURING CO., LTD. is a Cambodian instant noodle manufacturer based in Kampong Speu, focused on developing locally made products for everyday consumers.",
+  "storyTitle": "Our journey",
+  "storyText": "Our journey is still taking shape. As the company grows, we will share meaningful progress and updates from our work in Cambodia.",
   "image": "/uploads/home/production-hero.webp",
   "imageAlt": "Illustrative instant noodle production line; actual company photographs pending",
   "owner": {
-    "eyebrow": "LEADERSHIP",
+    "eyebrow": "A MESSAGE FROM OUR OWNER",
     "title": "Message from Our Owner",
     "name": "Huon​ Liming",
     "position": "Owner, LM MANUFACTURING CO., LTD.",
@@ -22,27 +22,27 @@
     "photoAlt": "Owner of LM MANUFACTURING CO., LTD. — replace with approved portrait",
     "message": "Our company is being built with a long-term commitment to quality, responsibility and steady growth. We aim to create food products that customers can trust while developing a strong team and reliable manufacturing operation in Cambodia."
   },
-  "mission": "To make convenient food products through coordinated work, responsible decision-making and attention to consistent production.",
-  "vision": "To grow into a dependable manufacturing partner for the people and businesses we serve.",
+  "mission": "To produce convenient food in Cambodia through hygienic working practices, consistent quality, responsible teamwork and continuous improvement.",
+  "vision": "To become a trusted Cambodian food manufacturer known for quality and for helping strengthen confidence in locally made products.",
   "values": [
     {
-      "title": "Responsibility",
-      "text": "We take ownership of our work and communicate clearly."
+      "title": "Hygiene",
+      "text": "We value clean, orderly and responsible working practices throughout our daily operations."
     },
     {
-      "title": "Care",
-      "text": "We pay attention to people, products and the details that matter."
+      "title": "Quality",
+      "text": "We pay attention to every step and keep improving our processes to support more consistent product quality."
     },
     {
-      "title": "Progress",
-      "text": "We learn from daily work and improve our processes over time."
+      "title": "Local Progress",
+      "text": "We want our growth to contribute to stronger local production and greater confidence in products made in Cambodia."
     }
   ],
   "milestones": [
     {
       "year": "2026",
-      "event": "LM MANUFACTURING CO., LTD. begins developing its manufacturing operations in Kampong Speu."
+      "event": "LM Manufacturing begins developing its manufacturing operation in Kampong Speu, marking the start of a long-term journey in Cambodia."
     }
   ],
-  "ctaTitle": "Interested in working with us?"
+  "ctaTitle": "Grow with us"
 }

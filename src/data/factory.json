@@ -1,34 +1,34 @@
 {
   "hero": {
-    "eyebrow": "OUR FACTORY",
-    "headline": "The work behind the product",
-    "description": "An introduction to the spaces and practices that support instant noodle manufacturing.",
+    "eyebrow": "HYGIENE · QUALITY · LOCAL PRODUCTION",
+    "headline": "Where care becomes quality.",
+    "description": "Explore the people, spaces and working practices behind our manufacturing operation in Kampong Speu, with a focus on clean, orderly work and consistent quality.",
     "desktopImage": "/uploads/factory/photo2026-10-0308-10-57.jpg",
     "mobileImage": "/uploads/factory/photo2026-10-0308-10-57.jpg",
     "imageAlt": "Illustrative image of noodle production; not the LM Manufacturing factory"
   },
-  "introTitle": "Production starts with preparation",
-  "introText": "Our Kampong Speu site includes office, factory, warehouse and accommodation areas. This page introduces their roles at a high level. The images are AI-created illustrations of noodle manufacturing, not photographs or evidence of equipment installed at our site.",
+  "introTitle": "Clean practices. Consistent quality.",
+  "introText": "Our Kampong Speu site brings together factory, warehouse, office and support areas. Each area has a clear role in supporting clean, organized and responsible daily operations.",
   "facilities": [
     {
       "title": "Factory",
-      "text": "The main space for manufacturing operations and day-to-day production work."
+      "text": "The core area for manufacturing operations, where teams follow organized working practices and focus on consistent product quality."
     },
     {
       "title": "Warehouse",
-      "text": "A dedicated area for organizing materials and finished products."
+      "text": "A dedicated area for organizing raw materials and finished products to support clean, orderly and responsible daily operations."
     },
     {
       "title": "Office and support areas",
-      "text": "Spaces where teams coordinate the work that keeps operations moving."
+      "text": "Spaces where teams coordinate people, information and support activities that keep the operation moving."
     }
   ],
-  "capabilitiesTitle": "Our capabilities",
-  "capabilitiesText": "We are developing instant noodle manufacturing operations. Verified production capacity, equipment lists and product specifications will be published after company review.",
-  "qualityTitle": "Attention to product quality",
-  "qualityText": "Clear procedures and careful daily work are part of our approach. Any formal quality standards or certifications will be listed here only after they are confirmed.",
-  "safetyTitle": "People and workplace",
-  "safetyText": "We want practical, responsible work practices that support the teams operating and maintaining the site.",
+  "capabilitiesTitle": "Building our capabilities",
+  "capabilitiesText": "We are steadily developing our instant noodle manufacturing capabilities, systems and working practices.",
+  "qualityTitle": "Hygiene and quality in every step",
+  "qualityText": "Clear procedures, clean and orderly working practices, careful daily work and coordinated teams help us strengthen consistency across our manufacturing operation.",
+  "safetyTitle": "A clean and responsible workplace",
+  "safetyText": "We promote clear responsibilities, orderly working methods and daily habits that support a cleaner, safer and more dependable workplace.",
   "gallery": [
     {
       "image": "/uploads/factory/production-line.webp",

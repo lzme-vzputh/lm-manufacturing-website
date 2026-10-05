@@ -7,9 +7,9 @@ shortDescription: Our instant noodle product family for convenient everyday
 mainImageAlt: Mee Bak Thom instant noodle packaging concept with a turtle
   graphic on a transparent background
 mainControl:
-  published: true
+  published: false
   featured: true
-  displayOrder: 1
+  displayOrder: 2
   mainImage: /uploads/products/asset-1.png
 ---
 ## Product overview

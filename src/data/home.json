@@ -1,67 +1,67 @@
 {
   "hero": {
-    "eyebrow": "LM MANUFACTURING CO., LTD. · KAMPONG SPEU",
-    "headline": "Made by Cambodians, for Cambodia.",
-    "description": "From Kampong Speu, our local team is building មីបឋម as an everyday food brand created close to the people we serve.",
+    "eyebrow": "HYGIENE · QUALITY · MADE IN CAMBODIA",
+    "headline": "Made with care. Made for Cambodia.",
+    "description": "From Kampong Speu, LM MANUFACTURING CO., LTD. is developing instant noodles with a clear focus on hygienic working practices, consistent quality and the long-term growth of locally made products.",
     "desktopImage": "/uploads/home/photo2026-10-0308-10-57.jpg",
     "mobileImage": "/uploads/home/photo2026-10-0308-10-28-1.jpg",
     "imageAlt": "Illustrative image of an instant noodle production line; not a photograph of the LM Manufacturing facility",
-    "primaryLabel": "Explore our products",
+    "primaryLabel": "Discover our products",
     "primaryUrl": "/products",
-    "secondaryLabel": "About our company",
+    "secondaryLabel": "Discover our story",
     "secondaryUrl": "/about"
   },
   "intro": {
-    "eyebrow": "ROOTED IN CAMBODIA",
-    "title": "From local hands to Cambodian homes.",
-    "text": "We bring together people, practical systems and manufacturing processes to support dependable daily operations.",
+    "eyebrow": "OUR LOCAL COMMITMENT",
+    "title": "Local production built on hygiene and quality.",
+    "text": "We are building our manufacturing operation around careful preparation, clean and orderly working practices, responsible teams and continuous quality improvement—while helping strengthen confidence in products made in Cambodia.",
     "image": "/uploads/home/photo2026-10-0308-10-28.jpg",
     "imageAlt": "Illustrative image of a noodle production facility; not the company’s actual factory"
   },
   "statistics": [
     {
       "value": "KH",
-      "label": "Cambodian company"
+      "label": "Cambodian based"
     },
     {
       "value": "KS",
-      "label": "Kampong Speu location"
+      "label": "Made in Kampong Speu"
     },
     {
       "value": "01",
-      "label": "Manufacturing focus"
+      "label": "Instant noodle manufacturing"
     },
     {
-      "value": "Brand",
-      "label": "Mee Bakthom"
+      "value": "New",
+      "label": "Built for long-term growth"
     }
   ],
-  "productsHeading": "Discover Mee Bakthom",
-  "productsDescription": "Mee Bakthom is our Cambodian instant noodle brand, being developed for convenient meals and everyday moments across the country.",
-  "factoryHeading": "A closer look at production",
-  "factoryText": "Our factory, warehouse and support teams bring local people and daily operations together behind every Mee Bakthom product.",
+  "productsHeading": "Products made with care",
+  "productsDescription": "Explore our growing instant noodle range, developed in Cambodia with attention to hygiene, quality and everyday convenience.",
+  "factoryHeading": "Inside our factory",
+  "factoryText": "See the people, spaces and working systems behind our manufacturing operation in Kampong Speu.",
   "factoryImage": "/uploads/factory/photo2026-10-0308-10-28.jpg",
   "factoryImageAlt": "Illustrative view of noodle production; not a company facility photograph",
-  "benefitsHeading": "What we stand for",
+  "benefitsHeading": "What guides our work",
   "benefits": [
     {
-      "title": "Work with purpose",
-      "text": "Every role contributes to building a Cambodian brand and a stronger local operation."
+      "title": "Clear ways of working",
+      "text": "We organize daily work with practical procedures, clear responsibilities and strong coordination between teams."
     },
     {
-      "title": "Grow as one team",
-      "text": "We move forward through cooperation, shared responsibility and respect for the people we work with."
+      "title": "People at the center",
+      "text": "Our people are at the heart of our operation. We support teamwork, responsibility and learning as the business develops."
     },
     {
-      "title": "Built for the long term",
-      "text": "We develop the business step by step so the brand, team and local capability can grow together."
+      "title": "Always improving",
+      "text": "We continuously strengthen our processes, systems and capabilities so the company can grow on a more reliable foundation."
     }
   ],
-  "newsHeading": "Latest updates",
+  "newsHeading": "Latest from our journey",
   "cta": {
-    "title": "Let’s build local opportunities together",
-    "text": "For product information, distribution or business cooperation in Cambodia, connect with our team.",
-    "label": "Contact us",
+    "title": "Let’s connect",
+    "text": "Have a question about our company, products or business cooperation? Our team is ready to connect you with the right person.",
+    "label": "Contact our team",
     "url": "/contact"
   }
 }
