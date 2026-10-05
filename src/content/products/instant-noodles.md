@@ -1,19 +1,13 @@
 ---
-title: Instant Noodles
+title: មីបឋម Instant Noodles
 slug: instant-noodles
 category: Instant Noodles
-shortDescription: Our instant noodle product family for convenient everyday
-  meals. Confirmed variants and specifications will be added as available.
-mainImageAlt: Mee Bak Thom instant noodle packaging concept with a turtle
-  graphic on a transparent background
+shortDescription: A Cambodian instant noodle brand developed in Kampong Speu for convenient meals and everyday moments.
+mainImageAlt: មីបឋម instant noodle product
 mainControl:
-  published: false
+  published: true
   featured: true
-  displayOrder: 2
+  displayOrder: 1
   mainImage: /uploads/products/asset-1.png
 ---
-## Product overview
-
-LM MANUFACTURING CO., LTD. focuses on instant noodle manufacturing in Kampong Speu, Cambodia. This product presentation now uses a packaging concept with a turtle graphic for the Mee Bak Thom noodle pack while confirmed commercial specifications can be updated later.
-
-The product image is a branded concept preview for website presentation. Final retail packaging, flavors, ingredients and technical specifications can be revised when management confirms them.
+Made in Kampong Speu, មីបឋម is being built as a local instant noodle brand with a clear focus on Cambodia. Flavor, ingredients, packaging and technical information will be published as each product receives company approval.

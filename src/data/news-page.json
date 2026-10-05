@@ -1,11 +1,11 @@
 {
   "hero": {
-    "eyebrow": "COMPANY NEWS",
-    "headline": "Stories from our journey.",
-    "description": "Follow company updates, milestones and stories as LM Manufacturing and មីបឋម continue to develop in Cambodia.",
+    "eyebrow": "NEWS & UPDATES",
+    "headline": "Follow the មីបឋម journey.",
+    "description": "Company milestones, product developments and stories from the people and work behind our growing Cambodian brand.",
     "desktopImage": "/uploads/factory/production-line.webp",
     "mobileImage": "/uploads/factory/production-line.webp",
     "imageAlt": "Illustrative noodle manufacturing image"
   },
-  "seoDescription": "Read news and company updates from LM MANUFACTURING CO., LTD. as we grow our operation and Cambodian brand."
+  "seoDescription": "News and updates from LM Manufacturing as we develop មីបឋម and grow our local operation in Kampong Speu."
 }

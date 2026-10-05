@@ -1,13 +1,12 @@
 companyNameEn: LM MANUFACTURING CO., LTD.
 companyNameKh: ក្រុមហ៊ុន អិលអិម មេនូហ្វេកឆឺរីង
 logo: /uploads/asset-2.png
-descriptionEn: An instant noodle manufacturing company in Kampong Speu, Cambodia.
-descriptionKh: ក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា។
+descriptionEn: LM Manufacturing is a Cambodian food manufacturer based in Kampong Speu, developing មីបឋម for the local market with a growing local team.
+descriptionKh: LM Manufacturing ជាក្រុមហ៊ុនផលិតអាហារនៅកម្ពុជា មានទីតាំងនៅខេត្តកំពង់ស្ពឺ និងកំពុងកសាង «មីបឋម» ជាម៉ាកផលិតផលខ្មែរ សម្រាប់ប្រជាជនកម្ពុជា។
 contact:
   phone: +855(0) 25 210 688
   email: lmmanufacturingkh@gmail.com
-  addressEn: Chong Thnal Village, Tang Krouch Commune, Samraong Tong District,
-    Kampong Speu Province, Kingdom of Cambodia
+  addressEn: Chong Thnal Village, Tang Krouch Commune, Samraong Tong District, Kampong Speu Province, Kingdom of Cambodia
   addressKh: ភូមិចុងថ្នល់ ឃុំតាំងក្រូច ស្រុកសំរោងទង ខេត្តកំពង់ស្ពឺ​ ព្រះរាជាណាចក្រកម្ពុជា
   businessHoursEn: Monday–Saturday, 8:00–17:00
   businessHoursKh: ចន្ទ–សៅរ៍ ៨:០០–១៧:០០
@@ -19,21 +18,20 @@ footer:
   copyrightEn: LM MANUFACTURING CO., LTD. All rights reserved.
   copyrightKh: ក្រុមហ៊ុន អិលអិម មេនូហ្វេកឆឺរីង រក្សាសិទ្ធិគ្រប់យ៉ាង។
 seo:
-  defaultTitleEn: LM MANUFACTURING CO., LTD.
-  defaultTitleKh: ក្រុមហ៊ុន អិលអិម មេនូហ្វេកឆឺរីង
-  titleTemplateEn: "%s | LM MANUFACTURING CO., LTD."
-  titleTemplateKh: "%s | ក្រុមហ៊ុន អិលអិម មេនូហ្វេកឆឺរីង"
-  defaultDescriptionEn: Explore LM MANUFACTURING CO., LTD., an instant noodle
-    manufacturing company in Kampong Speu, Cambodia.
-  defaultDescriptionKh: ស្វែងយល់អំពីក្រុមហ៊ុនផលិតមីកញ្ចប់នៅខេត្តកំពង់ស្ពឺ ប្រទេសកម្ពុជា។
+  defaultTitleEn: មីបឋម | Cambodian Instant Noodles by LM Manufacturing
+  defaultTitleKh: មីបឋម | មីកញ្ចប់ខ្មែរ ផលិតនៅកម្ពុជា
+  titleTemplateEn: '%s | LM MANUFACTURING CO., LTD.'
+  titleTemplateKh: '%s | ក្រុមហ៊ុន អិលអិម មេនូហ្វេកឆឺរីង'
+  defaultDescriptionEn: Discover មីបឋម, a Cambodian instant noodle brand developed by LM Manufacturing in Kampong Speu, Cambodia.
+  defaultDescriptionKh: ស្គាល់ «មីបឋម» ម៉ាកមីកញ្ចប់ខ្មែរ ដែលកំពុងអភិវឌ្ឍ និងផលិតដោយ LM Manufacturing នៅខេត្តកំពង់ស្ពឺ។
   defaultImage: /uploads/home/production-hero.webp
 appearance:
-  accentColor: "#f5b34a"
-  lightBackground: "#ffffff"
-  lightSurface: "#ffffff"
-  lightMuted: "#f3f6f5"
-  lightText: "#162d39"
-  darkBackground: "#102128"
-  darkSurface: "#193039"
-  darkMuted: "#1b323b"
-  darkText: "#eff5f6"
+  accentColor: '#f5b34a'
+  lightBackground: '#ffffff'
+  lightSurface: '#ffffff'
+  lightMuted: '#f3f6f5'
+  lightText: '#162d39'
+  darkBackground: '#102128'
+  darkSurface: '#193039'
+  darkMuted: '#1b323b'
+  darkText: '#eff5f6'

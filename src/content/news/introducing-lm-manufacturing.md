@@ -1,18 +1,14 @@
 ---
-title: Introducing LM MANUFACTURING CO., LTD.
+title: Meet the company behind មីបឋម
 slug: introducing-lm-manufacturing
-summary: Get to know our instant noodle manufacturing company in Kampong Speu, Cambodia.
-coverImageAlt: Illustrative noodle manufacturing image; not the LM Manufacturing facility
+summary: How a local team in Kampong Speu is building a Cambodian food brand for the market it knows best.
+coverImageAlt: Image for Meet LM Manufacturing
 mainControl:
-  publishDate: 2026-09-15
+  publishDate: '2026-09-15'
   coverImage: /uploads/factory/production-line.webp
   published: true
   featured: true
-seoTitle: Introducing LM MANUFACTURING CO., LTD.
-seoDescription: Learn about LM MANUFACTURING CO., LTD. and its instant noodle manufacturing focus in Kampong Speu, Cambodia.
+seoTitle: Meet the Company Behind មីបឋម | LM Manufacturing
+seoDescription: Learn about LM Manufacturing, the Kampong Speu company developing the Cambodian instant noodle brand មីបឋម.
 ---
-LM MANUFACTURING CO., LTD. is developing its instant noodle manufacturing operations in Kampong Speu, Cambodia.
-
-This website is a place to introduce our company, share approved product information and provide updates as our work develops. Our focus is on organizing the people, spaces and processes that support dependable day-to-day production.
-
-We will add confirmed details about our products, facilities and milestones as they become available. Images used in this preview are illustrative and should be replaced with approved company photographs before they are presented as documentation of our site.
+LM Manufacturing is developing its instant noodle operation in Kampong Speu with a local team and a long-term focus on Cambodia. Through មីបឋម, we are building a brand around local production, practical everyday use and continuous improvement. Approved information about products, facilities and company milestones will be shared as it becomes available.

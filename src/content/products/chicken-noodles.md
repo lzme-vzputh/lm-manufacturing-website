@@ -1,9 +1,9 @@
 ---
-title: Chicken Noodles
+title: Chicken Flavor Noodles
 slug: chicken-noodles
-category: Noodles
-shortDescription: A convenient noodle product designed for everyday meals.
-mainImageAlt: Placeholder for chicken noodles product photography
+category: Instant Noodles
+shortDescription: A familiar chicken flavor made for an easy, satisfying everyday meal.
+mainImageAlt: មីបឋម chicken flavor instant noodle product
 mainControl:
   mainImage: /uploads/image-placeholder.svg
   gallery: []
@@ -12,6 +12,4 @@ mainControl:
   displayOrder: 1
 specifications: []
 ---
-## Product overview
-
-This is sample product content. Replace the description and image with verified product details before launching the public website.
+Part of the មីបឋម range, this chicken-flavor option is being prepared for convenient everyday meals. Final ingredients, packaging, nutrition and product specifications will be published after official approval.

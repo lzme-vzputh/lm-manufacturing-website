@@ -1,48 +1,48 @@
 {
   "hero": {
     "eyebrow": "ABOUT LM MANUFACTURING",
-    "headline": "Building a local brand on hygiene and quality.",
-    "description": "Learn about the people, purpose and working practices behind our growing manufacturing operation in Kampong Speu, with hygiene, quality and responsible local production at the center.",
+    "headline": "The local company behind មីបឋម.",
+    "description": "LM Manufacturing is building a food manufacturing business in Kampong Speu with a local team, a long-term view and a clear focus on Cambodia.",
     "desktopImage": "/uploads/about/photo2026-10-0308-10-57.jpg",
     "mobileImage": "/uploads/about/photo2026-10-0308-10-28-1.jpg",
     "imageAlt": "Illustrative noodle production facility image; not the company’s actual factory"
   },
   "overviewTitle": "Who we are",
-  "overviewText": "LM MANUFACTURING CO., LTD. is a Cambodian instant noodle manufacturer based in Kampong Speu, focused on developing locally made products for everyday consumers.",
-  "storyTitle": "Our journey",
-  "storyText": "Our journey is still taking shape. As the company grows, we will share meaningful progress and updates from our work in Cambodia.",
+  "overviewText": "We are a Cambodian manufacturing company developing instant noodle products and the systems, people and daily operations needed to support them. Our work begins in Kampong Speu and is built around the market we know best: Cambodia.",
+  "storyTitle": "Our story starts here.",
+  "storyText": "មីបឋម is being built one stage at a time. As our company grows, we will share real milestones, approved product information and the people and work behind our progress.",
   "image": "/uploads/home/production-hero.webp",
   "imageAlt": "Illustrative instant noodle production line; actual company photographs pending",
   "owner": {
-    "eyebrow": "A MESSAGE FROM OUR OWNER",
-    "title": "Huon​ Liming",
-    "name": "Oknha Huon​ Liming",
+    "eyebrow": "FROM OUR OWNER",
+    "title": "A message from our owner",
+    "name": "Huon​ Liming",
     "position": "Owner, LM MANUFACTURING CO., LTD.",
     "photo": "/uploads/about/81380497711045868920985764893145646496569860n.jpg",
     "photoAlt": "Owner of LM MANUFACTURING CO., LTD. — replace with approved portrait",
-    "message": "Our company is being built with a long-term commitment to quality, responsibility and steady growth. We aim to create food products that customers can trust while developing a strong team and reliable manufacturing operation in Cambodia."
+    "message": "We are building our company for the long term, with quality, responsibility and steady progress at the center of how we work. Our aim is to make food products people can rely on while developing a strong team and a stable manufacturing operation in Cambodia."
   },
-  "mission": "To produce convenient food in Cambodia through hygienic working practices, consistent quality, responsible teamwork and continuous improvement.",
-  "vision": "To become a trusted Cambodian food manufacturer known for quality and for helping strengthen confidence in locally made products.",
+  "mission": "To develop practical food products in Cambodia through responsible teamwork, disciplined operations and continuous improvement.",
+  "vision": "To grow into a trusted Cambodian food company that creates lasting value for customers, employees and local partners.",
   "values": [
     {
-      "title": "Hygiene",
-      "text": "We value clean, orderly and responsible working practices throughout our daily operations."
+      "title": "Responsibility",
+      "text": "We take ownership of our work, our commitments and the results we create together."
     },
     {
-      "title": "Quality",
-      "text": "We pay attention to every step and keep improving our processes to support more consistent product quality."
+      "title": "Care in the details",
+      "text": "Reliable work is built through attention to people, products and the small details that shape everyday results."
     },
     {
-      "title": "Local Progress",
-      "text": "We want our growth to contribute to stronger local production and greater confidence in products made in Cambodia."
+      "title": "Keep improving",
+      "text": "We learn from each stage, adapt and strengthen the way we work as the company grows."
     }
   ],
   "milestones": [
     {
       "year": "2026",
-      "event": "LM Manufacturing begins developing its manufacturing operation in Kampong Speu, marking the start of a long-term journey in Cambodia."
+      "event": "LM Manufacturing begins a new stage in Kampong Speu, developing local operations and the មីបឋម brand."
     }
   ],
-  "ctaTitle": "Growing together"
+  "ctaTitle": "Grow with us"
 }

@@ -1,42 +1,42 @@
 {
   "hero": {
-    "eyebrow": "HYGIENE · QUALITY · LOCAL PRODUCTION",
-    "headline": "Where care becomes quality.",
-    "description": "Explore the people, spaces and working practices behind our manufacturing operation in Kampong Speu, with a focus on clean, orderly work and consistent quality.",
+    "eyebrow": "OUR FACTORY",
+    "headline": "Where local work becomes មីបឋម.",
+    "description": "In Kampong Speu, our factory, warehouse and support teams work together to build the daily operations behind our products.",
     "desktopImage": "/uploads/factory/photo2026-10-0308-10-57.jpg",
     "mobileImage": "/uploads/factory/photo2026-10-0308-10-57.jpg",
     "imageAlt": "Illustrative image of noodle production; not the LM Manufacturing factory"
   },
-  "introTitle": "Clean practices. Consistent quality.",
-  "introText": "Our Kampong Speu site brings together factory, warehouse, office and support areas. Each area has a clear role in supporting clean, organized and responsible daily operations.",
+  "introTitle": "Built around everyday production",
+  "introText": "Our Kampong Speu site brings together manufacturing, storage, office and support functions in one operation. Each area has a practical role in keeping daily work organized and moving forward.",
   "facilities": [
     {
       "title": "Factory",
-      "text": "The core area for manufacturing operations, where teams follow organized working practices and focus on consistent product quality."
+      "text": "The main area where our team carries out manufacturing and daily production activities."
     },
     {
       "title": "Warehouse",
-      "text": "A dedicated area for organizing raw materials and finished products to support clean, orderly and responsible daily operations."
+      "text": "A dedicated space for organizing materials and finished products that support daily operations."
     },
     {
-      "title": "Office and support areas",
-      "text": "Spaces where teams coordinate people, information and support activities that keep the operation moving."
+      "title": "Office & support",
+      "text": "Where teams coordinate people, information and the support needed to keep operations moving."
     }
   ],
-  "capabilitiesTitle": "Building our capabilities",
-  "capabilitiesText": "We are steadily developing our instant noodle manufacturing capabilities, systems and working practices.",
-  "qualityTitle": "Hygiene and quality in every step",
-  "qualityText": "Clear procedures, clean and orderly working practices, careful daily work and coordinated teams help us strengthen consistency across our manufacturing operation.",
-  "safetyTitle": "A clean and responsible workplace",
-  "safetyText": "We promote clear responsibilities, orderly working methods and daily habits that support a cleaner, safer and more dependable workplace.",
+  "capabilitiesTitle": "Growing local capability",
+  "capabilitiesText": "As the business grows, we are developing the people, processes and manufacturing capability needed to support consistent operations in Cambodia.",
+  "qualityTitle": "Care in every process",
+  "qualityText": "Consistency starts with careful everyday work, clear procedures and attention at each stage of the operation.",
+  "safetyTitle": "People make the operation work",
+  "safetyText": "Our progress depends on people working together, following clear responsibilities and improving the way work is done over time.",
   "gallery": [
     {
       "image": "/uploads/factory/production-line.webp",
-      "alt": "Illustrative image of an instant noodle production line, not the company’s actual equipment"
+      "alt": "Manufacturing illustration for website presentation."
     },
     {
       "image": "/uploads/home/production-hero.webp",
-      "alt": "Illustrative image of noodles on a factory line, not the company’s actual facility"
+      "alt": "Manufacturing illustration for website presentation."
     }
   ]
 }
